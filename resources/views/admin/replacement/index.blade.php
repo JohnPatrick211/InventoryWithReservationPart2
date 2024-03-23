@@ -68,7 +68,7 @@
                                     <th>Quantity</th>
                                     <th>Reason</th>
                                     <th>Status</th>
-                                    <th>Action</th>
+                                    <th>Verify</th>
                                 </tr>
                             </thead>
                         </table>
@@ -90,7 +90,7 @@
                                         <th>Qty</th>
                                         <th>Reason</th>
                                         <th>Status</th>
-                                        <th>Action</th>
+                                        <th>View</th>
                                         </tr>
                                     </thead>
                                     

@@ -91,7 +91,7 @@
                         <th>Payment method</th>
                         <th>Order from</th>
                         <th>Date time</th>
-                        <th>Action</th>
+                        <th>Archive</th>
                       </tr>
                   </thead>
               </table>
