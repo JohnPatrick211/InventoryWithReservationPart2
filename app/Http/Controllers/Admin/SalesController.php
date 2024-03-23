@@ -1,0 +1,272 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Input;
+use DB;
+use Session;
+use Carbon\Carbon;
+use App\Models\Sales;
+
+class SalesController extends Controller
+{
+    public function index()
+    {
+        return view('admin.reports.sales-report');
+    }
+
+    public function archive($id)
+    {
+        Sales::where('id', $id)
+        ->update([
+            'status' => -1,
+        ]);
+
+        return redirect()->back()
+            ->with('success', 'Product was archived.');
+    }
+
+    public function readSales(Request $request) {
+        $data = new Sales;
+        $data = $data->readSales($request->date_from, $request->date_to, $request->order_from, $request->payment_method);
+        if(request()->ajax())
+        {       
+            return datatables()->of($data)
+            ->addColumn('action', function($product)
+            {
+                $button = ' <a style="color:blue;" class="btn btn-sm btn-archive" data-id="'. $product->id .'">Archive</a>';
+                return $button;
+            })
+            ->addColumn('selling_price', function($product)
+            {
+                $button = ' <div class="text-right">'.$product->selling_price.'</div>';
+               
+                return $button;
+            })
+            ->addColumn('amount', function($product)
+            {
+                $button = ' <div class="text-right">'.$product->amount.'</div>';
+               
+                return $button;
+            })
+            ->rawColumns(['action', 'selling_price', 'amount'])
+            ->make(true); 
+        }
+    }
+
+    public function computeTotalSales() {
+
+        $input = Input::all();
+        $date_from = $input['date_from'];
+        $date_to = $input['date_to'];
+        $order_from = $input['order_from'];
+        $payment_method = $input['payment_method'];
+
+        $data = new Sales;
+        $total = $data->computeTotalSales($date_from, $date_to, $order_from, $payment_method);
+        return number_format($total,2,'.',',');
+    }
+    
+    public function previewSalesReport($date_from, $date_to, $order_from, $payment_method){
+
+        $data = new Sales;
+        $data = $data->readSales($date_from, $date_to, $order_from, $payment_method);
+        $output = $this->generateSalesReport($data, $date_from, $date_to, $order_from, $payment_method);
+
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($output);
+        $pdf->setPaper('A4', 'landscape');
+    
+        return $pdf->stream('Invoice-#');
+    }
+
+    public function downloadSalesReport($date_from, $date_to, $order_from, $payment_method){
+        $data = new Sales;
+        $data = $data->readSales($date_from, $date_to, $order_from, $payment_method);
+        $output = $this->generateSalesReport($data, $date_from, $date_to, $order_from, $payment_method);
+    
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($output);
+        $pdf->setPaper('A4', 'landscape');
+    
+        return $pdf->download();
+    }
+
+    public function generateSalesReport($items, $date_from, $date_to, $order_from, $payment_method){
+        $title = Session::get('cms_name');
+        $address = Session::get('cms_address');
+        $sales = new Sales;
+        $total_sales = $sales->computeTotalSales($date_from, $date_to, $order_from, $payment_method);
+        $output = '
+        <!DOCTYPE html>
+        <html>
+        <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <style type="text/css">';
+
+        $output .= $this->style();
+
+        $output .='
+        </style>
+        </head>
+
+        <body>
+
+        <div style="width:100%">
+        <div class="center">
+        <img src="images/'.Session::get('cms_logo').'" style="width:15%; align:middle;">
+        </div>
+        <br> <br> <br> <br> <br> <br>
+        <h1 class="p-name">'.$title.'</h1>
+        <div style="text-align:center;">'.$address.'<div>
+        <h2 style="text-align:center;">Sales Report</h2>
+        <p style="text-align:left;">Total sales: <span>&#8369;</span> <b>'. number_format($total_sales,2,'.',',') .'</b></p>
+        <p style="text-align:left;">Date: '. date("F j, Y", strtotime($date_from)) .' - '. date("F j, Y", strtotime($date_to)) .'</p>
+    
+        <table width="100%" style="border-collapse:collapse; border: 1px solid;">                
+            <thead>
+                <tr>
+                    <th>Invoice #</th>  
+                    <th>Product Code</th>    
+                    <th>Name</th>   
+                    <th>Unit</th>   
+                    <th>Qty</th>  
+                    <th>Amount</th>  
+                    <th>Payment method</th>  
+                    <th>Order from</th>   
+                    <th>Date time</th>  
+               
+            <tbody>';
+
+                if($items){
+                    foreach ($items as $data) {
+                    
+                        $output .='
+                    <tr class="align-text">                             
+                        <td>'. $data->invoice_no .'</td>  
+                        <td>'. $data->product_code .'</td>  
+                        <td>'. $data->description .'</td>
+                        <td>'. $data->unit .'</td>
+                        <td>'. $data->qty .'</td>
+                        <td style="text-align:right;"><span>&#8369;</span>'. number_format($data->amount,2,'.',',') .'</td>   
+                        <td>'. $data->payment_method .'</td>  
+                        <td>'. $data->order_from .'</td>
+                        <td>'. $data->date_time .'</td>
+                    </tr>';
+                
+                } 
+            }
+            else{
+                echo "No data found";
+            }
+            
+            
+        $output .='
+ 
+        </tbody>
+        </table>
+        <p class="ar2"> Date Generated: '. Carbon::now()->format('F d, Y').' <br/> Report Prepared By: '. Session::get('Name') .'</p>
+              
+    </div>
+
+
+        </body>
+
+        </html>
+        
+       ';
+
+        return $output;
+    }
+
+    public function style() {
+       return '
+        @page { margin: 20px; }
+        body{ font-family: sans-serif; }
+        th{
+            border: 1px solid;
+        }
+
+         .ar2{
+            position:absolute; 
+            bottom:-30px;
+            right:0px;
+            
+        }
+
+        .center img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            position:absolute;
+            left:470px;
+            }
+
+        td{
+            font-size: 14px;
+            border: 1px solid;
+            padding-right: 2px;
+            padding-left: 2px;
+        }
+
+        .p-name{
+            text-align:center;
+            margin-bottom:5px;
+        }
+
+        .address{
+            text-align:center;
+            margin-top:0px;
+        }
+
+        .p-details{
+            margin:0px;
+        }
+
+        .ar{
+            text-align:right;
+        }
+
+        .al{
+            text-left:right;
+        }
+
+        .align-text{
+            text-align:center;
+        }
+
+        .align-text td{
+            text-align:center;
+        }
+
+        .w td{
+            width:20px;
+        }
+
+   
+
+        .b-text .line{
+            margin-bottom:0px;
+        }
+
+        .b-text .b-label{
+            font-size:12px;
+            margin-top:-7px;
+            margin-right:12px;
+            font-style:italic;
+        }
+
+        .f-courier{
+            font-family: monospace, sans-serif;
+            font-size:14px;
+        }
+
+        span {
+            font-family: DejaVu Sans; sans-serif;
+        }
+        
+        ';
+    }
+}
