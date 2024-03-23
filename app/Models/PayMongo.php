@@ -194,7 +194,7 @@ class PayMongo extends Model
                 "payment_method_types": [
                   "card"
                 ],
-                "success_url": "http://localhost:8000/place-order-card"
+                "success_url": "https://onlineimswithreservation-online.preview-domain.com/place-order-card"
               }
             }
           }',
@@ -208,6 +208,7 @@ class PayMongo extends Model
         $body = json_decode($response->getBody());
         $source = $body->data->attributes;
         session()->put('source_id', $body->data->id);
-        return redirect($source->checkout_url);
+        dd($source->checkout_url);
+       // return redirect($source->checkout_url);
   }
 }
