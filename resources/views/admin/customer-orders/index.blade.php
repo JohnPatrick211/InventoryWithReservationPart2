@@ -89,7 +89,7 @@
                                         <th>Email</th>
                                         <th>Phone number</th>
                                         <th>Date Order</th>
-                                        <th>Action</th>
+                                        <th>View</th>
                                     </tr>
                                 </thead>
                             </table>
@@ -107,7 +107,7 @@
                                         <th>Email</th>
                                         <th>Phone number</th>
                                         <th>Pre-Order Date</th>
-                                        <th>Action</th>
+                                        <th>View</th>
                                     </tr>
                                 </thead>
                             </table>
@@ -123,7 +123,7 @@
                                         <th>Email</th>
                                         <th>Phone number</th>
                                         <th>Date Order</th>
-                                        <th>Action</th>
+                                        <th>View</th>
                                     </tr>
                                 </thead>
                             </table>
@@ -139,7 +139,7 @@
                                         <th>Email</th>
                                         <th>Phone number</th>
                                         <th>Date Order</th>
-                                        <th>Action</th>
+                                        <th>View</th>
                                     </tr>
                                 </thead>
                             </table>
@@ -155,7 +155,7 @@
                                         <th>Email</th>
                                         <th>Phone number</th>
                                         <th>Date Order</th>
-                                        <th>Action</th>
+                                        <th>View</th>
                                     </tr>
                                 </thead>
                             </table>
@@ -171,7 +171,7 @@
                                         <th>Email</th>
                                         <th>Phone number</th>
                                         <th>Date Order</th>
-                                        <th>Action</th>
+                                        <th>View</th>
                                     </tr>
                                 </thead>
                             </table>
