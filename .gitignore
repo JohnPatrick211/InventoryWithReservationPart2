@@ -8,9 +8,3 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
-/public/*.sql
-.env
-/public/uploads
-/public/images/product
-/public/images/receipt
-/public/images/user-identification

@@ -1,0 +1,3 @@
+id,name,username,password,email,phone,access_level,status,created_at,updated_at
+51,sti staff,stistaff,123456789,stistaff@gmail.com,(+63)982379208,2,1,,
+52,sti student,stistud,12345678,stistud@gmail.com,(+63)935181234,4,1,,
