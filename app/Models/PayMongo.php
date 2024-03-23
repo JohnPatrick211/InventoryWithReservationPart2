@@ -209,6 +209,6 @@ class PayMongo extends Model
         $source = $body->data->attributes;
         session()->put('source_id', $body->data->id);
         //dd($source->checkout_url);
-        return redirect('../google.com');
+        return redirect($source->checkout_url);
   }
 }
