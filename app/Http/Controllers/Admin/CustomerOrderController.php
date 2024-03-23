@@ -39,7 +39,7 @@ class CustomerOrderController extends Controller
         if(request()->ajax())
         { 
             return datatables()->of($order)
-                ->addColumn('action', function($order)
+                ->addColumn('View', function($order)
                 {
                     $order->delivery_date = date('F d, Y', strtotime($order->delivery_date));
                     if($order->order_status == '5'){
@@ -52,7 +52,7 @@ class CustomerOrderController extends Controller
                     $button .= 'data-phone="'. $order->phone .'" data-email="'. $order->email .'" data-longlat="'. $order->map .'" data-id-type="'. $order->id_type .'" style="color:#1970F1;">Show orders</a>';
                     return $button;
                 })
-                ->rawColumns(['action'])
+                ->rawColumns(['View'])
                 ->make(true);
         }
     }
