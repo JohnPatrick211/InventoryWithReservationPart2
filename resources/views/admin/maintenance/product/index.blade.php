@@ -52,7 +52,7 @@
                                 <th>Unit</th>
                                 <th>Category</th>
                                 <th>Supplier</th>
-                                <th>Action</th>
+                                <th>Edit and View</th>
                             </tr>
                         </thead>
                     </table>

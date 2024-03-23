@@ -48,7 +48,7 @@
                         <tr>
                             <th class="py-2 text-left">Unit Name</th>
                             <th class="py-2 text-left">Status</th>
-                            <th class="py-2 text-left">Action</th>
+                            <th class="py-2 text-left">Edit</th>
                         </tr>
                         @foreach ($unit as $data)
                         <tr>

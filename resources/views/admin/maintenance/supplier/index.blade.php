@@ -52,7 +52,7 @@
                             <th class="py-2 text-left">Contact</th>
                             <th class="py-2 text-left">Email</th>
                             <th class="py-2 text-left">Status</th>
-                            <th class="py-2 text-left">Action</th>
+                            <th class="py-2 text-left">Edit</th>
                         </tr>
                         @foreach ($supplier as $data)
                         <tr>
