@@ -66,7 +66,7 @@ $page_title =  Session::get('cms_name') . "| Checkout";
                         </div>
                         <div class="form-check">
                           <label class="form-check-label">
-                            <input type="radio" class="form-check-input" value="paymaya" id="opt-paymaya" name="optpayment-method">Paymaya
+                            <input type="radio" class="form-check-input" value="paymaya" id="opt-paymaya" name="optpayment-method">Maya
                           </label>
                         </div>
                     </div>

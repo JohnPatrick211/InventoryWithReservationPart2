@@ -77,7 +77,7 @@
                                         <th>Price</th>
                                         <th>Qty</th>
                                         <th width='130px'>Amount</th>
-                                        <th width="50px">Action</th>
+                                        <th width="50px">Void</th>
                                     </thead>
                                     <tbody>
                                     </tbody>    
@@ -135,7 +135,7 @@
                             <div class="col-sm-12 ml-1 mt-1 mb-2">
                                 <div class="form-check">
                                     <input type="checkbox" class="form-check-input" id="paymaya-payment">
-                                    <label class="form-check-label" for="exampleCheck1">Paymaya Payment</label>
+                                    <label class="form-check-label" for="exampleCheck1">Maya Payment</label>
                                 </div>
                             </div>
                             <div class="col-sm-3">
