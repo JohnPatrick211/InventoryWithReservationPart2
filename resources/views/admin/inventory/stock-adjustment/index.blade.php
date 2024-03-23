@@ -48,7 +48,7 @@
                                 <th>Unit</th>
                                 <th>Category</th>
                                 <th>Supplier</th>
-                                <th>Action</th>
+                                <th>Adjust</th>
                             </tr>
                         </thead>
                     </table>

@@ -86,7 +86,7 @@
                             <th>Stock</th>                                
                             <th>Reorder Point</th>
                             <th>Updated At</th>                
-                            <th>Action</th>
+                            <th>Add Request Order</th>
                          
                         </tr>
                       </thead>
@@ -145,7 +145,7 @@
                                     <th>Date Order</th>
                                     <th>Status</th>
                                     <th>Updated At</th>         
-                                    <th>Action</th>
+                                    <th>View</th>
                                 </tr>
                             </thead>
                             

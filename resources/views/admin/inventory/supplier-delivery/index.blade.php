@@ -63,7 +63,7 @@
                     </li>
 
                     <li class="nav-item">
-                      <a class="nav-link" id="pa-tab" data-toggle="tab" href="#patab" role="tab" aria-controls="partial" aria-selected="true">Partially Orders  
+                      <a class="nav-link" id="pa-tab" data-toggle="tab" href="#patab" role="tab" aria-controls="partial" aria-selected="true">Remaining Orders  
     
                       </a>
                     </li>
@@ -126,7 +126,7 @@
                               <th>Amount</th>
                               <th>Date Order</th>
                               <th>Status</th>
-                              <th>Action</th>
+                              <th>Add</th>
                           </tr>
                       </thead>
                       
@@ -182,7 +182,7 @@
                                     <th>Quantity Delivered</th>   
                                     <th>Date Recieved</th>
                                     <th>Remarks</th>
-                                    <th>Action</th>
+                                    <th>Add</th>
                                 </tr>
                             </thead>
                             <tbody>

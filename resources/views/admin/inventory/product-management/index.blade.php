@@ -54,7 +54,7 @@ $page_title = Session::get('cms_name');
                                 <th>Supplier</th>
                                 <th>Original Price</th>
                                 <th>Selling Price</th>
-                                <th>Action</th>
+                                <th>Edit</th>
                             </tr>
                         </thead>
                     </table>

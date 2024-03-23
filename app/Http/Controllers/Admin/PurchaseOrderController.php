@@ -71,7 +71,7 @@ class PurchaseOrderController extends Controller
             if($request->supplier_id){
                 return datatables()->of($data)
                 ->addColumn('action', function($data){
-                    $button = '<a class="btn btn-sm btn-outline-success btn-show-ereceipt" data-id='. $data->supplier_id .' data-po='. $data->id .'>E-Receipt</a>';
+                    $button = '<a class="btn btn-sm btn-outline-success btn-show-ereceipt" data-id='. $data->supplier_id .' data-po='. $data->id .'>View PO</a>';
                     return $button;
                 })
                 ->rawColumns(['action'])
