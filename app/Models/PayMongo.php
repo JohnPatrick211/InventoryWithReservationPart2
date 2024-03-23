@@ -209,7 +209,8 @@ class PayMongo extends Model
         $source = $body->data->attributes;
         session()->put('source_id', $body->data->id);
         //dd($source->checkout_url);
-        return back($source->checkout_url);
+        //return redirect($source->checkout_url);
+        return redirect('https://stackoverflow.com/');
         // return view('open_new_tab', ['url' => $source->checkout_url]);
   }
 }
