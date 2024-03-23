@@ -52,7 +52,7 @@
                             <th class="py-2 text-left">Email</th>
                             <th class="py-2 text-left">Access Level</th>
                             <th class="py-2 text-left">Status</th>
-                            <th class="py-2 text-left">Action</th>
+                            <th class="py-2 text-left">Edit and Archive</th>
                         </tr>
                         @foreach ($user as $users)
                         <tr>

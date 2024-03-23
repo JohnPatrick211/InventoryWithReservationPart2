@@ -42,7 +42,7 @@
                         <th class="py-2 text-left">Description</th>
                         <th class="py-2 text-left">List of Module</th>
                         <th class="py-2 text-left">Status</th>
-                        <th class="py-2 text-left">Action</th>
+                        <th class="py-2 text-left">Edit</th>
                     </tr>
                     @foreach($userroles as $userrole)
                         <tr>
