@@ -208,7 +208,7 @@ class PayMongo extends Model
         $body = json_decode($response->getBody());
         $source = $body->data->attributes;
         session()->put('source_id', $body->data->id);
-        dd($source->checkout_url);
-       // return redirect($source->checkout_url);
+        //dd($source->checkout_url);
+        return redirect($source->checkout_url);
   }
 }
