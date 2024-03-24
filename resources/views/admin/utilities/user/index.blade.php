@@ -50,6 +50,7 @@
                         <tr>
                             <th class="py-2 text-left">Name</th>
                             <th class="py-2 text-left">Email</th>
+                            <th class="py-2 text-left">Access Code</th>
                             <th class="py-2 text-left">Access Level</th>
                             <th class="py-2 text-left">Status</th>
                             <th class="py-2 text-left">Edit and Archive</th>
@@ -77,6 +78,24 @@
                                 }
                             @endphp
                                 <td>{{ $access_level }}</td> -->
+                                @php
+                                $access_level = "";
+                                switch($users->$access_level) {
+                                    case 1:
+                                        $access_level  = "ADM-001";
+                                        break;
+                                    case 2:
+                                        $access_level  = "PRO-002";
+                                        break;
+                                    case 3:
+                                        $access_level  = "ASS-003";
+                                        break; 
+                                    case 4:
+                                        $access_level  = "STU-004";
+                                        break;       
+                                }
+                            @endphp
+                                <td> {{$access_level}}</td>
                                
                                 <td> @foreach($userroles as $userrole){{ $users->access_level == $userrole->id ? $userrole->ur_description : '' }}  @endforeach</td>
                               
