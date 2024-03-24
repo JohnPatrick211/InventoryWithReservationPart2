@@ -80,7 +80,7 @@
                                 <td>{{ $access_level }}</td> -->
                                 @php
                                 $access_level = "";
-                                switch($users->$access_level) {
+                                switch($users->access_level) {
                                     case 1:
                                         $access_level  = "ADM-001";
                                         break;
