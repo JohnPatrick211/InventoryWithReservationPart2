@@ -277,7 +277,7 @@ async function computeReorderPoint(avg){
 
   var lead_days = $('#lead_days').val();
   var safety_stocks = $('#safety_stocks').val();
-  var reorder_point = (avg * lead_days) + safety_stocks;
+  var reorder_point = (parseFloat(avg) * parseFloat(lead_days)) + parseFloat(safety_stocks);
   console.log(reorder_point);
 
   return $('#reorder').val(reorder_point);
@@ -287,7 +287,7 @@ async function computeReorderPointLead(lead_days){
 
   var avg = $('#avg').val();
   var safety_stocks = $('#safety_stocks').val();
-  var reorder_point = (avg * lead_days) + safety_stocks;
+  var reorder_point = (parseFloat(avg) * parseFloat(lead_days)) + parseFloat(safety_stocks);
   console.log(reorder_point);
 
   return $('#reorder').val(reorder_point);
@@ -297,7 +297,7 @@ async function computeReorderPointSafe(safety_stocks){
 
   var avg = $('#avg').val();
   var lead_days = $('#lead_days').val();
-  var reorder_point = (avg * lead_days) + safety_stocks;
+  var reorder_point = (parseFloat(avg) * parseFloat(lead_days)) + parseFloat(safety_stocks);
   console.log(reorder_point);
 
   return $('#reorder').val(reorder_point);
