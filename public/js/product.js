@@ -195,16 +195,19 @@ $(document).on('keyup', '#orig_price', async function() {
 
 $(document).on('keyup', '#avg', async function() {
   var avg = $(this).val();
+  console.log(avg);
   await computeReorderPoint(avg);
 });
 
 $(document).on('keyup', '#lead_days', async function() {
   var lead_days = $(this).val();
+  console.log(lead_days);
   await computeReorderPointLead(lead_days);
 });
 
 $(document).on('keyup', '#safety_stocks', async function() {
   var safety_stocks = $(this).val();
+  console.log(safety_stocks);
   await computeReorderPointSafe(safety_stocks);
 });
 
