@@ -64,22 +64,22 @@
 
                             <div class="col-sm-12 col-md-6 col-lg-4 mt-2">
                               <label class="col-form-label">Average Daily Unit Sales</label>
-                              <input type="text" class="form-control" name="avg" value="" required>
+                              <input type="text" class="form-control" name="avg" id="avg" value="" required>
                             </div>
 
                             <div class="col-sm-12 col-md-6 col-lg-4 mt-2">
                               <label class="col-form-label">Lead Days</label>
-                              <input type="text" class="form-control" name="lead_days" value="" required>
+                              <input type="text" class="form-control" name="lead_days" id="lead_days" value="" required>
                             </div>
 
                             <div class="col-sm-12 col-md-6 col-lg-4 mt-2">
                               <label class="col-form-label">Safety Stocks</label>
-                              <input type="text" class="form-control" name="safety_stocks" value="" required>
+                              <input type="text" class="form-control" name="safety_stocks" id="safety_stocks" value="" required>
                             </div>
 
                             <div class="col-sm-12 col-md-6 col-lg-4 mt-2">
                               <label class="col-form-label">Reorder point</label>
-                              <input type="text" class="form-control" name="reorder" value="{{ $product->reorder }}" required>
+                              <input type="text" class="form-control" name="reorder" id="reorder" value="{{ $product->reorder }}" readonly>
                             </div>
 
                             <div class="col-sm-12 col-md-6 col-lg-4 mt-2">
