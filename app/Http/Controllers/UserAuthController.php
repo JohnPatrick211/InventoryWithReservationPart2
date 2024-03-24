@@ -24,15 +24,15 @@ class UserAuthController extends Controller
             Session::put('Name', Auth::user()->name);
             
             // 4 = student
-            // 3 = System Administrator
+            // 3 = Assistant
             // 2 = Proware Specialist
-            // 1 = Assistant Proware Specialist
+            // 1 = Admin
             if (in_array($access_level, array( 4 )))
                  return redirect()->intended('/');  
             else if (in_array($access_level, array( 3 )))
-                return redirect()->intended('/users');  
+                return redirect()->intended('/stock-adjustment');    
             else if (in_array($access_level, array( 1 )))
-                return redirect()->intended('/stock-adjustment');  
+                return redirect()->intended('/users'); 
             else if (in_array($access_level, array( 2 )))
                 return redirect()->intended('/dashboard'); 
         }
@@ -94,15 +94,15 @@ class UserAuthController extends Controller
             else{
                 Session::put('Name', Auth::user()->name);
                  // 4 = student
-                // 3 = System Administrator
+                // 3 = assistant
                 // 2 = Proware Specialist
-                // 1 = Assistant Proware Specialist
+                // 1 = admin
                 if (in_array($access_level, array( 4 )))
                     return redirect()->intended('/');    
                 else if (in_array($access_level, array( 3 )))
-                    return redirect()->intended('/users');  
+                    return redirect()->intended('/stock-adjustment');   
                 else if (in_array($access_level, array( 1 )))
-                    return redirect()->intended('/stock-adjustment');  
+                    return redirect()->intended('/users'); 
                 else if (in_array($access_level, array( 2 )))
                     return redirect()->intended('/dashboard'); 
             }    
