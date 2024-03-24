@@ -239,7 +239,7 @@ $(document).on('click', '.btn-confirm-archive', function(){
 async function computeSellingPrice(markup){
 
   var orig_price = $('#orig_price').val();
-  var markup = 100*parseFloat(markup);
+  var markup = parseFloat(orig_price)*parseFloat(markup);
   var selling_price = parseFloat(markup) + parseFloat(orig_price);
 
   return $('#selling_price').val(selling_price);
@@ -249,7 +249,7 @@ async function computeSellingPriceOrig(orig_price){
 
   var markup = $('#markup').val();
   // var orig_price = orig_price * markup;
-  var selling_price = (100 * parseFloat(markup)) + parseFloat(orig_price);
+  var selling_price = (parseFloat(orig_price) * parseFloat(markup)) + parseFloat(orig_price);
 
   return $('#selling_price').val(selling_price);
 }
