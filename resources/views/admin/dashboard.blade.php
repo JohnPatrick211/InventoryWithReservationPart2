@@ -39,6 +39,24 @@
             </div>
             </a>
           </div>
+
+           <!-- ./col -->
+           <div class="col-lg-3 col-6">
+          <a href = "/reports/sales">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>{{$orders_today}}</h3>
+
+
+                <p>Cashier's Order Today</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+            </div>
+            </a>
+          </div>
      
           <!-- ./col -->
           

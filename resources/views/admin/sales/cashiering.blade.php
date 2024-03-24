@@ -120,6 +120,13 @@
                              @endphp 
                              
                             
+
+                             <div class="col-sm-12 ml-1 mt-1 mb-2">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="cash-payment">
+                                    <label class="form-check-label" for="exampleCheck1">Cash Payment</label>
+                                </div>
+                            </div>
                             <div class="col-sm-12 ml-1 mt-1 mb-2">
                                 <div class="form-check">
                                     <input type="checkbox" class="form-check-input" id="gcash-payment">
