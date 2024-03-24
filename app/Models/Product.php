@@ -77,7 +77,10 @@ class Product extends Model
                     'reorder', 
                     'orig_price', 
                     'selling_price', 
-                    'qty', 
+                    'qty',
+                    'avg',
+                    'safety_stocks',
+                    'lead_days', 
                     'U.name as unit', 
                     'S.supplier_name as supplier', 
                     'C.name as category'

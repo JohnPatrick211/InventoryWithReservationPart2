@@ -64,17 +64,17 @@
 
                             <div class="col-sm-12 col-md-6 col-lg-4 mt-2">
                               <label class="col-form-label">Average Daily Unit Sales</label>
-                              <input type="text" class="form-control" name="avg" id="avg" value="" required>
+                              <input type="text" class="form-control" name="avg" id="avg" value="{{ $product->avg }}" required>
                             </div>
 
                             <div class="col-sm-12 col-md-6 col-lg-4 mt-2">
                               <label class="col-form-label">Lead Days</label>
-                              <input type="text" class="form-control" name="lead_days" id="lead_days" value="" required>
+                              <input type="text" class="form-control" name="lead_days" id="lead_days" value="{{ $product->lead_days }}" required>
                             </div>
 
                             <div class="col-sm-12 col-md-6 col-lg-4 mt-2">
                               <label class="col-form-label">Safety Stocks</label>
-                              <input type="text" class="form-control" name="safety_stocks" id="safety_stocks" value="" required>
+                              <input type="text" class="form-control" name="safety_stocks" id="safety_stocks" value="{{ $product->safety_stocks }}" required>
                             </div>
 
                             <div class="col-sm-12 col-md-6 col-lg-4 mt-2">
