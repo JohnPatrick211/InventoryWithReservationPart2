@@ -193,6 +193,21 @@ $(document).on('keyup', '#orig_price', async function() {
   await computeSellingPriceOrig(orig_price);
 });
 
+$(document).on('keyup', '#avg', async function() {
+  var avg = $(this).val();
+  await computeReorderPoint(avg);
+});
+
+$(document).on('keyup', '#lead_days', async function() {
+  var lead_days = $(this).val();
+  await computeReorderPointLead(lead_days);
+});
+
+$(document).on('keyup', '#safety_stocks', async function() {
+  var safety_stocks = $(this).val();
+  await computeReorderPointSafe(saafety_stocks);
+});
+
 
 $.ajaxSetup({
   headers: {
@@ -254,6 +269,33 @@ async function computeSellingPriceOrig(orig_price){
   return $('#selling_price').val(selling_price);
 }
 
+//Reorder Point Formula
+async function computeReorderPoint(avg){
+
+  var lead_days = $('#lead_days').val();
+  var safety_stocks = $('#safety_stocks').val();
+  var reorder_point = (avg * lead_days) + safety_stocks;
+
+  return $('#reorder').val(reorder_point);
+}
+
+async function computeReorderPointLead(lead_days){
+
+  var avg = $('#avg').val();
+  var safety_stocks = $('#safety_stocks').val();
+  var reorder_point = (avg * lead_days) + safety_stocks;
+
+  return $('#reorder').val(reorder_point);
+}
+
+async function computeReorderPointSafe(safety_stocks){
+
+  var avg = $('#avg').val();
+  var lead_days = $('#lead_days').val();
+  var reorder_point = (avg * lead_days) + safety_stocks;
+
+  return $('#reorder').val(reorder_point);
+}
 
   async function renderProducts() {
     if ($('#product-search-table').length > 0) {

@@ -57,7 +57,7 @@
                     ->where('ur.id',$access_level)->get();
       @endphp
 
-      @if(in_array($access_level, array(1, 2)))
+      @if(in_array($access_level, array(2, 3)))
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown"> 
         <a class="nav-link" data-toggle="dropdown" href="#">
