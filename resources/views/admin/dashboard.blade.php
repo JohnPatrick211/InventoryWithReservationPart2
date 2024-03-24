@@ -31,7 +31,7 @@
                 <h3>{{$orders_today}}</h3>
 
 
-                <p>Orders Today</p>
+                <p>Student Orders Today</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -46,10 +46,10 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>{{$orders_today}}</h3>
+                <h3>{{$cashiering_today}}</h3>
 
 
-                <p>Cashier's Order Today</p>
+                <p>Cashier Order Today</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
