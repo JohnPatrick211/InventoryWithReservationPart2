@@ -60,7 +60,12 @@ $(document).on('change', '#contactno', function(){
     console.log(contactno);
     var phoneRGEX = /((\+[0-9]{2})|0)[.\- ]?9[0-9]{2}[.\- ]?[0-9]{3}[.\- ]?[0-9]{4}/;
     var res = phoneRGEX.test(contactno);
-    console.log(res);
+    if(res == false){
+        ocument.getElementById("contactno").disabled = true
+    }
+    else{
+
+    }
     
 }); 
 
