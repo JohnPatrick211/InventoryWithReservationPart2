@@ -194,7 +194,7 @@ class PayMongo extends Model
                 "payment_method_types": [
                   "card"
                 ],
-                "success_url": "https://onlineimswithreservation-online.preview-domain.com/place-order-card"
+                "success_url": "https://onlineinventorywithreservation.online/place-order-card"
               }
             }
           }',
