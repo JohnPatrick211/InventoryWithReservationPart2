@@ -75,6 +75,14 @@ $(document).on('change', '#contactno', function(){
     }
     else if(res == false){
         document.getElementById("btn-add-user").disabled = true
+        setTimeout(async function(){
+            swal.fire({
+                title: "Success",
+                icon: 'success',
+                text: "Student LRN Verified Successfully",
+                timer: 4000,
+              });
+        },300);
     }
     else{
         document.getElementById("btn-add-user").disabled = false
