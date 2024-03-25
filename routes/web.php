@@ -85,6 +85,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/my-orders', 'OrderController@index');
     Route::post('/cancel-order/{order_no}', 'OrderController@cancelOrder');
+    Route::get('/get-municipality/{province}', 'UserAddressController@getMunicipalityByProvince');
     Route::get('/get-brgy/{municipality}', 'UserAddressController@getBrgyByMunicipality');
     Route::get('/preview-order-ereceipt/{order_no}', 'OrderController@previewOrderEReceipt');
     Route::post('/send-feedback', 'OrderController@sendFeedback');

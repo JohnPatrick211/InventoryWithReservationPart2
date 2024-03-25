@@ -55,12 +55,30 @@ $(document).on('click', '#cancel', function(){
     $('#btn-change-password').show();
 });
 
+$(document).on('change', 'select[name=province]', function(){
+    var province = $(this).val();
+       console.log(province)
+    getMunicipalityByProvince(province);
+    
+});  
+
 $(document).on('change', 'select[name=municipality]', function(){
     var municipality = $(this).val();
        console.log(municipality)
     getBrgyByMunicipality(municipality);
     
-});    
+});
+
+function getMunicipalityByProvince(province) {
+
+    $.ajax({
+        url: '/get-municipality/'+province,
+        tpye: 'GET',
+        success:function(data){ console.log(data)
+            populateDropdown2(data, 'municipality');
+        }
+      });
+}
 
 function getBrgyByMunicipality(municipality) {
 
@@ -86,6 +104,28 @@ function populateDropdown(data, object){
             selected = data[i].brgyDesc == brgy ? "selected" : "";
 
             $('select[name='+ object +']').append('<option '+selected+' value="' + data[i].brgyDesc + '">' + data[i].brgyDesc + '</option>');
+     
+        }
+    }
+    else {
+        $('select[name='+ object +']').empty()
+    }
+       
+}
+
+function populateDropdown2(data, object){ 
+    var selected = ""; 
+    var municipality = $('select[name='+ object +'] :selected').val();
+    if(!municipality){
+        municipality= $('select[name='+ object +'] option:first').val();
+    }
+    if(data.length > 0) {
+        $('select[name='+ object +']').empty();
+        for (var i = 0; i < data.length; i++) 
+        {
+            selected = data[i].provDesc == brgy ? "selected" : "";
+
+            $('select[name='+ object +']').append('<option '+selected+' value="' + data[i].citymunDesc + '">' + data[i].citymunDesc + '</option>');
      
         }
     }

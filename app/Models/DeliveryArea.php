@@ -45,4 +45,8 @@ class DeliveryArea extends Model
     public function getBrgyByMunicipality($municipality){
         return DB::table('tbl_brgy')->select('brgyDesc')->where('citymunCode', $municipality)->get();
     }
+
+    public function getMunicipalityByProvince($province){
+        return DB::table('tbl_citymun')->select('citymunDesc')->where('provCode', $province)->get();
+    }
 }

@@ -74,6 +74,11 @@ class UserAddressController extends Controller
        // dd($municipalities);
     }
 
+    public function getMunicipalityByProvince(DeliveryArea $d,$province)
+    {
+        return $d->getMunicipalityByProvince($province);
+    }
+
     public function getBrgyByMunicipality(DeliveryArea $d,$municipality)
     {
         return $d->getBrgyByMunicipality($municipality);
