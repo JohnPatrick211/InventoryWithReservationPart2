@@ -125,7 +125,7 @@ function populateDropdown2(data, object){
         {
             selected = data[i].provDesc == municipality ? "selected" : "";
 
-            $('select[name='+ object +']').append('<option '+selected+' value="' + data[i].citymunCode + '">' + data[i].citymunDesc + '</option>');
+            $('select[name='+ object +']').append('<option '+selected+' value="' + data[i].citymunCode + '">' + data[i].citymunCode + '</option>');
      
         }
     }
