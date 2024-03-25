@@ -2,7 +2,16 @@ $.ajaxSetup({
     headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
-}); 
+});
+var contactno = $("#contactno").val();
+if(contactno.length == 11 || contactno.length == 0){
+    console.log("yes")
+    document.getElementById("btn-add-user").disabled = false
+}
+else{
+    console.log("no")
+    document.getElementById("btn-add-user").disabled = true
+}
 
 var user_id;
 $(document).on('click', '.btn-archive-user', function(){
@@ -64,7 +73,7 @@ $(document).on('change', '#contactno', function(){
         document.getElementById("btn-add-user").disabled = true
     }
     else{
-
+        document.getElementById("btn-add-user").disabled = false
     }
     
 }); 
