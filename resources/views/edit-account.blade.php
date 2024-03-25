@@ -62,7 +62,7 @@ $page_title =  Session::get('cms_name') . "| Edit Account";
                               </div>
                               
                               <div class="col-12 mt-4">
-                                <button type="submit" class="btn btn-sm btn-success mr-2" id="btn-add-user">Save changes</button>
+                                <button type="submit" class="btn btn-sm btn-success mr-2" id="btn-add-user" name="btn-add-user">Save changes</button>
                                 <a class="btn btn-sm btn-primary" id="btn-change-password">Change password</a>
                               </div>
                         </div>
