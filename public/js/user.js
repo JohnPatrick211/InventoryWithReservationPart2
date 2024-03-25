@@ -55,6 +55,15 @@ $(document).on('click', '#cancel', function(){
     $('#btn-change-password').show();
 });
 
+$(document).on('change', '#contactno', function(){
+    var contactno = $(this).val();
+    console.log(contactno);
+    var phoneRGEX = /^(09)\\d{9}/;
+    var res = phoneRGEX.test(contactno);
+    console.log(res);
+    
+}); 
+
 $(document).on('change', 'select[name=province]', function(){
     var province = $(this).val();
        console.log(province)

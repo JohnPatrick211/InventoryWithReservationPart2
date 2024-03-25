@@ -50,7 +50,7 @@ $page_title =  Session::get('cms_name') . "| Edit Account";
                             </div>
                             <div class="col-sm-12 col-md-6 mt-2">
                                 <label class="col-form-label">Contact Number</label><br>
-                                <input name="phone" class="form-control" value="{{ $user->phone }}" max="11">
+                                <input name="phone" class="form-control" name="contactno" id="contactno" value="{{ $user->phone }}" maxlength="11">
                             </div>
                             <div class="col-sm-12 col-md-6 new-password-container d-none">
                                 <label class="col-form-label">New password</label>
