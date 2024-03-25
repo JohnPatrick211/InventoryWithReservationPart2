@@ -61,7 +61,7 @@ $(document).on('change', '#contactno', function(){
     var phoneRGEX = /((\+[0-9]{2})|0)[.\- ]?9[0-9]{2}[.\- ]?[0-9]{3}[.\- ]?[0-9]{4}/;
     var res = phoneRGEX.test(contactno);
     if(res == false){
-        ocument.getElementById("contactno").disabled = true
+        document.getElementById("contactno").disabled = true
     }
     else{
 
