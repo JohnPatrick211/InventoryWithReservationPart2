@@ -123,7 +123,7 @@ function populateDropdown2(data, object){
         $('select[name='+ object +']').empty();
         for (var i = 0; i < data.length; i++) 
         {
-            selected = data[i].provDesc == brgy ? "selected" : "";
+            selected = data[i].provDesc == municipality ? "selected" : "";
 
             $('select[name='+ object +']').append('<option '+selected+' value="' + data[i].citymunDesc + '">' + data[i].citymunDesc + '</option>');
      
