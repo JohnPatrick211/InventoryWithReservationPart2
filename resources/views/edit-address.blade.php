@@ -37,17 +37,17 @@ $page_title =  Session::get('cms_name');
                             <div class="col-sm-12 col-md-6 mt-2">
                                 <label class="col-form-label">Province</label><br>
                                <select class="form-control" name="province">
-                                 <!-- @foreach ($provinces as $item)
+                                 @foreach ($provinces as $item)
                                             <option value="{{$item->provCode}}">{{$item->provDesc}}</option>
-                                 @endforeach -->
+                                 @endforeach
                                </select>
                             </div>
                             <div class="col-sm-12 col-md-6 mt-2">
                                 <label class="col-form-label">Municipality</label><br>
                                 <select class="form-control" name="municipality">
-                                 <!-- @foreach ($municipalities as $item)
+                                 @foreach ($municipalities as $item)
                                             <option value="{{$item->citymunCode}}">{{$item->citymunDesc}}</option>
-                                 @endforeach -->
+                                 @endforeach
                                   <!-- @foreach ($brgys as $item)
                                   @php
                                   $brgy = isset($address->brgy) ? $address->brgy : "";
@@ -65,7 +65,7 @@ $page_title =  Session::get('cms_name');
                             <div class="col-sm-12 col-md-6 mt-2">
                                 <label class="col-form-label">Barangay</label><br>
                                 <select class="form-control" name="brgy">
-                                  <!-- @foreach ($brgys as $item)
+                                  @foreach ($brgys as $item)
                                   @php
                                   $brgy = isset($address->brgy) ? $address->brgy : "";
                                   $selected = "";
@@ -76,7 +76,7 @@ $page_title =  Session::get('cms_name');
                                   }
                                   @endphp
                                   <option {{ $selected }} value="{{ $item->brgyCode }}">{{ $item->brgyDesc }}</option> 
-                                @endforeach-->
+                                @endforeach
                                 </select>
                             </div>
                             <div class="col-sm-12 col-md-6 mt-2">
@@ -108,7 +108,7 @@ $page_title =  Session::get('cms_name');
 
 <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8wVIr_ne8CDZ_NM_9RPkL5nBUa7TlVms&callback=initMap&v=weekly&channel=2" async></script> -->
 <script src="{{asset('js/gmap.js')}}"></script>
-<script>
+<!-- <script>
 
   const config = "https://api.countrystatecity.in/v1/countries";
   var headers = new Headers();
@@ -124,4 +124,4 @@ $page_title =  Session::get('cms_name');
   .then(response => response.text())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
-</script>
+</script> -->
