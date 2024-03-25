@@ -69,7 +69,11 @@ $(document).on('change', '#contactno', function(){
     console.log(contactno);
     var phoneRGEX = /((\+[0-9]{2})|0)[.\- ]?9[0-9]{2}[.\- ]?[0-9]{3}[.\- ]?[0-9]{4}/;
     var res = phoneRGEX.test(contactno);
-    if(res == false){
+    if(contactno.length == 11 || contactno.length == 0){
+        console.log("yes")
+        document.getElementById("btn-add-user").disabled = false
+    }
+    else if(res == false){
         document.getElementById("btn-add-user").disabled = true
     }
     else{
