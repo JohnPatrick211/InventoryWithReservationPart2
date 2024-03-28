@@ -172,7 +172,7 @@ async function fetchProductSearch(){
       className: 'dt-body-center',
       render: function (data, type, full, meta){
         
-          return "₱".full.orig_price;
+          return "₱" + data.orig_price;
       }
    }],
     order: [[0, 'desc']],
