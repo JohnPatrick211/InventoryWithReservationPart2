@@ -172,6 +172,7 @@ class ReplacmentController extends Controller
         ->leftJoin('users', 'BR.user_id', '=', 'users.id')
         ->leftJoin('product', 'BR.product_id', '=', 'product.id')
         ->where('BR.status',0)
+        ->where('BR.archive_status','!=', 0)
         ->get();
 
         if(request()->ajax())
@@ -203,6 +204,7 @@ class ReplacmentController extends Controller
         ->leftJoin('users', 'BR.user_id', '=', 'users.id')
         ->leftJoin('product', 'BR.product_id', '=', 'product.id')
         ->where('BR.status',1)
+        ->where('BR.archive_status','!=', 0)
         ->get();
 
         if(request()->ajax())
