@@ -173,7 +173,16 @@ async function fetchProductSearch(){
         
           return "₱" + full.orig_price;
       }
-   }],
+   },{
+    targets: 9,
+    searchable: false,
+    orderable: true,
+    changeLength: true,
+    render: function (data, type, full, meta){
+      
+        return "₱" + full.selling_price;
+    }
+ }],
     order: [[0, 'desc']],
          
      columns:[       
