@@ -27,6 +27,49 @@ async function fetchSales(){
       });
 }
 
+async function fetchReplacement(){
+    $('#tbl-replacement-archive').DataTable({
+       processing: true,
+       serverSide: true,
+       ajax:{
+        url: "/archive/replacement",
+        type:"GET",
+        },
+        columnDefs: [{
+            targets: 0,
+            searchable: false,
+            changeLength: false,
+         },{
+           targets: 4,
+           orderable: true,
+           changeLength: true,
+           className: 'dt-body-center',
+           render: function (data, type, full, meta){
+             if(full.status === '0'){
+               return 'Pending';
+             }
+             else if(full.status === '1'){
+               return 'Approved';
+             }
+             else{
+               return 'Rejected';
+             }
+               
+           }
+        }],
+         order: [[0, 'desc']],
+              
+          columns:[       
+               {data: 'id', name: 'id',orderable: true},
+               {data: 'product_name', name: 'product_name'},
+               {data: 'qty', name: 'qty'},
+               {data: 'reason', name: 'reason'},
+               {data: 'status', name: 'status'},
+               {data: 'action', name: 'action',orderable: false},  
+          ]
+      });
+}
+
 
 async function fetchProduct(date_from, date_to){
     $('#product-archive-table').DataTable({
@@ -175,6 +218,7 @@ $(document).on('click','.nav-item', async function(){
 
   async function render() {
     await fetchSales();
+    await fetchReplacement();
   }
 
   render();

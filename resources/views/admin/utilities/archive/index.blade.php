@@ -195,12 +195,13 @@
                         <table class="table table-hover" id="tbl-replacement-archive">
                             <thead>
                                 <tr>
-                                    <th>Order #</th>
-                                    <th>Student Name</th>
-                                    <th>Email</th>
-                                    <th>Phone number</th>
-                                    <th>Date Order</th>
-                                    <th>View</th>
+                                <th>ID</th>
+                                <th>Student Name</th>
+                                <th>Product Name</th>
+                                <th>Qty</th>
+                                <th>Reason</th>
+                                <th>Status</th>
+                                <th>Restore</th>
                                 </tr>
                             </thead>
                         </table>

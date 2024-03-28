@@ -60,6 +60,27 @@ class ArchiveController extends Controller
         }
    }
 
+   public function readArchiveReplacement()
+   {
+        $product = DB::table('replacement AS BR')
+        ->select('BR.*', 'users.name AS studentName', 'product.description AS productName', 'BR.qty AS replacement_qty')
+        ->leftJoin('users', 'BR.user_id', '=', 'users.id')
+        ->leftJoin('product', 'BR.product_id', '=', 'product.id')
+        ->where('BR.archive_status', 0)
+        ->get();
+        if(request()->ajax())
+        {
+            return datatables()->of($product)       
+            ->addColumn('action', function($product)
+            {
+                $button = ' <a class="btn btn-sm btn-restore" data-id="'. $product->id .'"><i class="fa fa-recycle"></i></a>';
+                return $button;
+            })
+            ->rawColumns(['action'])
+            ->make(true);       
+        }
+   }
+
    public function readArchiveUsers()
    {
         $user = User::whereBetween(DB::raw('DATE(users.updated_at)'), [request()->date_from, request()->date_to])
