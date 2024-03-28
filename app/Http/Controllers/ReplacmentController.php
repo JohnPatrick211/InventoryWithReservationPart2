@@ -180,9 +180,9 @@ class ReplacmentController extends Controller
         { 
             return datatables()->of($data)
                 ->addColumn('action', function($data){
-                    $button = '<a class="btn btn-sm btn-replacement-archive" data-id='. $data->id .'
+                    $button = '<a class="btn btn-sm btn-full-view" data-id='. $data->id .'
                     data-image="/images/'.$data->image_receipt.'">
-                    <i class="fas fa-archive"></i></a>';
+                    <i class="fa fa-eye"></i></a>';
                     return $button;
                 })
                 ->addColumn('status', function($data){
@@ -256,9 +256,9 @@ class ReplacmentController extends Controller
         { 
             return datatables()->of($data)
                 ->addColumn('action', function($data){
-                    $button = '<a class="btn btn-sm btn-full-view" data-id='. $data->id .'
+                    $button = '<a class="btn btn-sm btn-replacement-archive" data-id='. $data->id .'
                     data-image="/images/'.$data->image_receipt.'">
-                    <i class="fa fa-eye"></i></a>';
+                    <i class="fas fa-archive"></i></a>';
                     return $button;
                 })
                 ->addColumn('status', function($data){
