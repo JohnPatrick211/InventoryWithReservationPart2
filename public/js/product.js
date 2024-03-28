@@ -101,7 +101,7 @@ async function fetchDataManagement(){
   changeLength: true,
   className: 'dt-body-center',
   render: function (data, type, full, meta){
-    if(full.orig_price === ' <div class="text-left"></div>'){
+    if(full.orig_price === ' <div class="text-right"></div>'){
       return 'No Original Price';
     }
     else{
