@@ -114,13 +114,13 @@ async function fetchDataManagement(){
   searchable: false,
   orderable: true,
   changeLength: true,
-  className: 'dt-body-left',
+  className: 'dt-body-center',
   render: function (data, type, full, meta){
     if(full.selling_price === ' <div class="text-right"></div>'){
       return 'No Selling Price';
     }
     else{
-      return '<div class="text-left">'+data+'</div>';
+      return data;
     }
   }
 }],
@@ -134,7 +134,13 @@ async function fetchDataManagement(){
           {data: 'unit', name: 'unit'},
           {data: 'category', name: 'category'},
           {data: 'supplier', name: 'supplier'},
-          {data: 'orig_price',name: 'orig_price'},
+          {data: 'orig_price',name: 'orig_price', 
+            "render": function(data, type, full, meta){
+            
+            data = "<p>hdfg</p>";
+ 
+            return data;
+          }},
           {data: 'selling_price',name: 'selling_price'},    
           {data: 'action', name: 'action',orderable: false},
      ]
