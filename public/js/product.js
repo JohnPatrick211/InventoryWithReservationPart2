@@ -164,7 +164,17 @@ async function fetchProductSearch(){
      //  render: function (data, type, full, meta){
      //      return '<input type="checkbox" name="checkbox[]" value="' + $('<div/>').text(data).html() + '">';
      //  }
-    }],
+    },{
+      targets: 7,
+      searchable: false,
+      orderable: true,
+      changeLength: true,
+      className: 'dt-body-center',
+      render: function (data, type, full, meta){
+        
+          return "₱".data;
+      }
+   }],
     order: [[0, 'desc']],
          
      columns:[       
