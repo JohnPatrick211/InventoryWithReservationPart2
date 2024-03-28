@@ -130,6 +130,7 @@ $(document).on('click', '.btn-confirm-restore-replacement', function(){
         success:async function(){
   
                 $('.btn-confirm-restore-replacement').text('Yes');
+                $('#tbl-replacement-archive').DataTable().ajax.reload();
                 $('#restoreModal-replacement').modal('hide');
                 $.toast({
                     text: 'Replacement Request was successfully restored.',
