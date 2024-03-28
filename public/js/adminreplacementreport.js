@@ -28,9 +28,8 @@ async function fetchApprovedReplacement(){
        });
 }
 
-
+var replacement_id;
 async function onClick() {
-    var replacement_id;
     $(document).on('click','.btn-replacement-archive', async function(){
         replacement_id         = $(this).attr('data-id');
         // var image_receipt = $(this).attr('data-image');
@@ -43,10 +42,37 @@ async function onClick() {
 
         $('#confirmModal').modal('show');
         $('.delete-success').hide();
-        $('.delete-message').html('Are you sure do you want to archive this Replacement Request?');
+        $('.delete-message').html('Are you sure do you want to archive this Replacement Request with ID# <b>'+ replacement_id +'?');
+
 
       }); 
 }
+
+$(document).on('click', '.btn-confirm-archive', function(){
+    $.ajax({
+        url: '/reports/replacement/archive/'+  replacement_id,
+        type: 'POST',
+      
+        beforeSend:function(){
+            $('.btn-confirm-archive').text('Please wait...');
+        },
+        
+        success:function(){
+            setTimeout(function(){
+  
+                $('.btn-confirm-archive').text('Yes');
+                $('.tbl-replacement-report').DataTable().ajax.reload();
+                $('#confirmModal').modal('hide');
+                $.toast({
+                    text: 'Replacement Request was successfully archived.',
+                    position: 'bottom-right',
+                    showHideTransition: 'plain'
+                })
+            }, 1000);
+        }
+    });
+  
+  });
 
 $(document).on('click','.btn-preview-replacement-report', async function(){
     window.open("/reports/replacement/preview");

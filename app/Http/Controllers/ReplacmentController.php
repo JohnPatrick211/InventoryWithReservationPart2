@@ -275,6 +275,17 @@ class ReplacmentController extends Controller
         return view('admin.reports.replacement');
     }
 
+    public function archive($id)
+    {
+        Replacement::where('id', $id)
+        ->update([
+            'archive_status' => 0,
+        ]);
+
+        return redirect()->back()
+            ->with('success', 'Product was archived.');
+    }
+
     public function previewReport(){
 
         $data = DB::table('replacement AS BR')
