@@ -57,6 +57,14 @@ async function onClick() {
       }); 
 }
 
+$(document).on('click','.btn-preview-replacement-report', async function(){
+    window.open("/reports/replacement/preview");
+});
+
+$(document).on('click','.btn-download-replacement-report', async function(){
+    window.open("/reports/replacement/download");
+});
+
 $.ajaxSetup({
     headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

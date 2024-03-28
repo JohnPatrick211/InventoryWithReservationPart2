@@ -161,9 +161,8 @@ Route::middleware('auth')->group(function () {
       //replacement report
       Route::get('reports/replacement', 'ReplacmentController@indexreport');
       Route::get('/approved-replacement-report', 'ReplacmentController@getApprovedReplacement');
-      Route::get('reports/inventory/{category_id}', 'Admin\InventoryReportController@readProductByCategory');
-      Route::get('/reports/inventory/preview/{category_id}', 'Admin\InventoryReportController@previewReport');
-      Route::get('/reports/inventory/download/{category_id}', 'Admin\InventoryReportController@downloadReport');
+      Route::get('/reports/replacement/preview', 'ReplacmentController@previewReport');
+      Route::get('/reports/replacement/download', 'ReplacmentController@downloadReport');
       
       Route::get('/reports/reservation', 'Admin\ReservationReportController@index');
       Route::get('/read-reservations', 'Admin\ReservationReportController@readReservations');
