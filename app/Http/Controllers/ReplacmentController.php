@@ -304,7 +304,7 @@ class ReplacmentController extends Controller
         return $pdf->download('replacement_report_'. date('Y_m_d_h:m:s').'.pdf');
     }
 
-    public function reportLayout($items, $category_name){
+    public function reportLayout($items){
 
         $title = Session::get('cms_name');
         $address = Session::get('cms_address');
