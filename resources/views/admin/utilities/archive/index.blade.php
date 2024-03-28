@@ -74,7 +74,7 @@
                 <div class="tab-pane fade show active" id="salesreport" role="tabpanel"
                     aria-labelledby="salesreport-tab">
                     <div class="mt-4">
-                        <table class="table table-hover" id="sales-archive-table">
+                        <table class="table table-hover table-responsive" id="sales-archive-table">
                             <thead>
                                 <tr>
                                 <th>Invoice #</th>
@@ -192,7 +192,7 @@
                 </div>
                 <div class="tab-pane fade" id="replacementreport" role="tabpanel" aria-labelledby="replacementreport-tab">
                     <div class="mt-4">
-                        <table class="table table-hover responsive" id="tbl-replacement-archive">
+                        <table class="table table-hover table-responsive" id="tbl-replacement-archive">
                             <thead>
                                 <tr>
                                 <th>ID</th>
