@@ -134,14 +134,14 @@ async function fetchDataManagement(){
           {data: 'unit', name: 'unit'},
           {data: 'category', name: 'category'},
           {data: 'supplier', name: 'supplier'},
-          {data: 'orig_price',name: 'orig_price', 
-            "render": function(data, type, full, meta){
-            
-            data = "<p>hdfg</p>";
- 
-            return data;
-          }},
-          {data: 'selling_price',name: 'selling_price'},    
+          {data: 'orig_price',name: 'orig_price'},
+          {data: 'selling_price',name: 'selling_price', 
+          "render": function(data, type, full, meta){
+          
+          data = "<p>P</p>" . data;
+
+          return data;
+        }},    
           {data: 'action', name: 'action',orderable: false},
      ]
     });
