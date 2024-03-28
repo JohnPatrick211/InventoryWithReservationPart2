@@ -52,6 +52,8 @@
 
   <script src="{{asset('js/reservation_report.js')}}"></script>
 
+  <script src="{{asset('js/adminreplacementreport.js')}}"></script>
+
 
 
 
