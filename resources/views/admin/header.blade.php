@@ -34,8 +34,6 @@
     width: 7px;
 }
 
-.dataTables_scrollBody {min-height:55px}
-
 #product-container::-webkit-scrollbar-track {
     border-radius: 50px !important;
     -webkit-box-shadow: inset 0 0 5px rgb(128,128,128);
