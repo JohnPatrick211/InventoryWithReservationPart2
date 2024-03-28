@@ -114,7 +114,6 @@ async function fetchDataManagement(){
   searchable: false,
   orderable: true,
   changeLength: true,
-  className: "text-left",
   render: function (data, type, full, meta){
 
       var s = "P" + data;
