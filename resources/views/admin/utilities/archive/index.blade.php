@@ -38,24 +38,32 @@
                         aria-controls="salesreport" aria-selected="true">Sales Report</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="pre-order-tab" data-toggle="tab" href="#pre-order" role="tab"
-                        aria-controls="pre-order" aria-selected="true">Inventory Report</a>
+                    <a class="nav-link" id="inventoryreport-tab" data-toggle="tab" href="#inventoryreport" role="tab"
+                        aria-controls="inventoryreport" aria-selected="true">Inventory Report</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="pending-tab" data-toggle="tab" href="#pending" role="tab"
-                        aria-controls="pending" aria-selected="false">Pending</a>
+                    <a class="nav-link" id="reorderreport-tab" data-toggle="tab" href="#reorderreport" role="tab"
+                        aria-controls="reorderreport" aria-selected="false">Reorder List Report</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="prepared-tab" data-toggle="tab" href="#prepared" role="tab"
-                        aria-controls="prepared" aria-selected="false">Prepared</a>
+                    <a class="nav-link" id="stockreport-tab" data-toggle="tab" href="#stockreport" role="tab"
+                        aria-controls="stockreport" aria-selected="false">Stock Adjustment Report</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="shipped-tab" data-toggle="tab" href="#shipped" role="tab"
-                        aria-controls="shipped" aria-selected="false">Pick-Up</a>
+                    <a class="nav-link" id="supplierreport-tab" data-toggle="tab" href="#supplierreport" role="tab"
+                        aria-controls="supplierreport" aria-selected="false">Supplier Delivery Report</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="completed-tab" data-toggle="tab" href="#completed" role="tab"
-                        aria-controls="completed" aria-selected="false">Completed</a>
+                    <a class="nav-link" id="reservationreport-tab" data-toggle="tab" href="#reservationreport" role="tab"
+                        aria-controls="reservationreport" aria-selected="false">Reservation Report</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="preorderreport-tab" data-toggle="tab" href="#preorderreport" role="tab"
+                        aria-controls="preorderreport" aria-selected="false">Pre-Order Report</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="replacementreport-tab" data-toggle="tab" href="#replacementreport" role="tab"
+                        aria-controls="replacementreport" aria-selected="false">Product Replacement Report</a>
                 </li>
                 <!-- <li class="nav-item">
                     <a class="nav-link" id="cancelled-tab" data-toggle="tab" href="#cancelled" role="tab" aria-controls="cancelled" aria-selected="false">Cancelled</a>
@@ -85,13 +93,13 @@
                     </div>
                 </div>
 
-                <div class="tab-pane fade show" id="pre-order" role="tabpanel"
-                    aria-labelledby="pre-order-tab">
+                <div class="tab-pane fade show" id="inventoryreport" role="tabpanel"
+                    aria-labelledby="inventoryreport-tab">
                     <div class="mt-4">
-                        <table class="table table-hover" id="tbl-pre-order">
+                        <table class="table table-hover" id="tbl-inventory-archive">
                             <thead>
                                 <tr>
-                                    <th>Order #</th>
+                                    <th>Inventory Order #</th>
                                     <th>Student Name</th>
                                     <th>Email</th>
                                     <th>Phone number</th>
@@ -102,9 +110,73 @@
                         </table>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="pending" role="tabpanel" aria-labelledby="pending-tab">
+                <div class="tab-pane fade" id="reorderreport" role="tabpanel" aria-labelledby="reorderreport-tab">
                     <div class="mt-4">
-                        <table class="table table-hover" id="tbl-pending-order">
+                        <table class="table table-hover" id="tbl-reorder-archive">
+                            <thead>
+                                <tr>
+                                    <th>Re-Order #</th>
+                                    <th>Student Name</th>
+                                    <th>Email</th>
+                                    <th>Phone number</th>
+                                    <th>Date Order</th>
+                                    <th>View</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="stockreport" role="tabpanel" aria-labelledby="stockreport-tab">
+                    <div class="mt-4">
+                        <table class="table table-hover" id="tbl-stock-report">
+                            <thead>
+                                <tr>
+                                    <th>Stock Order #</th>
+                                    <th>Student Name</th>
+                                    <th>Email</th>
+                                    <th>Phone number</th>
+                                    <th>Date Order</th>
+                                    <th>View</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="supplierreport" role="tabpanel" aria-labelledby="supplierreport-tab">
+                    <div class="mt-4">
+                        <table class="table table-hover" id="tbl-supplier-archive">
+                            <thead>
+                                <tr>
+                                    <th>Suuplier Order #</th>
+                                    <th>Student Name</th>
+                                    <th>Email</th>
+                                    <th>Phone number</th>
+                                    <th>Date Order</th>
+                                    <th>View</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="reservationreport" role="tabpanel" aria-labelledby="reservationreport-tab">
+                    <div class="mt-4">
+                        <table class="table table-hover" id="tbl-reservation-archive">
+                            <thead>
+                                <tr>
+                                    <th>Reservation Order #</th>
+                                    <th>Student Name</th>
+                                    <th>Email</th>
+                                    <th>Phone number</th>
+                                    <th>Date Order</th>
+                                    <th>View</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="preorderreport" role="tabpanel" aria-labelledby="preorderreport-tab">
+                    <div class="mt-4">
+                        <table class="table table-hover" id="tbl-preorder-archive">
                             <thead>
                                 <tr>
                                     <th>Order #</th>
@@ -118,41 +190,9 @@
                         </table>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="prepared" role="tabpanel" aria-labelledby="prepared-tab">
+                <div class="tab-pane fade" id="replacementreport" role="tabpanel" aria-labelledby="replacementreport-tab">
                     <div class="mt-4">
-                        <table class="table table-hover" id="tbl-prepared-order">
-                            <thead>
-                                <tr>
-                                    <th>Order #</th>
-                                    <th>Student Name</th>
-                                    <th>Email</th>
-                                    <th>Phone number</th>
-                                    <th>Date Order</th>
-                                    <th>View</th>
-                                </tr>
-                            </thead>
-                        </table>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="shipped" role="tabpanel" aria-labelledby="shipped-tab">
-                    <div class="mt-4">
-                        <table class="table table-hover" id="tbl-shipped-order">
-                            <thead>
-                                <tr>
-                                    <th>Order #</th>
-                                    <th>Student Name</th>
-                                    <th>Email</th>
-                                    <th>Phone number</th>
-                                    <th>Date Order</th>
-                                    <th>View</th>
-                                </tr>
-                            </thead>
-                        </table>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="completed" role="tabpanel" aria-labelledby="completed-tab">
-                    <div class="mt-4">
-                        <table class="table table-hover" id="tbl-completed-order">
+                        <table class="table table-hover" id="tbl-replacement-archive">
                             <thead>
                                 <tr>
                                     <th>Order #</th>
