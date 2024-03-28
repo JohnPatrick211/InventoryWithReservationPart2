@@ -99,12 +99,13 @@ async function fetchDataManagement(){
   searchable: false,
   orderable: true,
   changeLength: true,
+  className: 'dt-body-center',
   render: function (data, type, full, meta){
     if(full.orig_price === ' <div class="text-right"></div>'){
       return 'No Original Price';
     }
     else{
-      return "₱" + full.orig_price;
+      return data;
       
     }
   }
@@ -113,12 +114,13 @@ async function fetchDataManagement(){
   searchable: false,
   orderable: true,
   changeLength: true,
+  className: 'dt-body-center',
   render: function (data, type, full, meta){
     if(full.selling_price === ' <div class="text-right"></div>'){
       return 'No Selling Price';
     }
     else{
-      return ' <div class="text-right">₱ '+ full.selling_price + '</div>';
+      return data;
     }
   }
 }],
