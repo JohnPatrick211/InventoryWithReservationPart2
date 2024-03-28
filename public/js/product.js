@@ -105,7 +105,7 @@ async function fetchDataManagement(){
       return 'No Original Price';
     }
     else{
-      return data;
+      return '<p>P</p>'. data;
       
     }
   }
@@ -134,13 +134,8 @@ async function fetchDataManagement(){
           {data: 'unit', name: 'unit'},
           {data: 'category', name: 'category'},
           {data: 'supplier', name: 'supplier'},
-          {data: 'orig_price',name: 'orig_price'},
-          {data: 'selling_price',name: 'selling_price', 
-          "render": function(data, type, full, meta){
-          
-
-          return "<p>P</p>" . data;
-        }},    
+          {data: 'orig_price',name: 'orig_price',},
+          {data: 'selling_price',name: 'selling_price'},    
           {data: 'action', name: 'action',orderable: false},
      ]
     });
