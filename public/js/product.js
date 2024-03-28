@@ -120,7 +120,8 @@ async function fetchDataManagement(){
       return 'No Selling Price';
     }
     else{
-      return "P" + data;
+      var s = "P" + data;
+      return s;
     }
   }
 }],
