@@ -37,13 +37,13 @@ class ProductManagementController extends Controller
                 })
                 ->addColumn('selling_price', function($product)
                 {
-                    $button = ' <div class="text-right">'.$product->selling_price.'</div>';
+                    $button = $product->selling_price;
                    
                     return $button;
                 })
                 ->addColumn('orig_price', function($product)
                 {
-                    $button = ' <div class="text-right">'.$product->orig_price.'</div>';
+                    $button = $product->orig_price;
                    
                     return $button;
                 })

@@ -101,7 +101,7 @@ async function fetchDataManagement(){
   changeLength: true,
   className: 'dt-body-center',
   render: function (data, type, full, meta){
-    if(full.orig_price === ' <div class="text-right"></div>'){
+    if(full.orig_price === 0){
       return 'No Original Price';
     }
     else{
@@ -116,12 +116,11 @@ async function fetchDataManagement(){
   changeLength: true,
   className: 'dt-body-center',
   render: function (data, type, full, meta){
-    if(full.selling_price === ' <div class="text-right"></div>'){
+    if(full.selling_price === 0){
       return 'No Selling Price';
     }
     else{
-      var d = data
-      return 'P' + $('<div/>').text(data).html() + '">';
+      return 'P' + data;
     }
   }
 }],
