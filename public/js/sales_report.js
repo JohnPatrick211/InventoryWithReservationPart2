@@ -160,19 +160,19 @@ $(document).on('click', '.btn-archive', function(){ console.log('test')
   $('.delete-message').html('Are you sure do you want to archive <b>'+ name +'</b> with invoice <b>#'+invoice+'</b>?');
 }); 
 
-$(document).on('click', '.btn-confirm-archive', function(){
+$(document).on('click', '.btn-confirm-archive-sales', function(){
   $.ajax({
       url: '/reports/archive/'+ product_id,
       type: 'POST',
     
       beforeSend:function(){
-          $('.btn-confirm-archive').text('Please wait...');
+          $('.btn-confirm-archive-sales').text('Please wait...');
       },
       
       success:function(){
           setTimeout(function(){
 
-              $('.btn-confirm-archive').text('Yes');
+              $('.btn-confirm-archive-sales').text('Yes');
               $('.tbl-sales').DataTable().ajax.reload();
               $('#confirmModal').modal('hide');
               $.toast({
