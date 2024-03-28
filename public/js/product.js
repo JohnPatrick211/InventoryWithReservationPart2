@@ -101,7 +101,7 @@ async function fetchDataManagement(){
   changeLength: true,
   className: 'dt-body-center',
   render: function (data, type, full, meta){
-    if(full.orig_price === 0){
+    if(full.orig_price === null){
       return 'No Original Price';
     }
     else{
@@ -116,7 +116,7 @@ async function fetchDataManagement(){
   changeLength: true,
   className: 'dt-body-center',
   render: function (data, type, full, meta){
-    if(full.selling_price === 0){
+    if(full.selling_price === null){
       return 'No Selling Price';
     }
     else{
