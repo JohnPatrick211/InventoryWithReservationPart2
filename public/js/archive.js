@@ -9,8 +9,8 @@ async function fetchSales(){
        processing: true,
        serverSide: true,
        scrollY: true,
+       scrollX: true,
        scrollCollapse: true,
-       scroller:       true,
        stateSave: false,
        ajax:{
         url: "/archive/sales",
@@ -36,9 +36,9 @@ async function fetchReplacement(){
        processing: true,
        serverSide: true,
        scrollY: true,
+       scrollX: true,
        scrollCollapse: true,
        stateSave: false,
-       scroller:       true,
        ajax:{
         url: "/archive/replacement",
         type:"GET",
