@@ -248,7 +248,7 @@ class ReplacmentController extends Controller
         ->select('BR.*', 'users.name AS studentName', 'product.description AS productName', 'BR.qty AS replacement_qty')
         ->leftJoin('users', 'BR.user_id', '=', 'users.id')
         ->leftJoin('product', 'BR.product_id', '=', 'product.id')
-        ->where('BR.status',0)
+        ->where('BR.status','!=', 0)
         ->where('BR.archive_status','!=', 0)
         ->get();
 
