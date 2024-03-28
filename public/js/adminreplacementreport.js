@@ -30,30 +30,21 @@ async function fetchApprovedReplacement(){
 
 
 async function onClick() {
-    var user_id;
-    $(document).on('click','.btn-full-view', async function(){
-        $('#userInfoModal').modal('show');
-        user_id         = $(this).attr('data-id');
-        var image_receipt = $(this).attr('data-image');
-        var row         = $(this).closest("tr");
-        var studentname        = row.find("td:eq(1)").text();
-        var productname    = row.find("td:eq(2)").text();
-        var qty    = row.find("td:eq(3)").text();
-        var reason       = row.find("td:eq(4)").text();
-        var status       = row.find("td:eq(5)").text();
+    var replacement_id;
+    $(document).on('click','.btn-replacement-archive', async function(){
+        replacement_id         = $(this).attr('data-id');
+        // var image_receipt = $(this).attr('data-image');
+        // var row         = $(this).closest("tr");
+        // var studentname        = row.find("td:eq(1)").text();
+        // var productname    = row.find("td:eq(2)").text();
+        // var qty    = row.find("td:eq(3)").text();
+        // var reason       = row.find("td:eq(4)").text();
+        // var status       = row.find("td:eq(5)").text();
 
-       
-        $('#studentname').val(studentname);
-        $('#productname').val(productname);
-        $('#qty').val(qty);
-        $('#reason').val(reason);
-        $('#status').val(status);
-        $('#receipt').attr('src', image_receipt);
+        $('#confirmModal').modal('show');
+        $('.delete-success').hide();
+        $('.delete-message').html('Are you sure do you want to archive this Replacement Request?');
 
-        if(status == 'Approved'){
-            document.getElementById("btn-approve").disabled = true;
-            document.getElementById("btn-reject").disabled = true;
-        }
       }); 
 }
 
