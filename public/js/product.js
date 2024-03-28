@@ -116,7 +116,7 @@ async function fetchDataManagement(){
   changeLength: true,
   render: function (data, type, full, meta){
 
-      var s = "P" + data;
+      var s = 'P' + data;
       return s;
     
   }
