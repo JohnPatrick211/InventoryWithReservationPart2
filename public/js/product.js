@@ -105,7 +105,7 @@ async function fetchDataManagement(){
       return 'No Original Price';
     }
     else{
-      return data;
+      return "₱" + full.orig_price;
       
     }
   }
@@ -120,7 +120,7 @@ async function fetchDataManagement(){
       return 'No Selling Price';
     }
     else{
-      return data;
+      return "₱" + full.selling_price;
     }
   }
 }],
