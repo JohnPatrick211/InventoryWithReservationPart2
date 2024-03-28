@@ -121,7 +121,7 @@ async function fetchDataManagement(){
     }
     else{
       var d = data
-      return 'P' + (data).html();
+      return 'P' + $('<div/>').text(data).html() + '">';
     }
   }
 }],
