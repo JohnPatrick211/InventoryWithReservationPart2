@@ -263,8 +263,8 @@ class ReplacmentController extends Controller
                 })
                 ->addColumn('status', function($data){
                     $status = '<span class="badge badge-success">Approved</span>';
-                    if ($data->status == 0) {
-                        $status = '<span class="badge badge-warning text-white">Pending</span>';
+                    if ($data->status == 2) {
+                        $status = '<span class="badge badge-danger text-white">Rejected</span>';
                     }
                     return $status;
                 })
@@ -281,7 +281,7 @@ class ReplacmentController extends Controller
         ->select('BR.*', 'users.name AS studentName', 'product.description AS productName', 'BR.qty AS replacement_qty')
         ->leftJoin('users', 'BR.user_id', '=', 'users.id')
         ->leftJoin('product', 'BR.product_id', '=', 'product.id')
-        ->where('BR.status',1)
+        ->where('BR.status','!=', 0)
         ->where('BR.archive_status','!=', 0)
         ->get();
 
@@ -294,9 +294,17 @@ class ReplacmentController extends Controller
         return $pdf->stream('replacement_report.pdf');
     }
     
-    public function downloadReport($category_id){
+    public function downloadReport(){
 
-        $output = $this->reportLayout($product, $category_name);
+        $data = DB::table('replacement AS BR')
+        ->select('BR.*', 'users.name AS studentName', 'product.description AS productName', 'BR.qty AS replacement_qty')
+        ->leftJoin('users', 'BR.user_id', '=', 'users.id')
+        ->leftJoin('product', 'BR.product_id', '=', 'product.id')
+        ->where('BR.status','!=', 0)
+        ->where('BR.archive_status','!=', 0)
+        ->get();
+
+        $output = $this->reportLayout($data);
     
         $pdf = \App::make('dompdf.wrapper');
         $pdf->loadHTML($output);
