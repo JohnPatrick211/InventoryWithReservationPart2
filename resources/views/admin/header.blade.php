@@ -34,11 +34,7 @@
     width: 7px;
 }
 
-.datatable td {
-  overflow: hidden; /* this is what fixes the expansion */
-  text-overflow: ellipsis; /* not supported in all browsers, but I accepted the tradeoff */
-  white-space: nowrap;
-}
+.dataTables_scrollBody {min-height:55px}
 
 #product-container::-webkit-scrollbar-track {
     border-radius: 50px !important;
