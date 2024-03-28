@@ -138,9 +138,8 @@ async function fetchDataManagement(){
           {data: 'selling_price',name: 'selling_price', 
           "render": function(data, type, full, meta){
           
-          data = "<p>P</p>" . data;
 
-          return data;
+          return "<p>P</p>" . data;
         }},    
           {data: 'action', name: 'action',orderable: false},
      ]
