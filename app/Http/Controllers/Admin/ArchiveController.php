@@ -76,7 +76,14 @@ class ArchiveController extends Controller
                 $button = ' <a class="btn btn-sm btn-restore" data-id="'. $product->id .'"><i class="fa fa-recycle"></i></a>';
                 return $button;
             })
-            ->rawColumns(['action'])
+            ->addColumn('status', function($data){
+                $status = '<span class="badge badge-success">Approved</span>';
+                if ($data->status == 2) {
+                    $status = '<span class="badge badge-danger text-white">Rejected</span>';
+                }
+                return $status;
+            })
+            ->rawColumns(['action', 'status'])
             ->make(true);       
         }
    }

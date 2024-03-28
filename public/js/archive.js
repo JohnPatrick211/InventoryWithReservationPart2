@@ -37,35 +37,19 @@ async function fetchReplacement(){
         },
         columnDefs: [{
             targets: 0,
-            searchable: false,
-            changeLength: false,
-         },{
-           targets: 4,
-           orderable: true,
-           changeLength: true,
-           className: 'dt-body-center',
-           render: function (data, type, full, meta){
-             if(full.status === '0'){
-               return 'Pending';
-             }
-             else if(full.status === '1'){
-               return 'Approved';
-             }
-             else{
-               return 'Rejected';
-             }
-               
-           }
-        }],
+            searchable: true,
+            orderable: true,
+            changeLength: false
+         }],
          order: [[0, 'desc']],
-              
           columns:[       
-               {data: 'id', name: 'id',orderable: true},
-               {data: 'product_name', name: 'product_name'},
-               {data: 'qty', name: 'qty'},
-               {data: 'reason', name: 'reason'},
-               {data: 'status', name: 'status'},
-               {data: 'action', name: 'action',orderable: false},  
+              {data: 'id', name: 'id'},       
+              {data: 'studentName', name: 'studentName'},
+              {data: 'productName', name: 'productName'},
+              {data: 'replacement_qty', name: 'replacement_qty'},   
+              {data: 'reason', name: 'reason'},       
+              {data: 'status', name: 'status'},
+              {data: 'action', name: 'action', orderable:false},
           ]
       });
 }
