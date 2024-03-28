@@ -66,7 +66,7 @@
                 <div class="tab-pane fade show active" id="salesreport" role="tabpanel"
                     aria-labelledby="salesreport-tab">
                     <div class="mt-4">
-                        <table class="table table-hover" id="sales-archive_table">
+                        <table class="table table-hover" id="sales-archive-table">
                             <thead>
                                 <tr>
                                 <th>Invoice #</th>
