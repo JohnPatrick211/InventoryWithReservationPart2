@@ -75,9 +75,9 @@ function getItems (data) {
         html += '<td>'+data.product_code+'</td>';
         html += '<td>'+data.description+'</td>';
         html += '<td>'+data.unit+'</td>';
-        html += '<td>'+data.selling_price+'</td>';
+        html += '<td>₱'+data.selling_price+'</td>';
         html += '<td>'+data.qty+'</td>';
-        html += '<td style="text-align:right;">'+data.amount+'</td>';
+        html += '<td style="text-align:right;">₱'+data.amount+'</td>';
     html += '</tr>';
     
     return html;
