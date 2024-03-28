@@ -10,6 +10,7 @@ async function fetchSales(){
        serverSide: true,
        scrollY: true,
        scrollCollapse: true,
+       scroller:       true,
        stateSave: false,
        ajax:{
         url: "/archive/sales",
@@ -37,6 +38,7 @@ async function fetchReplacement(){
        scrollY: true,
        scrollCollapse: true,
        stateSave: false,
+       scroller:       true,
        ajax:{
         url: "/archive/replacement",
         type:"GET",
