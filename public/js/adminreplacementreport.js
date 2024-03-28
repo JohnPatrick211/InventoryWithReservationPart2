@@ -54,13 +54,13 @@ $(document).on('click', '.btn-confirm-archive-replacement', function(){
         type: 'POST',
       
         beforeSend:function(){
-            $('.btn-confirm-archive').text('Please wait...');
+            $('.btn-confirm-archive-replacement').text('Please wait...');
         },
         
         success:function(){
             setTimeout(function(){
   
-                $('.btn-confirm-archive').text('Yes');
+                $('.btn-confirm-archive-replacement').text('Yes');
                 $('.tbl-replacement-report').DataTable().ajax.reload();
                 $('#confirmModal').modal('hide');
                 $.toast({
