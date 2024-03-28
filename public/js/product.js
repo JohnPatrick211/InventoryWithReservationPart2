@@ -119,7 +119,7 @@ async function fetchDataManagement(){
       return 'No Selling Price';
     }
     else{
-      return "P" + full.selling_price;
+      return '<div class="text-left">'+full.selling_price+'</div>';
     }
   }
 }],
