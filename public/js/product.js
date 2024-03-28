@@ -114,11 +114,14 @@ async function fetchDataManagement(){
   searchable: false,
   orderable: true,
   changeLength: true,
+  className: "text-left",
   render: function (data, type, full, meta){
-
-      var s = 'S' + data;
-      return s;
-    
+    if(full.selling_price === ' <div class="text-right"></div>'){
+      return 'No Selling Price';
+    }
+    else{
+      return "P" + data;
+    }
   }
 }],
     order: [[1, 'asc']],
