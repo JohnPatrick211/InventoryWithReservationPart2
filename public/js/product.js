@@ -120,8 +120,7 @@ async function fetchDataManagement(){
       return 'No Selling Price';
     }
     else{
-      let Data = full.selling_price;
-      return Data;
+      return "₱" + full.selling_price;
     }
   }
 }],
