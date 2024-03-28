@@ -65,7 +65,7 @@ $page_title = Session::get('cms_name');
                             <tr></tr>
                             <tr></tr>
                             <tr>S</tr>
-                            <tr>S/tr>
+                            <tr>S</tr>
                             <tr></tr>
                     </table>
                 </div>
