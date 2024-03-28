@@ -31,6 +31,8 @@ async function fetchReplacement(){
     $('#tbl-replacement-archive').DataTable({
        processing: true,
        serverSide: true,
+       scrollY: true,
+       scrollCollapse: true,
        ajax:{
         url: "/archive/replacement",
         type:"GET",
