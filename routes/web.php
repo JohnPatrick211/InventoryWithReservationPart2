@@ -207,6 +207,7 @@ Route::middleware('auth')->group(function () {
       Route::get('/archive/products', 'Admin\ArchiveController@readArchiveProduct');
       Route::get('/archive/users', 'Admin\ArchiveController@readArchiveUsers');
       Route::post('/archive/restore/{id}', 'Admin\ArchiveController@restore');
+      Route::post('/archive/replacement-restore/{replacement_id}', 'Admin\ArchiveController@restorereplacement');
       Route::get('/archive/sales', 'Admin\ArchiveController@readArchiveSales');
       Route::get('/archive/replacement', 'Admin\ArchiveController@readArchiveReplacement');
       Route::post('usermaintenance/export', 'Admin\UserController@export');

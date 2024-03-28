@@ -111,48 +111,28 @@ async function fetchUser(date_from, date_to){
       });
 }
 
-var product_id;
-$(document).on('click', '.btn-restore', function(){
-  product_id = $(this).attr('data-id');
-  var row = $(this).closest("tr");
-  var name = row.find("td:eq(1)").text();
-  $('#restoreModal').modal('show');
+var replacement_id;
+$(document).on('click', '.btn-restore-replacement', function(){
+  replacement_id = $(this).attr('data-id');
+  $('#restoreModal-replacement').modal('show');
   $('.delete-success').hide();
-  $('.delete-message').html('Are you sure do you want to restore <b>'+ name +'</b>?');
+  $('.delete-message').html('Are you sure do you want to restore this Replacement Request with ID# <b>'+ replacement_id +'</b>?');
 }); 
 
-$(document).on('click', '.btn-confirm-restore', function(){
-    var object = ""
-    if ($('.nav-item').find('.active').attr('aria-controls') == 'pending') {
-        object = "product";
-    }
-    else {
-        object = "user";
-    } 
+$(document).on('click', '.btn-confirm-restore-replacement', function(){
     $.ajax({
-        url: '/archive/restore/'+ product_id,
-        type: 'POST',
-        data: {
-            object : object
-        },      
+        url: '/archive/replacement-restore/'+ replacement_id,
+        type: 'POST',  
         beforeSend:function(){
-            $('.btn-confirm-restore').text('Please wait...');
+            $('.btn-confirm-restore-replacement').text('Please wait...');
         },
         
         success:async function(){
   
-                $('.btn-confirm-restore').text('Yes');
-        //        $('#'+object+'-archive-table').DataTable().destroy();
-                
-                if (object == 'product') {
-                    $('#product-archive-table').DataTable().ajax.reload();
-                }
-                else {
-                    $('#user-archive-table').DataTable().ajax.reload();
-                }
-                $('#restoreModal').modal('hide');
+                $('.btn-confirm-restore-replacement').text('Yes');
+                $('#restoreModal-replacement').modal('hide');
                 $.toast({
-                    text: object+' was successfully restored.',
+                    text: 'Replacement Request was successfully restored.',
                     position: 'bottom-right',
                     showHideTransition: 'plain'
                 })

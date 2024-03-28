@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\User;
+use App\Models\Replacement;
 use DB;
 
 class ArchiveController extends Controller
@@ -73,7 +74,7 @@ class ArchiveController extends Controller
             return datatables()->of($product)       
             ->addColumn('action', function($product)
             {
-                $button = ' <a class="btn btn-sm btn-restore" data-id="'. $product->id .'"><i class="fa fa-recycle"></i></a>';
+                $button = ' <a class="btn btn-sm btn-restore-replacement" data-id="'. $product->id .'"><i class="fa fa-recycle"></i></a>';
                 return $button;
             })
             ->addColumn('status', function($data){
@@ -147,5 +148,14 @@ class ArchiveController extends Controller
                 'status' => 1,
             ]);
        }
+   }
+
+   public function restorereplacement($id)
+   {
+           Replacement::where('id', $id)
+            ->update([
+                'archive_status' => 1,
+            ]);
+       
    }
 }

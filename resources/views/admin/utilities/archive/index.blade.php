@@ -244,7 +244,7 @@
 
     
 
-  <div class="modal fade" id="restoreModal" tabindex="-1" role="dialog">
+  <div class="modal fade" id="restoreModal-replacement" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -257,7 +257,7 @@
           <p class="delete-message"></p>
         </div>
         <div class="modal-footer">
-          <button class="btn btn-sm btn-outline-dark btn-confirm-restore" type="button">Yes</button>
+          <button class="btn btn-sm btn-outline-dark btn-confirm-restore-replacement" type="button">Yes</button>
           <button class="btn btn-sm btn-danger" data-dismiss="modal">Cancel</button>
         </div>
       </div>
