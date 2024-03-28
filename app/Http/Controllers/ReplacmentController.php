@@ -235,4 +235,43 @@ class ReplacmentController extends Controller
     public function Reject($user_id) {
         Replacement::where('id', $user_id)->update(['status' => 2]);
     }
+
+    //Product Replacement Report
+    public function indexreport(Request $request){
+        $cms = DB::table('cms')->where('id', 1)->first();
+        Session::put('cms_name', $cms->name);
+        Session::put('cms_theme_color', $cms->theme_color);
+        Session::put('cms_undraw_img', $cms->undraw_img);
+        
+        $data = DB::table('replacement AS BR')
+        ->select('BR.*', 'users.name AS studentName', 'product.description AS productName', 'BR.qty AS replacement_qty')
+        ->leftJoin('users', 'BR.user_id', '=', 'users.id')
+        ->leftJoin('product', 'BR.product_id', '=', 'product.id')
+        ->where('BR.status',0)
+        ->where('BR.archive_status','!=', 0)
+        ->get();
+
+        if(request()->ajax())
+        { 
+            return datatables()->of($data)
+                ->addColumn('action', function($data){
+                    $button = '<a class="btn btn-sm btn-full-view" data-id='. $data->id .'
+                    data-image="/images/'.$data->image_receipt.'">
+                    <i class="fa fa-eye"></i></a>';
+                    return $button;
+                })
+                ->addColumn('status', function($data){
+                    $status = '<span class="badge badge-success">Approved</span>';
+                    if ($data->status == 0) {
+                        $status = '<span class="badge badge-warning text-white">Pending</span>';
+                    }
+                    return $status;
+                })
+                ->rawColumns(['action', 'status'])
+                ->make(true);
+        }
+
+        return view('admin.reports.replacement');
+    }
+
 }
