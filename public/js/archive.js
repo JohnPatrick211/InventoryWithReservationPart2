@@ -9,7 +9,6 @@ async function fetchSales(){
        processing: true,
        serverSide: true,
        scrollY: true,
-       fixedColumns: false,
        scrollCollapse: true,
        stateSave: false,
        ajax:{
@@ -35,6 +34,9 @@ async function fetchReplacement(){
     $('#tbl-replacement-archive').DataTable({
        processing: true,
        serverSide: true,
+       scrollY: true,
+       scrollCollapse: true,
+       stateSave: false,
        ajax:{
         url: "/archive/replacement",
         type:"GET",

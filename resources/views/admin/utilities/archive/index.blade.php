@@ -192,7 +192,7 @@
                 </div>
                 <div class="tab-pane fade" id="replacementreport" role="tabpanel" aria-labelledby="replacementreport-tab">
                     <div class="mt-4">
-                        <table class="table table-responsive" id="tbl-replacement-archive">
+                        <table class="table table-hover" id="tbl-replacement-archive">
                             <thead>
                                 <tr>
                                 <th>ID</th>
