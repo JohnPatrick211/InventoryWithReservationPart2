@@ -101,7 +101,7 @@ async function fetchDataManagement(){
   changeLength: true,
   className: 'dt-body-center',
   render: function (data, type, full, meta){
-    if(full.orig_price === null){
+    if(full.orig_price === ' <div class="text-right">₱0.00</div>'){
       return 'No Original Price';
     }
     else{
@@ -116,11 +116,11 @@ async function fetchDataManagement(){
   changeLength: true,
   className: 'dt-body-center',
   render: function (data, type, full, meta){
-    if(full.selling_price === null){
+    if(full.selling_price === ' <div class="text-right">₱</div>'){
       return 'No Selling Price';
     }
     else{
-      return 'P' + data;
+      return data;
     }
   }
 }],
