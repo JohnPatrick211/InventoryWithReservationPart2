@@ -134,7 +134,7 @@ async function fetchDataManagement(){
           {data: 'unit', name: 'unit'},
           {data: 'category', name: 'category'},
           {data: 'supplier', name: 'supplier'},
-          {data: 'orig_price',name: 'orig_price',},
+          {data: 'orig_price',name: 'orig_price'},
           {data: 'selling_price',name: 'selling_price'},    
           {data: 'action', name: 'action',orderable: false},
      ]
