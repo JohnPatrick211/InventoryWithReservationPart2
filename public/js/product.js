@@ -116,13 +116,10 @@ async function fetchDataManagement(){
   changeLength: true,
   className: "text-left",
   render: function (data, type, full, meta){
-    if(full.selling_price === ' <div class="text-right"></div>'){
-      return 'No Selling Price';
-    }
-    else{
+
       var s = "P" + data;
       return s;
-    }
+    
   }
 }],
     order: [[1, 'asc']],
