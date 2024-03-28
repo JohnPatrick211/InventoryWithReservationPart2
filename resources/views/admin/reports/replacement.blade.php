@@ -83,7 +83,7 @@
           <small class="validation-text text-danger"></small>
         </div>
         <div class="modal-footer">
-          <button class="btn btn-sm btn-outline-dark btn-confirm-archive" type="button">Yes</button>
+          <button class="btn btn-sm btn-outline-dark btn-confirm-archive-replacement" type="button">Yes</button>
           <button class="btn btn-sm btn-danger" data-dismiss="modal">Cancel</button>
         </div>
       </div>

@@ -48,9 +48,9 @@ async function onClick() {
       }); 
 }
 
-$(document).on('click', '.btn-confirm-archive', function(){
+$(document).on('click', '.btn-confirm-archive-replacement', function(){
     $.ajax({
-        url: '/reports/replacement/archive/'+  replacement_id,
+        url: '/reports/replacement/archive/'+ replacement_id,
         type: 'POST',
       
         beforeSend:function(){
