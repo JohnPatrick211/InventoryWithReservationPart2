@@ -174,7 +174,7 @@ async function fetchProductSearch(){
           return "₱" + full.orig_price;
       }
    },{
-    targets: 9,
+    targets: 8,
     searchable: false,
     orderable: true,
     changeLength: true,
