@@ -113,13 +113,12 @@ async function fetchDataManagement(){
   searchable: false,
   orderable: true,
   changeLength: true,
-  className: 'dt-body-center',
   render: function (data, type, full, meta){
     if(full.selling_price === ' <div class="text-right"></div>'){
       return 'No Selling Price';
     }
     else{
-      return ' <div class="text-right">₱ '+ full.orig_price + '</div>';
+      return ' <div class="text-right">₱ '+ full.selling_price + '</div>';
     }
   }
 }],
