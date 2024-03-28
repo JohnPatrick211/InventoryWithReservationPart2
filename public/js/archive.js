@@ -9,7 +9,7 @@ async function fetchSales(){
        processing: true,
        serverSide: true,
        scrollY: true,
-       scrollX: true,
+       fixedColumns: true,
        scrollCollapse: true,
        stateSave: false,
        ajax:{
@@ -36,7 +36,7 @@ async function fetchReplacement(){
        processing: true,
        serverSide: true,
        scrollY: true,
-       scrollX: true,
+       fixedColumns: true,
        scrollCollapse: true,
        stateSave: false,
        ajax:{
