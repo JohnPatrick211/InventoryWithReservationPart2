@@ -99,7 +99,6 @@ async function fetchDataManagement(){
   searchable: false,
   orderable: true,
   changeLength: true,
-  className: 'dt-body-center',
   render: function (data, type, full, meta){
     if(full.orig_price === ' <div class="text-right"></div>'){
       return 'No Original Price';
@@ -120,7 +119,7 @@ async function fetchDataManagement(){
       return 'No Selling Price';
     }
     else{
-      return "₱" + full.selling_price;
+      return ' <div class="text-right">₱ '+ full.orig_price + '</div>';
     }
   }
 }],
