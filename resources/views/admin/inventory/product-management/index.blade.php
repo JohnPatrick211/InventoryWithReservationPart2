@@ -56,18 +56,16 @@ $page_title = Session::get('cms_name');
                                 <th>Selling Price</th>
                                 <th>Edit</th>
                             </tr>
-                            <tr>
-                            </td></td>
-                            </td></td>
-                            </td></td>
-                            </td></td>
-                            </td></td>
-                            </td></td>
-                            </td></td>
-                            </td></td>
-                            </td></td>
-                            </td></td>
-                            </tr>
+                            <tr></tr>
+                            <tr></tr>
+                            <tr></tr>
+                            <tr></tr>
+                            <tr></tr>
+                            <tr></tr>
+                            <tr></tr>
+                            <tr></tr>
+                            <tr></tr>
+                            <tr></tr>
                         </thead>
                     </table>
                 </div>
