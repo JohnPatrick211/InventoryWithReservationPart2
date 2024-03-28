@@ -5,7 +5,7 @@ async function fetchApprovedReplacement(){
         serverSide: true,
 
         ajax:{
-            url: "reports/replacement",
+            url: "/reports/replacement-report",
             type:"GET"
         },
    

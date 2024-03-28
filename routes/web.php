@@ -159,7 +159,7 @@ Route::middleware('auth')->group(function () {
       Route::get('/reports/inventory/preview/{category_id}', 'Admin\InventoryReportController@previewReport');
       Route::get('/reports/inventory/download/{category_id}', 'Admin\InventoryReportController@downloadReport');
       //replacement report
-      Route::get('reports/replacement', 'ReplacmentController@indexreport');
+      Route::get('/reports/replacement-report', 'ReplacmentController@indexreport');
       Route::get('/approved-replacement-report', 'ReplacmentController@getApprovedReplacement');
       Route::get('/reports/replacement/preview', 'ReplacmentController@previewReport');
       Route::get('/reports/replacement/download', 'ReplacmentController@downloadReport');
