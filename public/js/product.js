@@ -105,7 +105,7 @@ async function fetchDataManagement(){
       return 'No Original Price';
     }
     else{
-      return full.orig_price;
+      return data;
       
     }
   }
