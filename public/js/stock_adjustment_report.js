@@ -33,7 +33,6 @@ async function fetchStockAdjustment(date_from, date_to){
             {data: 'category', name: 'category'},  
             {data: 'supplier', name: 'supplier'},  
             {data: 'qty_adjusted', name: 'qty_adjusted'},
-            {data: 'action', name: 'action'},
             {data: 'remarks', name: 'remarks',orderable: false},
             {data: 'date_adjusted', name: 'date_adjusted'},
             {data: 'action', name: 'action'},
