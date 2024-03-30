@@ -20,7 +20,7 @@ class StockAdjustmentReportController extends Controller
         { 
             return datatables()->of($data)
             ->addColumn('action', function($data){
-                $button = '<a class="btn btn-sm btn-archive-stock-adjustment" data-id='. $data->id .'">
+                $button = '<a class="btn btn-sm btn-archive-stock-adjustment" data-id='. $data->ID .'">
                 <i class="fas fa-archive"></i></a>';
                 return $button;
             })

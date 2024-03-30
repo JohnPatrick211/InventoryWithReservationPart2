@@ -22,7 +22,7 @@ class StockAdjustment extends Model
 
     public function readByDate($date_from, $date_to){
         return DB::table('stock_adjustment AS SA')
-        ->select('SA.*', 'P.*',
+        ->select('SA.*', 'P.*','SA.id as ID',
                 'U.name as unit', 
                 'S.supplier_name as supplier', 
                 'C.name as category',
