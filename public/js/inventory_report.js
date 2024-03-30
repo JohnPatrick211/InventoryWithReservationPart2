@@ -39,24 +39,6 @@
          //      return '<input type="checkbox" name="checkbox[]" value="' + $('<div/>').text(data).html() + '">';
          //  }
         },{
-          targets: 6,
-          searchable: false,
-          orderable: true,
-          changeLength: true,
-          render: function (data, type, full, meta){
-            
-              return "₱" + full.orig_price;
-          }
-       },{
-        targets: 7,
-        searchable: false,
-        orderable: true,
-        changeLength: true,
-        render: function (data, type, full, meta){
-          
-            return "₱" + full.selling_price;
-        }
-     },{
           targets: 8,
           visible: false,
           searchable: false

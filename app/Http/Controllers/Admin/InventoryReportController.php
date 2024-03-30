@@ -21,13 +21,13 @@ class InventoryReportController extends Controller
             return datatables()->of($product)
             ->addColumn('selling_price', function($product)
                 {
-                    $button = ' <div class="text-right">'.$product->selling_price.'</div>';
+                    $button = ' <div class="text-right">₱'.$product->selling_price.'</div>';
                    
                     return $button;
                 })
                 ->addColumn('orig_price', function($product)
                 {
-                    $button = ' <div class="text-right">'.$product->selling_price.'</div>';
+                    $button = ' <div class="text-right">₱'.$product->selling_price.'</div>';
                    
                     return $button;
                 })
