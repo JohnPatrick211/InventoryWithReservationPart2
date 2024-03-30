@@ -164,6 +164,8 @@ Route::middleware('auth')->group(function () {
       Route::post('/reports/replacement/archive/{replacement_id}', 'ReplacmentController@archive');
       Route::get('/reports/replacement/preview', 'ReplacmentController@previewReport');
       Route::get('/reports/replacement/download', 'ReplacmentController@downloadReport');
+      //stock
+      Route::post('/reports/stockadjustment/archive/{product_id}', 'StockAdjustmentReportController@archive');
       
       Route::get('/reports/reservation', 'Admin\ReservationReportController@index');
       Route::get('/read-reservations', 'Admin\ReservationReportController@readReservations');

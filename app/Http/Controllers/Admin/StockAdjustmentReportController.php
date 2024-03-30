@@ -19,10 +19,28 @@ class StockAdjustmentReportController extends Controller
         if(request()->ajax())
         { 
             return datatables()->of($data)
-                ->make(true);
+            ->addColumn('action', function($data){
+                $button = '<a class="btn btn-sm btn-archive-stock-adjustment" data-id='. $data->id .'
+                data-image="/images/'.$data->image_receipt.'">
+                <i class="fas fa-archive"></i></a>';
+                return $button;
+            })
+            ->rawColumns(['action'])
+            ->make(true);
         }
 
         return view('admin.reports.stock-adjustment-report');
+    }
+
+    public function archive($id)
+    {
+        StockAdjustment::where('id', $id)
+        ->update([
+            'archive_status' => 0,
+        ]);
+
+        return redirect()->back()
+            ->with('success', 'Stock was archived.');
     }
 
     public function pdf($date_from, $date_to){

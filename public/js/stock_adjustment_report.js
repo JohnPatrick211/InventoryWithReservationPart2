@@ -36,6 +36,7 @@ async function fetchStockAdjustment(date_from, date_to){
             {data: 'action', name: 'action'},
             {data: 'remarks', name: 'remarks',orderable: false},
             {data: 'date_adjusted', name: 'date_adjusted'},
+            {data: 'action', name: 'action'},
         ]
        });
 }
@@ -74,6 +75,40 @@ async function onClick() {
     });
 
 }
+
+var product_id;
+$(document).on('click', '.btn-archive-stock-adjustment', function(){
+  product_id = $(this).attr('data-id');
+  $('#confirmModal').modal('show');
+  $('.delete-success').hide();
+  $('.delete-message').html('Are you sure do you want to archive this adjustment?');
+}); 
+
+$(document).on('click', '.btn-confirm-stock-adjustment', function(){
+  $.ajax({
+      url: '/reports/stockadjustment/archive/'+ product_id,
+      type: 'POST',
+    
+      beforeSend:function(){
+          $('.btn-confirm-stock-adjustment').text('Please wait...');
+      },
+      
+      success:function(){
+          setTimeout(function(){
+
+              $('.btn-confirm-stock-adjustment').text('Yes');
+              $('#tbl-stock-adjustment').DataTable().ajax.reload();
+              $('#confirmModal').modal('hide');
+              $.toast({
+                  text: 'Stock Adjustment was successfully deleted.',
+                  position: 'bottom-right',
+                  showHideTransition: 'plain'
+              })
+          }, 1000);
+      }
+  });
+
+});
   
 async function render() {
     var date_from = $('#date_from').val()
