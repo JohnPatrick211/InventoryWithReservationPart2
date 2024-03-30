@@ -61,7 +61,6 @@
                           <th>Category</th>
                           <th>Supplier</th>
                           <th>Quantity adjusted</th>
-                          <th>Action</th>
                           <th>Remarks</th>
                           <th>Date adjusted</th>
                           <th>Archive</th>
