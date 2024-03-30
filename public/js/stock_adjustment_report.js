@@ -96,7 +96,6 @@ $(document).on('click', '.btn-confirm-stock-adjustment', function(){
           setTimeout(function(){
 
               $('.btn-confirm-stock-adjustment').text('Yes');
-              $('.tbl-stock-adjustment').DataTable().ajax.reload();
               $('.tbl-stock-adjustment').DataTable().destroy();
                await fetchStockAdjustment(date_from, date_to);
               $('#confirmModal').modal('hide');
