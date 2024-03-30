@@ -97,6 +97,8 @@ $(document).on('click', '.btn-confirm-stock-adjustment', function(){
 
               $('.btn-confirm-stock-adjustment').text('Yes');
               $('.tbl-stock-adjustment').DataTable().ajax.reload();
+              $('.tbl-stock-adjustment').DataTable().destroy();
+               await fetchStockAdjustment(date_from, date_to);
               $('#confirmModal').modal('hide');
               $.toast({
                   text: 'Stock Adjustment was successfully deleted.',
