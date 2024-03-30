@@ -32,6 +32,7 @@ class StockAdjustment extends Model
         ->leftJoin('category as C', 'C.id', '=', 'P.category_id')
         ->leftJoin('unit as U', 'U.id', '=', 'P.unit_id')
         ->whereBetween(DB::raw('DATE(SA.created_at)'), [$date_from, $date_to])
+        ->where('archive_status','!=',0)
         ->orderBy('date_adjusted','desc')
         ->get();
     }
