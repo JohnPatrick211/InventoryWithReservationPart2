@@ -262,6 +262,7 @@ $(document).on('click','.nav-item', async function(){
   async function render() {
     await fetchSales();
     await fetchReplacement();
+    await fetchStockAdjustment();
   }
 
   render();
