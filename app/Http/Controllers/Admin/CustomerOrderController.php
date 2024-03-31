@@ -8,6 +8,7 @@ use App\Models\Order;
 use App\Models\Sales;
 use Session;
 use DB;
+use Carbon\Carbon;
 
 class CustomerOrderController extends Controller
 {
@@ -173,6 +174,128 @@ class CustomerOrderController extends Controller
         }
 
         return view('admin.reports.preorder');
+    }
+
+    public function previewReport(){
+
+        $data = DB::table('cart AS BR')
+        ->select('BR.*', 'users.name AS studentName', 'product.description AS productName', 'BR.qty AS preorder_qty','BR.created_at AS preorder_date')
+        ->leftJoin('users', 'BR.user_id', '=', 'users.id')
+        ->leftJoin('product', 'BR.product_code', '=', DB::raw('CONCAT(product.prefix, product.id)'))
+        ->get();
+
+        $output = $this->reportLayout($data);
+    
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($output);
+        $pdf->setPaper('A4', 'portrait');
+    
+        return $pdf->stream('preorder_report.pdf');
+    }
+    
+    public function downloadReport(){
+
+        $data = DB::table('cart AS BR')
+        ->select('BR.*', 'users.name AS studentName', 'product.description AS productName', 'BR.qty AS preorder_qty','BR.created_at AS preorder_date')
+        ->leftJoin('users', 'BR.user_id', '=', 'users.id')
+        ->leftJoin('product', 'BR.product_code', '=', DB::raw('CONCAT(product.prefix, product.id)'))
+        ->get();
+
+        $output = $this->reportLayout($data);
+    
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($output);
+        $pdf->setPaper('A4', 'landscape');
+    
+        return $pdf->download('preorder_report_'. date('Y_m_d_h:m:s').'.pdf');
+    }
+
+    public function reportLayout($items){
+
+        $title = Session::get('cms_name');
+        $address = Session::get('cms_address');
+        
+        $output = '
+        <style>
+
+        .ar2{
+            position:absolute; 
+            bottom:-30px;
+            right:0px;
+            
+        }
+
+        .center img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            position:absolute;
+            left:290px;
+            }
+
+
+         </style>
+        <div style="width:100%">
+        <div class="center">
+        <img src="images/'.Session::get('cms_logo').'" style="width:20%; align:middle;">
+        </div>
+        <br> <br> <br> <br> <br>
+        <h1 style="text-align:center;">'.$title.'</h1>
+
+        <div style="text-align:center;">'.$address.'<div>
+        <h2 style="text-align:center;">Pre-Order Report</h2>
+        
+        ';
+
+        $output .='
+        
+        <p>As of : <b> '. date("F j, Y") .'</p> </b>
+    
+        <table width="100%" style="border-collapse:collapse; border: 1px solid;">
+                      
+            <thead>
+                <tr>
+                    
+                    <th style="border: 1px solid;">ID</th>
+                    <th style="border: 1px solid;">Student Name</th>
+                    <th style="border: 1px solid;">Product Name</th>
+                    <th style="border: 1px solid;">Qty</th>
+                    <th style="border: 1px solid;">Amount</th>
+                    <th style="border: 1px solid;">Pre-Order Date</th>
+            </thead>
+            <tbody>
+                ';
+    
+            if($items){
+                foreach ($items as $data) {
+                
+                $output .='
+                <tr>                             
+                    <td style="border: 1px solid; padding:10px;">'. $data->id .'</td>
+                    <td style="border: 1px solid; padding:10px;">'. $data->studentName .'</td>     
+                    <td style="border: 1px solid; padding:10px;">'. $data->productName .'</td>  
+                    <td style="border: 1px solid; padding:10px;">'. $data->preorder_qty .'</td>  
+                    <td style="border: 1px solid; padding:10px;">'. $data->amount .'</td>  
+                    <td style="border: 1px solid; padding:10px;">'. $data->preorder_date .'</td>   
+                </tr>
+                ';
+                
+                } 
+            }
+            else{
+                echo "No data found";
+            }
+        
+          
+            $output .='
+            </tbody>
+        </table>
+        <p class="ar2"> Date Generated: '. Carbon::now()->format('F d, Y').' <br/> Report Prepared By: '. Session::get('Name') .'</p>
+             
+            </div>';
+
+    
+        return $output;
     }
 
 
