@@ -61,6 +61,7 @@
                         <table class="table table-hover" id="sales-archive-table">
                             <thead>
                                 <tr>
+                                <th>ID</th>
                                 <th>Invoice #</th>
                                 <th>Product Code</th>
                                 <th>Name</th>

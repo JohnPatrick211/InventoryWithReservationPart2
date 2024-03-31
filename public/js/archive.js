@@ -15,7 +15,8 @@ async function fetchSales(){
         url: "/archive/sales",
         type:"GET",
         },
-       columns:[       
+       columns:[
+        {data: 'id', name: 'id'},       
         {data: 'invoice_no', name: 'invoice_no'},
         {data: 'product_code', name: 'product_code'},
         {data: 'description', name: 'description'},  
