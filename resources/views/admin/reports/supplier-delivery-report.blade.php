@@ -67,6 +67,7 @@
                                 <th>Quantity Delivered</th>   
                                 <th>Date Recieved</th>
                                 <th>Remarks</th>
+                                <th>Archive</th>
                             </tr>
                         </thead>
                     </table>
@@ -79,6 +80,26 @@
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
+    <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Supplier Delivery</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p class="delete-message"></p>
+          <small class="validation-text text-danger"></small>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-sm btn-outline-dark btn-confirm-supplier-delivery" type="button">Yes</button>
+          <button class="btn btn-sm btn-danger" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 @endsection

@@ -38,7 +38,8 @@ async function fetchSupplierDelivery(supplier_id, date_from, date_to){
             {data: 'qty_order', name: 'qty_order'},
             {data: 'qty_delivered', name: 'qty_delivered'},
             {data: 'date_delivered', name: 'date_delivered'},
-            {data: 'remarks', name: 'remarks',orderable: false}
+            {data: 'remarks', name: 'remarks',orderable: false},
+            {data: 'action', name: 'action'},
         ]
        });
 }
@@ -84,6 +85,41 @@ $(document).on('change','#supplier', async function(){
     var supplier_id = $('#supplier').val();
     window.open("/supplier-delivery/download/"+supplier_id+"/"+date_from+"/"+date_to);
   });
+
+
+  var supplier_id;
+$(document).on('click', '.btn-archive-supplier-delivery', function(){
+  supplier_id = $(this).attr('data-id');
+  $('#confirmModal').modal('show');
+  $('.delete-success').hide();
+  $('.delete-message').html('Are you sure do you want to archive this supplier delivery?');
+}); 
+
+$(document).on('click', '.btn-confirm-supplier-delivery', function(){
+  $.ajax({
+      url: '/reports/supplierdelivery/archive/'+ supplier_id,
+      type: 'POST',
+    
+      beforeSend:function(){
+          $('.btn-confirm-supplier-delivery').text('Please wait...');
+      },
+      
+      success:function(){
+          setTimeout(function(){
+
+              $('.btn-confirm-supplier-delivery').text('Yes');
+              $('.tbl-supplier-delivery-report').DataTable().ajax.reload();
+              $('#confirmModal').modal('hide');
+              $.toast({
+                  text: 'Supplier Delivery was successfully deleted.',
+                  position: 'bottom-right',
+                  showHideTransition: 'plain'
+              })
+          }, 1000);
+      }
+  });
+
+});
 
 async function render() 
 {

@@ -18,10 +18,28 @@ class SupplierDeliveryReportController extends Controller
 
         if(request()->ajax())
         { 
-            return datatables()->of($product)->make(true);
+            return datatables()->of($product)
+            ->addColumn('action', function($data){
+                $button = '<a class="btn btn-sm btn-archive-supplier-delivery" data-id='. $data->id .'">
+                <i class="fas fa-archive"></i></a>';
+                return $button;
+            })
+            ->rawColumns(['action'])
+            ->make(true);
         }
 
         return view('admin.reports.supplier-delivery-report', compact('supplier'));
+    }
+
+    public function archive($id)
+    {
+        SupplierDelivery::where('id', $id)
+        ->update([
+            'archive_status' => 0,
+        ]);
+
+        return redirect()->back()
+            ->with('success', 'Supplier Delivery was archived.');
     }
 
     public function previewReport($supplier_id, $date_from, $date_to){

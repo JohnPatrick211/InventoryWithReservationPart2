@@ -171,6 +171,8 @@ Route::middleware('auth')->group(function () {
       Route::get('/reports/preorder/download', 'Admin\CustomerOrderController@downloadReport');
       //stock
       Route::post('/reports/stockadjustment/archive/{product_id}', 'Admin\StockAdjustmentReportController@archive');
+      //supplier
+      Route::post('/reports/supplierdelivery/archive/{supplier_id}', 'Admin\SupplierDeliveryController@archive');
       
       Route::get('/reports/reservation', 'Admin\ReservationReportController@index');
       Route::get('/read-reservations', 'Admin\ReservationReportController@readReservations');
