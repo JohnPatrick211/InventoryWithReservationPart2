@@ -238,7 +238,7 @@ class ArchiveController extends Controller
    public function restoresales($id){
     Sales::where('id', $id)
         ->update([
-            'archive_status' => 1,
+            'status' => 1,
         ]);
    }
 }
