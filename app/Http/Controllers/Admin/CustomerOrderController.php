@@ -157,11 +157,13 @@ class CustomerOrderController extends Controller
         Session::put('cms_name', $cms->name);
         Session::put('cms_theme_color', $cms->theme_color);
         Session::put('cms_undraw_img', $cms->undraw_img);
+
+        $prefix = 'P-';
         
         $data = DB::table('cart AS BR')
         ->select('BR.*', 'users.name AS studentName', 'product.description AS productName', 'BR.qty AS preorder_qty','BR.created_at AS preorder_date')
         ->leftJoin('users', 'BR.user_id', '=', 'users.id')
-        ->leftJoin('product', 'BR.product_id', '=', 'product.id')
+        ->leftJoin('product', 'BR.product_code', '=', $prefix.'product.id')
         ->get();
 
         if(request()->ajax())
