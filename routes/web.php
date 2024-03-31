@@ -173,6 +173,8 @@ Route::middleware('auth')->group(function () {
       Route::post('/reports/stockadjustment/archive/{product_id}', 'Admin\StockAdjustmentReportController@archive');
       //supplier
       Route::post('/reports/supplierdelivery/archive/{supplier_id}', 'Admin\SupplierDeliveryReportController@archive');
+      Route::get('/archive/supplier-delivery', 'Admin\ArchiveController@readSupplierDelivery');
+
       
       Route::get('/reports/reservation', 'Admin\ReservationReportController@index');
       Route::get('/read-reservations', 'Admin\ReservationReportController@readReservations');
@@ -218,6 +220,8 @@ Route::middleware('auth')->group(function () {
       Route::post('/archive/restore/{id}', 'Admin\ArchiveController@restore');
       Route::post('/archive/replacement-restore/{replacement_id}', 'Admin\ArchiveController@restorereplacement');
       Route::post('/archive/stockadjustment-restore/{stock_id}', 'Admin\ArchiveController@restorestockadjustment');
+      Route::post('/archive/supplierdelivery-restore/{supplier_id}', 'Admin\ArchiveController@restoresupplierdelivery');
+
       Route::get('/archive/sales', 'Admin\ArchiveController@readArchiveSales');
       Route::get('/archive/replacement', 'Admin\ArchiveController@readArchiveReplacement');
       Route::get('/archive/stock-adjustment', 'Admin\ArchiveController@readStockAdjustment');

@@ -100,6 +100,46 @@ async function fetchStockAdjustment(){
        });
 }
 
+async function fetchSupplierDelivery(){
+    $('#tbl-supplier-archive').DataTable({
+    
+        processing: true,
+        serverSide: true,
+        ajax: '/path/to/script',
+        scrollY: 470,
+        scroller: {
+            loadingIndicator: true
+        },
+
+        ajax:{
+            url: "/archive/supplier-delivery",
+            type:"GET",
+        },
+   
+        columnDefs: [{
+          targets: 0,
+          searchable: true,
+          orderable: false,
+          changeLength: false
+       }],
+       order: [[0, 'desc']],
+            
+        columns:[       
+            {data: 'del_no', name: 'del_no'},     
+            {data: 'po_no', name: 'po_no'},
+            {data: 'product_code', name: 'product_code'},
+            {data: 'description', name: 'description'},   
+            {data: 'supplier', name: 'supplier'},   
+            {data: 'unit', name: 'unit'},  
+            {data: 'qty_order', name: 'qty_order'},
+            {data: 'qty_delivered', name: 'qty_delivered'},
+            {data: 'date_delivered', name: 'date_delivered'},
+            {data: 'remarks', name: 'remarks',orderable: false},
+            {data: 'action', name: 'action'},
+        ]
+       });
+}
+
 
 async function fetchProduct(date_from, date_to){
     $('#product-archive-table').DataTable({
@@ -153,6 +193,7 @@ async function fetchUser(date_from, date_to){
 
 var replacement_id;
 var stock_id;
+var supplier_id;
 $(document).on('click', '.btn-restore-replacement', function(){
   replacement_id = $(this).attr('data-id');
   $('#restoreModal-replacement').modal('show');
@@ -165,7 +206,14 @@ $(document).on('click', '.btn-restore-stockadjustment', function(){
     $('#restoreModal-stockadjustment').modal('show');
     $('.delete-success').hide();
     $('.delete-message').html('Are you sure do you want to restore this Stock Adjustment with ID# <b>'+ stock_id +'</b>?');
-  }); 
+  });
+  
+  $(document).on('click', '.btn-restore-supplierdelivery', function(){
+    stock_id = $(this).attr('data-id');
+    $('#restoreModal-supplierdelivery').modal('show');
+    $('.delete-success').hide();
+    $('.delete-message').html('Are you sure do you want to restore this Supplier Delivery with ID# <b>'+ supplier_id +'</b>?');
+  });   
   
 
 $(document).on('click', '.btn-confirm-restore-replacement', function(){
@@ -206,6 +254,29 @@ $(document).on('click', '.btn-confirm-restore-stockadjustment', function(){
                 $('#restoreModal-stockadjustment').modal('hide');
                 $.toast({
                     text: 'Stock Adjustment was successfully restored.',
+                    position: 'bottom-right',
+                    showHideTransition: 'plain'
+                })
+        }
+    });
+
+});
+
+$(document).on('click', '.btn-confirm-restore-supplierdelivery', function(){
+    $.ajax({
+        url: '/archive/supplierdelivery-restore/'+ supplier_id,
+        type: 'POST',  
+        beforeSend:function(){
+            $('.btn-confirm-restore-supplierdelivery').text('Please wait...');
+        },
+        
+        success:async function(){
+  
+                $('.btn-confirm-restore-supplierdelivery').text('Yes');
+                $('#tbl-supplier-archive').DataTable().ajax.reload();
+                $('#restoreModal-supplierdelivery').modal('hide');
+                $.toast({
+                    text: 'Supplier Delivery was successfully restored.',
                     position: 'bottom-right',
                     showHideTransition: 'plain'
                 })
@@ -263,6 +334,7 @@ $(document).on('click','.nav-item', async function(){
     await fetchSales();
     await fetchReplacement();
     await fetchStockAdjustment();
+    await fetchSupplierDelivery();
   }
 
   render();

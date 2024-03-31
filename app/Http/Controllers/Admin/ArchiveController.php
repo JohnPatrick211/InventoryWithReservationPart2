@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\User;
 use App\Models\Replacement;
 use App\Models\StockAdjustment;
+use App\Models\SupplierDelivery;
 use DB;
 
 class ArchiveController extends Controller
@@ -117,6 +118,39 @@ class ArchiveController extends Controller
     }
    }
 
+   public function readSupplierDelivery(){
+    $product = DB::table('supplier_delivery AS SD')
+    ->select('SD.*', 'P.*',
+            'SD.remarks',
+            'SD.id as id',
+            'SD.updated_at as updated',
+            'PO.qty_order',
+            'U.name as unit', 
+            'S.supplier_name as supplier', 
+            'C.name as category',
+            DB::raw('CONCAT(SD.prefix, SD.id) as del_no'),
+            'SD.date_delivered')
+    ->leftJoin('product as P', DB::raw('CONCAT(P.prefix, P.id)'), '=', 'SD.product_code')
+    ->leftJoin('purchase_order AS PO', 'PO.id', '=', 'SD.po_id')
+    ->leftJoin('supplier as S', 'S.id', '=', 'P.supplier_id')
+    ->leftJoin('category as C', 'C.id', '=', 'P.category_id')
+    ->leftJoin('unit as U', 'U.id', '=', 'P.unit_id')
+    ->where('PO.status', 4)
+    ->where('SD.archive_status', '!=', 0)
+    ->get();
+    if(request()->ajax())
+    {
+        return datatables()->of($product)       
+        ->addColumn('action', function($product)
+        {
+            $button = ' <a class="btn btn-sm btn-restore-supplierdelivery" data-id="'. $product->id .'"><i class="fa fa-recycle"></i></a>';
+            return $button;
+        })
+        ->rawColumns(['action'])
+        ->make(true);       
+    }
+   }
+
    public function readArchiveUsers()
    {
         $user = User::whereBetween(DB::raw('DATE(users.updated_at)'), [request()->date_from, request()->date_to])
@@ -192,4 +226,11 @@ class ArchiveController extends Controller
                 'archive_status' => 1,
             ]);
    }
+
+   public function restoresupplierdelivery($id){
+    SupplierDelivery::where('id', $id)
+        ->update([
+            'archive_status' => 1,
+        ]);
+}
 }
