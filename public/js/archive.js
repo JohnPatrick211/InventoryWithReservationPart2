@@ -212,10 +212,10 @@ $(document).on('click', '.btn-restore-stockadjustment', function(){
   });
   
   $(document).on('click', '.btn-restore-supplierdelivery', function(){
-    stock_id = $(this).attr('data-id');
+    supplier_id = $(this).attr('data-id');
     $('#restoreModal-supplierdelivery').modal('show');
     $('.delete-success').hide();
-    $('.delete-message').html('Are you sure do you want to restore this Supplier Delivery with ID# <b>'+ supplier_id +'</b>?');
+    $('.delete-message').html('Are you sure do you want to restore this Supplier Delivery with ID# D-<b>'+ supplier_id +'</b>?');
   });   
   
 
