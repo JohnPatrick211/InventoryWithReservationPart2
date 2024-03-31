@@ -59,7 +59,7 @@ class ArchiveController extends Controller
                 $button = ' <a class="btn btn-sm btn-restore" data-id="'. $product->id .'"><i class="fa fa-recycle"></i></a>';
                 return $button;
             })
-            //->rawColumns(['action', 'updated_at'])
+            ->rawColumns(['action'])
             ->make(true);       
         }
    }
