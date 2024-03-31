@@ -136,7 +136,7 @@ class ArchiveController extends Controller
     ->leftJoin('category as C', 'C.id', '=', 'P.category_id')
     ->leftJoin('unit as U', 'U.id', '=', 'P.unit_id')
     ->where('PO.status', 4)
-    ->where('SD.archive_status', '!=', 0)
+    ->where('SD.archive_status', 0)
     ->get();
     if(request()->ajax())
     {
