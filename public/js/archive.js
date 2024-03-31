@@ -203,7 +203,7 @@ var sales_id;
 
 $(document).on('click', '.btn-restore-sales', function(){
     sales_id = $(this).attr('data-id');
-    $('#restoreModal-replacement').modal('show');
+    $('#restoreModal-sales').modal('show');
     $('.delete-success').hide();
     $('.delete-message').html('Are you sure do you want to restore this Sales Report with Invoice ID# <b>'+ sales_id +'</b>?');
   });
