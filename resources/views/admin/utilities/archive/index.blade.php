@@ -131,12 +131,15 @@
                         <table class="table table-hover" id="tbl-stock-report">
                             <thead>
                                 <tr>
-                                    <th>Stock Order #</th>
-                                    <th>Student Name</th>
-                                    <th>Email</th>
-                                    <th>Phone number</th>
-                                    <th>Date Order</th>
-                                    <th>View</th>
+                                <th>Product Code</th>
+                                <th>Name</th>
+                                <th>Unit</th>
+                                <th>Category</th>
+                                <th>Supplier</th>
+                                <th>Quantity adjusted</th>
+                                <th>Remarks</th>
+                                <th>Date adjusted</th>
+                                <th>Restore</th>
                                 </tr>
                             </thead>
                         </table>
@@ -258,6 +261,26 @@
         </div>
         <div class="modal-footer">
           <button class="btn btn-sm btn-outline-dark btn-confirm-restore-replacement" type="button">Yes</button>
+          <button class="btn btn-sm btn-danger" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="restoreModal-stockadjustment" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Confirmation</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p class="delete-message"></p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-sm btn-outline-dark btn-confirm-restore-stockadjustment" type="button">Yes</button>
           <button class="btn btn-sm btn-danger" data-dismiss="modal">Cancel</button>
         </div>
       </div>

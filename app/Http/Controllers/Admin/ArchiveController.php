@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\User;
 use App\Models\Replacement;
+use App\Models\StockAdjustment;
 use DB;
 
 class ArchiveController extends Controller
@@ -89,6 +90,33 @@ class ArchiveController extends Controller
         }
    }
 
+   public function readStockAdjustment(){
+    $product = DB::table('stock_adjustment AS SA')
+    ->select('SA.*', 'P.*','SA.id as ID',
+            'U.name as unit', 
+            'S.supplier_name as supplier', 
+            'C.name as category',
+            DB::raw('SA.created_at as date_adjusted'))
+    ->leftJoin('product as P', DB::raw('CONCAT(P.prefix, P.id)'), '=', 'SA.product_code')
+    ->leftJoin('supplier as S', 'S.id', '=', 'P.supplier_id')
+    ->leftJoin('category as C', 'C.id', '=', 'P.category_id')
+    ->leftJoin('unit as U', 'U.id', '=', 'P.unit_id')
+    ->where('archive_status',0)
+    ->orderBy('date_adjusted','desc')
+    ->get();
+    if(request()->ajax())
+    {
+        return datatables()->of($product)       
+        ->addColumn('action', function($product)
+        {
+            $button = ' <a class="btn btn-sm btn-restore-stockadjustment" data-id="'. $product->ID .'"><i class="fa fa-recycle"></i></a>';
+            return $button;
+        })
+        ->rawColumns(['action'])
+        ->make(true);       
+    }
+   }
+
    public function readArchiveUsers()
    {
         $user = User::whereBetween(DB::raw('DATE(users.updated_at)'), [request()->date_from, request()->date_to])
@@ -157,5 +185,11 @@ class ArchiveController extends Controller
                 'archive_status' => 1,
             ]);
        
+   }
+   public function restorestockadjustment($id){
+        StockAdjustment::where('id', $id)
+            ->update([
+                'archive_status' => 1,
+            ]);
    }
 }

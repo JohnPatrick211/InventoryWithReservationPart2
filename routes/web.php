@@ -210,8 +210,10 @@ Route::middleware('auth')->group(function () {
       Route::get('/archive/users', 'Admin\ArchiveController@readArchiveUsers');
       Route::post('/archive/restore/{id}', 'Admin\ArchiveController@restore');
       Route::post('/archive/replacement-restore/{replacement_id}', 'Admin\ArchiveController@restorereplacement');
+      Route::post('/archive/stockadjustment-restore/{stock_id}', 'Admin\ArchiveController@restorestockadjustment');
       Route::get('/archive/sales', 'Admin\ArchiveController@readArchiveSales');
       Route::get('/archive/replacement', 'Admin\ArchiveController@readArchiveReplacement');
+      Route::get('/archive/stock-adjustment', 'Admin\ArchiveController@readStockAdjustment');
       Route::post('usermaintenance/export', 'Admin\UserController@export');
       Route::post('usermaintenance/import', 'Admin\UserController@import');
 

@@ -60,6 +60,46 @@ async function fetchReplacement(){
       });
 }
 
+async function fetchStockAdjustment(){
+    $('#tbl-stock-report').DataTable({
+    
+        processing: true,
+        serverSide: true,
+        scrollY: true,
+        scrollCollapse: true,
+        stateSave: false,
+        ajax: '/path/to/script',
+        scrollY: 470,
+        scroller: {
+            loadingIndicator: true
+        },
+
+        ajax:{
+            url: "/archive/stock-adjustment",
+            type:"GET",
+        },
+   
+        columnDefs: [{
+          targets: 0,
+          searchable: true,
+          orderable: false,
+          changeLength: false
+       }],
+       order: [[8, 'desc']],
+        columns:[       
+            {data: 'product_code', name: 'product_code'},
+            {data: 'description', name: 'description'}, 
+            {data: 'unit', name: 'unit'},      
+            {data: 'category', name: 'category'},  
+            {data: 'supplier', name: 'supplier'},  
+            {data: 'qty_adjusted', name: 'qty_adjusted'},
+            {data: 'remarks', name: 'remarks',orderable: false},
+            {data: 'date_adjusted', name: 'date_adjusted'},
+            {data: 'action', name: 'action'},
+        ]
+       });
+}
+
 
 async function fetchProduct(date_from, date_to){
     $('#product-archive-table').DataTable({
@@ -112,12 +152,21 @@ async function fetchUser(date_from, date_to){
 }
 
 var replacement_id;
+var stock_id;
 $(document).on('click', '.btn-restore-replacement', function(){
   replacement_id = $(this).attr('data-id');
   $('#restoreModal-replacement').modal('show');
   $('.delete-success').hide();
   $('.delete-message').html('Are you sure do you want to restore this Replacement Request with ID# <b>'+ replacement_id +'</b>?');
-}); 
+});
+
+$(document).on('click', '.btn-restore-stockadjustment', function(){
+    stock_id = $(this).attr('data-id');
+    $('#restoreModal-stock').modal('show');
+    $('.delete-success').hide();
+    $('.delete-message').html('Are you sure do you want to restore this Stock Adjustment with ID# <b>'+ stock_id +'</b>?');
+  }); 
+  
 
 $(document).on('click', '.btn-confirm-restore-replacement', function(){
     $.ajax({
@@ -134,6 +183,29 @@ $(document).on('click', '.btn-confirm-restore-replacement', function(){
                 $('#restoreModal-replacement').modal('hide');
                 $.toast({
                     text: 'Replacement Request was successfully restored.',
+                    position: 'bottom-right',
+                    showHideTransition: 'plain'
+                })
+        }
+    });
+
+});
+
+$(document).on('click', '.btn-confirm-restore-stockadjustment', function(){
+    $.ajax({
+        url: '/archive/stockadjustment-restore/'+ stock_id,
+        type: 'POST',  
+        beforeSend:function(){
+            $('.btn-confirm-restore-stockadjustment').text('Please wait...');
+        },
+        
+        success:async function(){
+  
+                $('.btn-confirm-restore-stockadjustment').text('Yes');
+                $('#tbl-stock-report').DataTable().ajax.reload();
+                $('#restoreModal-stockadjustment').modal('hide');
+                $.toast({
+                    text: 'Stock Adjustment was successfully restored.',
                     position: 'bottom-right',
                     showHideTransition: 'plain'
                 })
