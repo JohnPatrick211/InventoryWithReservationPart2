@@ -162,7 +162,7 @@ $(document).on('click', '.btn-restore-replacement', function(){
 
 $(document).on('click', '.btn-restore-stockadjustment', function(){
     stock_id = $(this).attr('data-id');
-    $('#restoreModal-stock').modal('show');
+    $('#restoreModal-stockadjustment').modal('show');
     $('.delete-success').hide();
     $('.delete-message').html('Are you sure do you want to restore this Stock Adjustment with ID# <b>'+ stock_id +'</b>?');
   }); 
