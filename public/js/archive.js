@@ -104,7 +104,10 @@ async function fetchSupplierDelivery(){
     $('#tbl-supplier-archive').DataTable({
     
         processing: true,
-        serverSide: true,
+       serverSide: true,
+       scrollY: true,
+       scrollCollapse: true,
+       stateSave: false,
         ajax: '/path/to/script',
         scrollY: 470,
         scroller: {
