@@ -54,6 +54,8 @@
 
   <script src="{{asset('js/adminreplacementreport.js')}}"></script>
 
+  <script src="{{asset('js/preorder.js')}}"></script>
+
 
 
 
