@@ -26,6 +26,7 @@ async function fetchSales(){
         {data: 'payment_method', name: 'payment_method'},
         {data: 'order_from', name: 'order_from'},
         {data: 'updated_at', name: 'updated_at'},
+        {data: 'action', name: 'action'},
        ]
       });
 }
@@ -197,6 +198,15 @@ async function fetchUser(date_from, date_to){
 var replacement_id;
 var stock_id;
 var supplier_id;
+var sales_id;
+
+$(document).on('click', '.btn-restore-sales', function(){
+    sales_id = $(this).attr('data-id');
+    $('#restoreModal-replacement').modal('show');
+    $('.delete-success').hide();
+    $('.delete-message').html('Are you sure do you want to restore this Sales Report with Invoice ID# <b>'+ sales_id +'</b>?');
+  });
+
 $(document).on('click', '.btn-restore-replacement', function(){
   replacement_id = $(this).attr('data-id');
   $('#restoreModal-replacement').modal('show');
@@ -215,9 +225,32 @@ $(document).on('click', '.btn-restore-stockadjustment', function(){
     supplier_id = $(this).attr('data-id');
     $('#restoreModal-supplierdelivery').modal('show');
     $('.delete-success').hide();
-    $('.delete-message').html('Are you sure do you want to restore this Supplier Delivery with ID# D-<b>'+ supplier_id +'</b>?');
+    $('.delete-message').html('Are you sure do you want to restore this Supplier Delivery with ID# D-000<b>'+ supplier_id +'</b>?');
   });   
   
+
+  $(document).on('click', '.btn-confirm-restore-sales', function(){
+    $.ajax({
+        url: '/archive/sales-restore/'+ sales_id,
+        type: 'POST',  
+        beforeSend:function(){
+            $('.btn-confirm-restore-sales').text('Please wait...');
+        },
+        
+        success:async function(){
+  
+                $('.btn-confirm-restore-sales').text('Yes');
+                $('#sales-archive-table').DataTable().ajax.reload();
+                $('#restoreModal-sales').modal('hide');
+                $.toast({
+                    text: 'Sales Report was successfully restored.',
+                    position: 'bottom-right',
+                    showHideTransition: 'plain'
+                })
+        }
+    });
+
+});
 
 $(document).on('click', '.btn-confirm-restore-replacement', function(){
     $.ajax({

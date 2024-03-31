@@ -71,6 +71,7 @@
                                 <th>Payment method</th>
                                 <th>Order from</th>
                                 <th>Date time archived</th>
+                                <th>Restore</th>
                                 </tr>
                             </thead>
                         </table>
@@ -168,7 +169,25 @@
     </section>
     <!-- /.content -->
 
-    
+    <div class="modal fade" id="restoreModal-sales" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Confirmation</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p class="delete-message"></p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-sm btn-outline-dark btn-confirm-restore-sales" type="button">Yes</button>
+          <button class="btn btn-sm btn-danger" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div> 
 
   <div class="modal fade" id="restoreModal-replacement" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">

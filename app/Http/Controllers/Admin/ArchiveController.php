@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\User;
 use App\Models\Replacement;
 use App\Models\StockAdjustment;
+use App\Models\Sales;
 use App\Models\SupplierDelivery;
 use DB;
 
@@ -232,5 +233,12 @@ class ArchiveController extends Controller
         ->update([
             'archive_status' => 1,
         ]);
-}
+   }
+
+   public function restoresales($id){
+    Sales::where('id', $id)
+        ->update([
+            'archive_status' => 1,
+        ]);
+   }
 }
