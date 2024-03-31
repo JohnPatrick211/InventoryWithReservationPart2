@@ -165,10 +165,10 @@ Route::middleware('auth')->group(function () {
       Route::get('/reports/replacement/preview', 'ReplacmentController@previewReport');
       Route::get('/reports/replacement/download', 'ReplacmentController@downloadReport');
       //preorder report
-      Route::get('reports/preorder', 'Admin/CustomerOrderController@indexreport');
-      Route::get('/reports/preorder-report', 'Admin/CustomerOrderController@indexreport');
-      Route::get('/reports/preorder/preview', 'Admin/CustomerOrderController@previewReport');
-      Route::get('/reports/preorder/download', 'Admin/CustomerOrderController@downloadReport');
+      Route::get('reports/preorder', 'Admin\CustomerOrderController@indexreport');
+      Route::get('/reports/preorder-report', 'Admin\CustomerOrderController@indexreport');
+      Route::get('/reports/preorder/preview', 'Admin\CustomerOrderController@previewReport');
+      Route::get('/reports/preorder/download', 'Admin\CustomerOrderController@downloadReport');
       //stock
       Route::post('/reports/stockadjustment/archive/{product_id}', 'Admin\StockAdjustmentReportController@archive');
       
