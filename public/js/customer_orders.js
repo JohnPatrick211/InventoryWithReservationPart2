@@ -234,7 +234,7 @@ async function on_Click() {
             btn_text = 'Ready To Pickup';
             status = 3;
         }
-        else if (active_pill == 'shipped') {
+        else if (active_pill == 'Ready To Pickup') {
             btn_text = 'Completed';
             status = 4;
         }
