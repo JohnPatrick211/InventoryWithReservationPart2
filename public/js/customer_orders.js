@@ -281,7 +281,7 @@ async function on_Click() {
             html += '</div>';
         $('#show-reservation-modal').modal('show');
         $('#show-reservation-modal').find('#user-info').html(html);
-        $('#show-orders-modal').find('.modal-footer').html(btn);
+        $('#show-reservation-modal').find('.modal-footer').html(btn);
 
         console.log(order_no);
 
