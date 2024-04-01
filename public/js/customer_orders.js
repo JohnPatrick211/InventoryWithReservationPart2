@@ -325,6 +325,7 @@ async function on_Click() {
             success:function(){
                 $('#tbl-'+active_pill+'-order').DataTable().ajax.reload();
                 $('#show-orders-modal').modal('hide');
+                $('#show-reservation-modal').modal('hide');
                 $.toast({
                     text: 'Order was successfully changed status.',
                     position: 'bottom-right',
