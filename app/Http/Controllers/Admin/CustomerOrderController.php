@@ -21,6 +21,7 @@ class CustomerOrderController extends Controller
     public function readOrders(Order $o)
     {
         $status = 5;
+        $reserve = 0;
         if (request()->object == "pending") {
             $status = 1;
         }else if (request()->object == "prepared" ) {
