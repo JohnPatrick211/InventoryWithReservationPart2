@@ -63,6 +63,13 @@ class CheckoutController extends Controller
                 if($item->pre_order != 1){
                     $this->updateInventory($item->product_code, $item->qty);
                 }
+                else{
+                    DB::table('orders')
+                    ->where('order_no', $order_no)
+                    ->update([
+                        'status' => 6
+                    ]);
+                }
                 
             }
             Cart::truncate();
@@ -154,6 +161,13 @@ class CheckoutController extends Controller
 
                 if($item->pre_order != 1){
                     $this->updateInventory($item->product_code, $item->qty);
+                }
+                else{
+                    DB::table('orders')
+                    ->where('order_no', $order_no)
+                    ->update([
+                        'status' => 6
+                    ]);
                 }
                
             }
