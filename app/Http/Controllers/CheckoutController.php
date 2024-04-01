@@ -108,10 +108,9 @@ class CheckoutController extends Controller
                 else{
                     DB::table('orders')
                     ->where('order_no', $order_no)
-                    ->where('pre_order', $item->pre_order)
                     ->update([
                         'status' => 6
-            ]);
+                    ]);
                 }
                 
             }
