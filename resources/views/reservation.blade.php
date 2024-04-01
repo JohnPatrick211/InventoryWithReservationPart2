@@ -90,9 +90,6 @@ $page_title =  Session::get('cms_name') . "| My Reservation";
                                   <li class="step {{$pending_active_class}}">
                                     <div><i class="fas fa-cog"></i></div> Place Reservation
                                   </li>
-                                  <li class="step {{$pending_active_class}}">
-                                      <div><i class="fas fa-cog"></i></div> Pending
-                                  </li>
                                   <li class="step {{$prepared_active_class}}">
                                       <div><i class="fas fa-cube"></i></div> Prepared
                                   </li>
