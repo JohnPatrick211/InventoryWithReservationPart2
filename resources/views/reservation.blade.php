@@ -38,6 +38,7 @@ $page_title =  Session::get('cms_name') . "| My Reservation";
                               $prepared_active_class = '';
                               $pickup_active_class = '';
                               $delivered_active_class = '';
+                              $completed_active_class = '';
 
                               if ($item->status == 5) {
                                 $status = "Pending";
@@ -49,12 +50,14 @@ $page_title =  Session::get('cms_name') . "| My Reservation";
                               if ($item->status == 3) {
                                 $prepared_active_class = 'active';
                                 $pickup_active_class = 'active';
+                                $delivered_active_class = 'active';
                                 $status = "Ready to Pickup";
                               }
                               else if ($item->status == 4) {
                                 $prepared_active_class = 'active';
                                 $pickup_active_class = 'active';
                                 $delivered_active_class = 'active';
+                                $completed_active_class = 'active';
                                 $status = "Completed";
                               }
                               else if ($item->status == 0) {
@@ -95,7 +98,7 @@ $page_title =  Session::get('cms_name') . "| My Reservation";
                                   <li class="step {{$delivered_active_class}}">
                                     <div><i class="fas fa-check-circle"></i></div> Ready to Pickup
                                 </li>
-                                <li class="step {{$delivered_active_class}}">
+                                <li class="step {{$completed_active_class}}">
                                     <div><i class="fas fa-check-circle"></i></div> Completed
                                 </li>
                                 
