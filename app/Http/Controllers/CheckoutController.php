@@ -54,7 +54,7 @@ class CheckoutController extends Controller
                     'order_no' => $order_no,
                     'qty' => $item->qty,
                     'pre_order' => $item->pre_order,
-                    'status' => 6,
+                    'status' => 1,
                     'amount' => $item->amount,
                     'payment_method' => 'Card'
                 ]);
@@ -97,7 +97,7 @@ class CheckoutController extends Controller
                     'qty' => $item->qty,
                     'amount' => $item->amount,
                     'pre_order' => $item->pre_order,
-                    'status' => 6,
+                    'status' => 1,
                     'payment_method' => 'GCash'
                 ]);
                 $total = $total + $item->amount;
@@ -140,7 +140,7 @@ class CheckoutController extends Controller
                     'qty' => $item->qty,
                     'amount' => $item->amount,
                     'pre_order' => $item->pre_order,
-                    'status' => 6,
+                    'status' => 1,
                     'payment_method' => 'PayMaya'
                 ]);
                 $total = $total + $item->amount;
