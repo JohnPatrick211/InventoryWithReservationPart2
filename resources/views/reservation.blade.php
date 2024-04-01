@@ -49,7 +49,6 @@ $page_title =  Session::get('cms_name') . "| My Reservation";
                               if ($item->status == 3) {
                                 $prepared_active_class = 'active';
                                 $pickup_active_class = 'active';
-                                $delivered_active_class = 'active';
                                 $status = "Ready to Pickup";
                               }
                               else if ($item->status == 4) {
