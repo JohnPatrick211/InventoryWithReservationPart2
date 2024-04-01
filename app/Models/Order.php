@@ -250,7 +250,7 @@ class Order extends Model
             ->leftJoin('users', 'users.id', '=', 'O.user_id')
             ->leftJoin('user_address as UA', 'UA.user_id', '=', 'O.user_id')
             ->where('O.status', $status)
-            ->where('O.reservation', 1)
+            ->orWhere('O.reservation', 1)
             ->orderBy('O.id', 'desc')
             ->get();
 
