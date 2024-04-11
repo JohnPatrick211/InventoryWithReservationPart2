@@ -82,9 +82,14 @@ class SupplierDeliveryReportController extends Controller
         $address = Session::get('cms_address');
         
         $output = '
+        
         <div style="width:100%">
         <div class="center">
-        <img src="images/'.Session::get('cms_logo').'" style="width:5%; align:middle;">
+        <img src="images/'.Session::get('cms_logo').'" style="width:15%; align:middle;  display: block;
+        margin-left: auto;
+        margin-right: auto;
+        position:absolute;
+        left:470px;">
         </div>
         <br> 
         <h1 style="text-align:center;">'.$title.'</h1>
