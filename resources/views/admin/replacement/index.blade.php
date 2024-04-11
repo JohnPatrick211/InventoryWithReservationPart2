@@ -158,6 +158,11 @@
                       <textarea class="form-control" name="reason" id="reason" rows="3" readonly></textarea>
                     </div>
 
+                    <div class="col-sm-12 col-md-6 col-lg-12 mt-2">
+                      <label class="col-form-label">Reason for Product Replacement</label>
+                      <textarea class="form-control" name="remarks" id="remarks" rows="3"></textarea>
+                    </div>
+
                     <div class="col-sm-12 mt-2">
                       <label class="col-form-label">Image Receipt</label>
                       <img type="text" class="img-thumbnail" width="100%" name="receipt" id="receipt">
