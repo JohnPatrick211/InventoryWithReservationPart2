@@ -177,7 +177,7 @@ class CustomerOrderController extends Controller
 
         $prefix = 'P-';
         
-        $data = DB::table('cart AS BR')
+        $data = DB::table('orders AS BR')
         ->select('BR.*', 'users.name AS studentName', 'product.description AS productName', 'BR.qty AS preorder_qty','BR.created_at AS preorder_date')
         ->leftJoin('users', 'BR.user_id', '=', 'users.id')
         ->leftJoin('product', 'BR.product_code', '=', DB::raw('CONCAT(product.prefix, product.id)'))
