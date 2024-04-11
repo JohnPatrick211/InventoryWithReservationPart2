@@ -89,7 +89,11 @@ class CustomerOrderController extends Controller
         ->get();
         //dd($stock[0]->qty);
         if($stock[0]->qty == 0){
-            dd('yes');
+            return response()->json([
+                'status' => 'error_qty',
+                'message' => 'Please Check the Qty of the Product',
+                'order_no' => $order_no,
+            ]);
             
         }
         else{
