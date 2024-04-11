@@ -88,7 +88,7 @@ class CustomerOrderController extends Controller
         ->where('id', $substring_id)
         ->get();
         //dd($stock[0]->qty);
-        if($stock[0]->qty = 0){
+        if($stock[0]->qty == 0){
             dd('yes');
             
         }
