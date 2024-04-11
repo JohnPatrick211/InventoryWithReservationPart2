@@ -3,7 +3,7 @@ $.ajaxSetup({
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
 });
-var contactno = $("#contactno").val();
+let contactno = $("#contactno").val();
 if(contactno.length == 11 || contactno.length == 0){
     console.log("yes")
     document.getElementById("btn-add-user").disabled = false
