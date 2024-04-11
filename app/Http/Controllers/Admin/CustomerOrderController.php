@@ -87,35 +87,37 @@ class CustomerOrderController extends Controller
        $stock = DB::table('product')
         ->where('id', $substring_id)
         ->get();
-        dd($stock[0]->qty);
-        // if(){
+        //dd($stock[0]->qty);
+        if($stock[0]->qty = 0){
+            dd('yes');
             
-        // }
-        // else{
-        //     if (request()->status == 2) { 
-        //         $orders = $this->readOneOrder($order_no);
-        //         $this->recordSale($orders);
+        }
+        else{
+            dd('no');
+            if (request()->status == 2) { 
+                $orders = $this->readOneOrder($order_no);
+                $this->recordSale($orders);
     
-        //         $delivery_date = date('Y-m-d');
+                $delivery_date = date('Y-m-d');
                 
-        //         if (request()->delivery_date) {
-        //             $delivery_date = request()->delivery_date;
-        //         }
-        //         Order::where('order_no', $order_no)->update([
-        //             'delivery_date' => $delivery_date
-        //         ]);
-        //     }
+                if (request()->delivery_date) {
+                    $delivery_date = request()->delivery_date;
+                }
+                Order::where('order_no', $order_no)->update([
+                    'delivery_date' => $delivery_date
+                ]);
+            }
     
-        //     Order::where('order_no', $order_no)->update([
-        //         'status' => request()->status
-        //     ]);
+            Order::where('order_no', $order_no)->update([
+                'status' => request()->status
+            ]);
     
-        //     return response()->json([
-        //         'status' => 'success',
-        //         'message' => 'order changed status success',
-        //         'order_no' => $order_no,
-        //     ]);
-        // }
+            return response()->json([
+                'status' => 'success',
+                'message' => 'order changed status success',
+                'order_no' => $order_no,
+            ]);
+        }
     }
 
     public function recordSale($orders)
