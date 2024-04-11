@@ -159,7 +159,7 @@
                     </div>
 
                     <div class="col-sm-12 col-md-6 col-lg-12 mt-2">
-                      <label class="col-form-label">Reason for Product Replacement</label>
+                      <label class="col-form-label">Remarks</label>
                       <textarea class="form-control" name="remarks" id="remarks" rows="3"></textarea>
                     </div>
 

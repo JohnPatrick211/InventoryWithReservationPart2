@@ -67,7 +67,8 @@ class CheckoutController extends Controller
                     DB::table('orders')
                     ->where('order_no', $order_no)
                     ->update([
-                        'status' => 6
+                        'status' => 6,
+                        'pre_order' => 1
                     ]);
                 }
                 
@@ -116,7 +117,8 @@ class CheckoutController extends Controller
                     DB::table('orders')
                     ->where('order_no', $order_no)
                     ->update([
-                        'status' => 6
+                        'status' => 6,
+                        'pre_order' => 1
                     ]);
                 }
                 
@@ -166,7 +168,8 @@ class CheckoutController extends Controller
                     DB::table('orders')
                     ->where('order_no', $order_no)
                     ->update([
-                        'status' => 6
+                        'status' => 6,
+                        'pre_order' => 1
                     ]);
                 }
                
