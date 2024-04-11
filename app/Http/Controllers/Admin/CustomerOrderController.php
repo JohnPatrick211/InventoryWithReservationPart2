@@ -82,30 +82,36 @@ class CustomerOrderController extends Controller
     }
 
     public function orderChangeStatus($order_no) {
-        
-        if (request()->status == 2) { 
-            $orders = $this->readOneOrder($order_no);
-            $this->recordSale($orders);
-
-            $delivery_date = date('Y-m-d');
+        $orders = $this->readOneOrder($order_no);
+        dd($orders);
+        // if(){
             
-            if (request()->delivery_date) {
-                $delivery_date = request()->delivery_date;
-            }
-            Order::where('order_no', $order_no)->update([
-                'delivery_date' => $delivery_date
-            ]);
-        }
-
-        Order::where('order_no', $order_no)->update([
-            'status' => request()->status
-        ]);
-
-        return response()->json([
-            'status' => 'success',
-            'message' => 'order changed status success',
-            'order_no' => $order_no,
-        ]);
+        // }
+        // else{
+        //     if (request()->status == 2) { 
+        //         $orders = $this->readOneOrder($order_no);
+        //         $this->recordSale($orders);
+    
+        //         $delivery_date = date('Y-m-d');
+                
+        //         if (request()->delivery_date) {
+        //             $delivery_date = request()->delivery_date;
+        //         }
+        //         Order::where('order_no', $order_no)->update([
+        //             'delivery_date' => $delivery_date
+        //         ]);
+        //     }
+    
+        //     Order::where('order_no', $order_no)->update([
+        //         'status' => request()->status
+        //     ]);
+    
+        //     return response()->json([
+        //         'status' => 'success',
+        //         'message' => 'order changed status success',
+        //         'order_no' => $order_no,
+        //     ]);
+        // }
     }
 
     public function recordSale($orders)
