@@ -323,19 +323,29 @@ async function on_Click() {
                 btn.text('Please wait...');
             },
             success:function(data){
-                console.log(data);
+                // console.log(data);
                 if(data.status == 'error_qty'){
                     console.log(data);
+                    setTimeout(async function(){
+                        swal.fire({
+                            title: "Error",
+                            icon: 'error',
+                            text: data.message,
+                            timer: 4000,
+                          });
+                    },300);
                 }
-                // $('#tbl-'+active_pill+'-order').DataTable().ajax.reload();
-                // $('#show-orders-modal').modal('hide');
-                // $('#show-reservation-modal').modal('hide');
-                // $.toast({
-                //     text: 'Order was successfully changed status.',
-                //     position: 'bottom-right',
-                //     showHideTransition: 'plain',
-                //     hideAfter: 4500, 
-                // })
+                else{
+                    // $('#tbl-'+active_pill+'-order').DataTable().ajax.reload();
+                    // $('#show-orders-modal').modal('hide');
+                    // $('#show-reservation-modal').modal('hide');
+                    // $.toast({
+                    //     text: 'Order was successfully changed status.',
+                    //     position: 'bottom-right',
+                    //     showHideTransition: 'plain',
+                    //     hideAfter: 4500, 
+                    // })
+                }
             }
         });
       });
