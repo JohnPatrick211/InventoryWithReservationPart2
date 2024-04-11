@@ -65,6 +65,7 @@ $page_title =  Session::get('cms_name') . "| My Replacement";
                                               <th class="text-left">Qty</th>
                                               <th class="text-left">Replacement Reason</th>
                                               <th class="text-left">Status</th>
+                                              <th class="text-left">Remarks</th>
                                               <th class="text-left">Action</th>
                                           </tr>
                                         </thead>

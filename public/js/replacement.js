@@ -70,7 +70,21 @@ async function fetchReplacement(){
         }
           
       }
-   }],
+   },{
+    targets: 5,
+    orderable: true,
+    changeLength: true,
+    className: 'dt-body-center',
+    render: function (data, type, full, meta){
+      if(full.remarks === null){
+        return 'No Remarks';
+      }
+      else{
+        return full.remarks;
+      }
+        
+    }
+ }],
     order: [[0, 'desc']],
          
      columns:[       
@@ -79,6 +93,7 @@ async function fetchReplacement(){
           {data: 'qty', name: 'qty'},
           {data: 'reason', name: 'reason'},
           {data: 'status', name: 'status'},
+          {data: 'remarks', name: 'remarks'},
           {data: 'action', name: 'action',orderable: false},  
      ]
     });
