@@ -3,16 +3,6 @@ $.ajaxSetup({
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
 });
-let contactno2 = $("#contactno").val();
-let contactno = contactno2.toString().length;
-if(contactno == 11 || contactno == 0){
-    console.log("yes")
-    document.getElementById("btn-add-user").disabled = false
-}
-else{
-    console.log("no")
-    document.getElementById("btn-add-user").disabled = true
-}
 
 var user_id;
 $(document).on('click', '.btn-archive-user', function(){
