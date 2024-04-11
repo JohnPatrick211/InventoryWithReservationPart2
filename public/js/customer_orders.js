@@ -320,7 +320,7 @@ async function on_Click() {
                 delivery_date : delivery_date
             },
             beforeSend:function(){
-                btn.text('Please wait...');
+               
             },
             success:function(data){
                 // console.log(data);
