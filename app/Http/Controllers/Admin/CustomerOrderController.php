@@ -83,7 +83,7 @@ class CustomerOrderController extends Controller
 
     public function orderChangeStatus($order_no) {
         $orders = $this->readOneOrder($order_no);
-        dd($orders->product_code);
+        dd($orders);
         // if(){
             
         // }
