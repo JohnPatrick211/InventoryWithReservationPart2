@@ -181,6 +181,7 @@ class CustomerOrderController extends Controller
         ->select('BR.*', 'users.name AS studentName', 'product.description AS productName', 'BR.qty AS preorder_qty','BR.created_at AS preorder_date')
         ->leftJoin('users', 'BR.user_id', '=', 'users.id')
         ->leftJoin('product', 'BR.product_code', '=', DB::raw('CONCAT(product.prefix, product.id)'))
+        ->where('BR.preorder',1)
         ->get();
 
         if(request()->ajax())
@@ -194,10 +195,11 @@ class CustomerOrderController extends Controller
 
     public function previewReport(){
 
-        $data = DB::table('cart AS BR')
+        $data = DB::table('orders AS BR')
         ->select('BR.*', 'users.name AS studentName', 'product.description AS productName', 'BR.qty AS preorder_qty','BR.created_at AS preorder_date')
         ->leftJoin('users', 'BR.user_id', '=', 'users.id')
         ->leftJoin('product', 'BR.product_code', '=', DB::raw('CONCAT(product.prefix, product.id)'))
+        ->where('BR.preorder',1)
         ->get();
 
         $output = $this->reportLayout($data);
