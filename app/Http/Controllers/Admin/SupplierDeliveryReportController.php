@@ -91,7 +91,7 @@ class SupplierDeliveryReportController extends Controller
         position:absolute;
         left:470px;">
         </div>
-        <br> 
+        <br> <br> <br> <br> <br> <br>
         <h1 style="text-align:center;">'.$title.'</h1>
         <div style="text-align:center;">'.$address.'<div>
         <h2 style="text-align:center;">Supplier Delivery Report</h2>
