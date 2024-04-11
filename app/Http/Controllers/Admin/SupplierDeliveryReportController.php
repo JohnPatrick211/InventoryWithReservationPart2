@@ -89,7 +89,7 @@ class SupplierDeliveryReportController extends Controller
         margin-left: auto;
         margin-right: auto;
         position:absolute;
-        left:470px;">
+        left:455px;">
         </div>
         <br> <br> <br> <br> <br> <br>
         <h1 style="text-align:center;">'.$title.'</h1>
