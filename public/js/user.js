@@ -5,7 +5,9 @@ $.ajaxSetup({
 });
 let contactno2 = $("#contactno").val();
 let contactno = contactno2.toString().length;
-if(contactno == 11 || contactno == 0){
+var phoneRGEX = /((\+[0-9]{2})|0)[.\- ]?9[0-9]{2}[.\- ]?[0-9]{3}[.\- ]?[0-9]{4}/;
+var res = phoneRGEX.test(contactno2);
+if(contactno == 11 || contactno == 0 || res){
     console.log("yes")
     document.getElementById("btn-add-user").disabled = false
 }
