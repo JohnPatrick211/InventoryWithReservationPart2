@@ -233,8 +233,8 @@ class ReplacmentController extends Controller
         Replacement::where('id', $user_id)->update(['status' => 1]);
     }
 
-    public function Reject($user_id) {
-        Replacement::where('id', $user_id)->update(['status' => 2]);
+    public function Reject($user_id, $remarks) {
+        Replacement::where('id', $user_id)->update(['status' => 2, 'remarks' => $remarks]);
     }
 
     //Product Replacement Report

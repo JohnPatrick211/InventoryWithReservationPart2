@@ -119,28 +119,28 @@ async function onClick() {
         var remarks = $('#remarks').val();
         console.log(remarks);
 
-        // $.ajax({
-        //     url: '/do-reject-request/'+ user_id,
-        //     type: 'POST',
-        //     beforeSend:function(){
-        //         btn_verify.text('Please wait...');
-        //     },
+        $.ajax({
+            url: '/do-reject-request/'+ user_id + "/" + remarks,
+            type: 'POST',
+            beforeSend:function(){
+                btn_verify.text('Please wait...');
+            },
             
-        //     success:function(){
-        //         setTimeout(function(){
+            success:function(){
+                setTimeout(function(){
     
-        //             btn_verify.text('Reject');
-        //             $('.tbl-unverified-users').DataTable().ajax.reload();
-        //             $('#userInfoModal').modal('hide');
-        //             $.toast({
-        //                 text: 'Product Replacement was successfully Rejected.',
-        //                 position: 'bottom-right',
-        //                 showHideTransition: 'plain',
-        //                 hideAfter: 4500, 
-        //             })
-        //         }, 1000);
-        //     }
-        // });
+                    btn_verify.text('Reject');
+                    $('.tbl-unverified-users').DataTable().ajax.reload();
+                    $('#userInfoModal').modal('hide');
+                    $.toast({
+                        text: 'Product Replacement was successfully Rejected.',
+                        position: 'bottom-right',
+                        showHideTransition: 'plain',
+                        hideAfter: 4500, 
+                    })
+                }, 1000);
+            }
+        });
       
     });
 

@@ -40,7 +40,7 @@ Route::post('/replacement/delete/{id}', 'ReplacmentController@deleterequest');
 Route::get('/product-replacement', 'ReplacmentController@adminindex');
 Route::get('/approved-replacement', 'ReplacmentController@getApprovedReplacement');
 Route::post('/do-approve-request/{user_id}', 'ReplacmentController@Approve');
-Route::post('/do-reject-request/{user_id}', 'ReplacmentController@Reject');
+Route::post('/do-reject-request/{user_id}/{remarks}', 'ReplacmentController@Reject');
 
 
 
