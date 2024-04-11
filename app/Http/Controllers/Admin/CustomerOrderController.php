@@ -87,7 +87,7 @@ class CustomerOrderController extends Controller
        $stock = DB::table('product')
         ->where('id', $substring_id)
         ->get();
-        dd($stock);
+        dd($stock[0]->qty);
         // if(){
             
         // }
