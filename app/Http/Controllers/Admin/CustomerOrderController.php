@@ -97,7 +97,6 @@ class CustomerOrderController extends Controller
             
         }
         else{
-            dd('no');
             if (request()->status == 2) { 
                 $orders = $this->readOneOrder($order_no);
                 $this->recordSale($orders);

@@ -336,15 +336,15 @@ async function on_Click() {
                     },300);
                 }
                 else{
-                    // $('#tbl-'+active_pill+'-order').DataTable().ajax.reload();
-                    // $('#show-orders-modal').modal('hide');
-                    // $('#show-reservation-modal').modal('hide');
-                    // $.toast({
-                    //     text: 'Order was successfully changed status.',
-                    //     position: 'bottom-right',
-                    //     showHideTransition: 'plain',
-                    //     hideAfter: 4500, 
-                    // })
+                    $('#tbl-'+active_pill+'-order').DataTable().ajax.reload();
+                    $('#show-orders-modal').modal('hide');
+                    $('#show-reservation-modal').modal('hide');
+                    $.toast({
+                        text: 'Order was successfully changed status.',
+                        position: 'bottom-right',
+                        showHideTransition: 'plain',
+                        hideAfter: 4500, 
+                    })
                 }
             }
         });
