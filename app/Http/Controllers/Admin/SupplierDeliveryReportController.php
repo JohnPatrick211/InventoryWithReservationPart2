@@ -83,6 +83,10 @@ class SupplierDeliveryReportController extends Controller
         
         $output = '
         <div style="width:100%">
+        <div class="center">
+        <img src="images/'.Session::get('cms_logo').'" style="width:15%; align:middle;">
+        </div>
+        <br> <br> <br> <br> <br> <br>
         <h1 style="text-align:center;">'.$title.'</h1>
         <div style="text-align:center;">'.$address.'<div>
         <h2 style="text-align:center;">Supplier Delivery Report</h2>
