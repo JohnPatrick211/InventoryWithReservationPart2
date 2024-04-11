@@ -84,10 +84,10 @@ class CustomerOrderController extends Controller
     public function orderChangeStatus($order_no) {
         $orders = $this->readOneOrder($order_no);
         $substring_id = substr($orders[0]->product_code, 2);
-    //    $stock = DB::table('product')
-    //     ->where('id', $order_no)
-    //     ->value('shipping_fee');
-        dd($substring_id);
+       $stock = DB::table('product')
+        ->where('id', $substring_id)
+        ->get();
+        dd($stock);
         // if(){
             
         // }
