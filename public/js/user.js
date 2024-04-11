@@ -5,9 +5,7 @@ $.ajaxSetup({
 });
 let contactno2 = $("#contactno").val();
 let contactno = contactno2.toString().length;
-var phoneRGEX = /((\+[0-9]{2})|0)[.\- ]?9[0-9]{2}[.\- ]?[0-9]{3}[.\- ]?[0-9]{4}/;
-var res = phoneRGEX.test(contactno2);
-if(contactno == 11 || contactno == 0 || res){
+if(contactno == 11 || contactno == 0){
     console.log("yes")
     document.getElementById("btn-add-user").disabled = false
 }
@@ -68,7 +66,8 @@ $(document).on('click', '#cancel', function(){
 });
 
 $(document).on('change', '#contactno', function(){
-    var contactno = $(this).val();
+    var contactno2 = $(this).val();
+    let contactno = contactno2.toString().length;
     console.log(contactno);
     var phoneRGEX = /((\+[0-9]{2})|0)[.\- ]?9[0-9]{2}[.\- ]?[0-9]{3}[.\- ]?[0-9]{4}/;
     var res = phoneRGEX.test(contactno);
