@@ -132,6 +132,8 @@ Route::middleware('auth')->group(function () {
       Route::get('reports/stock-adjustment', 'Admin\StockAdjustmentReportController@index');
       Route::get('reports/stock-adjustment/pdf/{date_from}/{date_to}', 'Admin\StockAdjustmentReportController@pdf');
       Route::get('reports/stock-adjustment/download/{date_from}/{date_to}', 'Admin\StockAdjustmentReportController@downloadPDF');
+      //purchase order
+      Route::get('display-purchaseorder', 'Admin\PurchaseOrderController@readPurchaseOrder');
       Route::get('cashiering', 'Admin\CashieringController@index');
       Route::post('/record-sale', 'Admin\CashieringController@recordSale');
       Route::post('add-to-tray', 'Admin\CashieringController@addToTray');

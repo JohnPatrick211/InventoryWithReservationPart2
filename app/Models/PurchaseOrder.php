@@ -137,6 +137,26 @@ class PurchaseOrder extends Model
         }
     }
 
+    public function readPurchaseOrder(){
+            return DB::table('product as P')
+            ->select("P.*", DB::raw('CONCAT(prefix, P.id) as product_code'),
+                    'description',
+                    'reorder', 
+                    'qty', 
+                    'U.name as unit', 
+                    'S.supplier_name as supplier', 
+                    'C.name as category'
+                    )
+            ->leftJoin('supplier as S', 'S.id', '=', 'P.supplier_id')
+            ->leftJoin('category as C', 'C.id', '=', 'P.category_id')
+            ->leftJoin('unit as U', 'U.id', '=', 'P.unit_id')
+            ->where('P.status', 1)
+            ->orderBy('P.updated_at', 'desc')
+            ->get();
+        
+      
+    }
+
     public function readPurchasedOrderInPurchase($supplier_id, $date_from, $date_to){
         if($supplier_id == 'All'){
             return DB::table('purchase_order AS PO')

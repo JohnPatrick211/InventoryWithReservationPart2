@@ -63,6 +63,25 @@ class PurchaseOrderController extends Controller
         }
     }
 
+    public function readPurchaseOrder(Request $request) {
+        $data = new PurchaseOrder;
+        $data = $data->readPurchaseOrder();
+        if(request()->ajax())
+        {       
+            
+                return datatables()->of($data)
+                ->addColumn('action', function($data){
+                    $button = '<a class="btn btn-sm btn-outline-success btn-show-order"
+                    data-toggle="modal" data-target="#delivery-modal" data-id='. $data->id .'>Purchase Order</a>';
+                    return $button;
+                })
+                ->rawColumns(['action'])
+                ->make(true);   
+            
+                    
+        }
+    }
+
     public function readPurchasedOrderInPurchase(Request $request) {
         $data = new PurchaseOrder;
         $data = $data->readPurchasedOrderInPurchase($request->supplier_id, $request->date_from, $request->date_to);

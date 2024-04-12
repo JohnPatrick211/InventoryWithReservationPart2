@@ -109,6 +109,49 @@ async function fetchReorderProducts(supplier_id){
  
 }
 
+async function fetchPurchaseProducts(){
+    $('.tbl-purchaseorder').DataTable({
+    
+        processing: true,
+        serverSide: true,
+        ajax: '/path/to/script',
+        scrollY: 470,
+        scroller: {
+            loadingIndicator: true
+        },
+
+        ajax:{
+            url: "/display-purchaseorder",
+            type:"GET",
+        },
+   
+        columnDefs: [{
+          targets: 0,
+          searchable: false,
+          orderable: false,
+          changeLength: false
+       },{
+        targets: 8,
+          visible: false,
+          searchable: false
+       }],
+       order: [[8, 'desc']],
+            
+        columns:[       
+             {data: 'product_code', name: 'product_code',orderable: true},
+             {data: 'description', name: 'description'},
+             {data: 'unit', name: 'unit'},
+             {data: 'category', name: 'category'},
+             {data: 'supplier', name: 'supplier'}, 
+             {data: 'orig_price', name: 'orig_price'},
+             {data: 'qty', name: 'qty'},
+             {data: 'reorder', name: 'reorder'},
+             {data: 'updated_at', name: 'updated_at'},
+             {data: 'action', name: 'action',orderable: false},
+        ]
+       });
+}
+
 async function fetchPurchasedOrders(supplier_id, date_from, date_to){
     $('#purchased-order-table').DataTable({
     

@@ -114,7 +114,7 @@
                             <th>Stock</th>                                
                             <th>Reorder Point</th>
                             <th>Updated At</th>                
-                            <th>Add Request Order</th>
+                            <th>Purchase Order</th>
                          
                         </tr>
                       </thead>
