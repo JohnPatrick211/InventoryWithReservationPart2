@@ -411,7 +411,7 @@ async function render() {
     await fetchReorderProducts(supplier_id);
     await onClick();
     await fetchPurchasedOrders($('#ord_supplier').val(), date_from, date_to);
-    await fetchPurchaseOrders();
+    await fetchPurchaseProducts();
 }
 
 render();
