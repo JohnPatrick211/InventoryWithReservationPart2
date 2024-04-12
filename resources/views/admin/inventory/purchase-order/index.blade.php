@@ -49,6 +49,12 @@
                 </li>
 
                 <li class="nav-item">
+                  <a class="nav-link" id="purchaseorder-tab" data-toggle="tab" href="#purchaseordertab" role="tab" aria-controls="contact" aria-selected="true">Purchase Products   
+
+                  </a>
+                </li>
+
+                <li class="nav-item">
                   <a class="nav-link" id="orders-tab" data-toggle="tab" href="#orderstab" role="tab" aria-controls="contact" aria-selected="true">Purchased Orders   
 
                   </a>
@@ -95,7 +101,29 @@
                     
                   </div>
 
+                  <div class="tab-pane fade" id="purchaseordertab" role="tabpanel" aria-labelledby="purchaseorder-tab">
+                  <table class="table responsive  table-hover tbl-purchaseorder" width="100%">                                     
+                      <thead>
+                        <tr>
+                            <th>Product Code</th>
+                            <th>Name</th> 
+                            <th>Unit</th>      
+                            <th>Category</th>      
+                            <th>Supplier</th>   
+                            <th>Price</th>               
+                            <th>Stock</th>                                
+                            <th>Reorder Point</th>
+                            <th>Updated At</th>                
+                            <th>Add Request Order</th>
+                         
+                        </tr>
+                      </thead>
+                    
+                    </table>
+                  </div>
+
                   <div class="tab-pane fade" id="orderstab" role="tabpanel" aria-labelledby="orders-tab">
+
 
 
                       <div class="row mt-4 ml-1">
