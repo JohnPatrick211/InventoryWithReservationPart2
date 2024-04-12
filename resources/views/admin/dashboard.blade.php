@@ -107,6 +107,22 @@
             </div>
             </a>
           </div>
+
+          <div class="col-lg-3 col-6">
+          <a href = "/customer-orders">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3 class="text-white">{{$preorder}}</h3>
+
+                <p class="text-white">Pre-Order</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+              </div>
+            </div>
+            </a>
+          </div>
          
           <!-- ./col -->
         </div>

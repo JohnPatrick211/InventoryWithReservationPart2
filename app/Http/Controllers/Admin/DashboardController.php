@@ -17,6 +17,7 @@ class DashboardController extends Controller
         $walk_in_sales = Sales::whereRaw('Date(created_at) = CURDATE()')->where('order_from', 'walk-in')->sum('amount');
         $online_sales = Sales::whereRaw('Date(created_at) = CURDATE()')->sum('amount');
         $orders_today = Order::whereRaw('Date(created_at) = CURDATE()')->where('status','!=',5)->count('order_no');
+        $preorder = Order::whereRaw('Date(created_at) = CURDATE()')->where('pre_order',1)->count('order_no');
         $cashiering_today = Sales::whereRaw('Date(created_at) = CURDATE()')->where('order_from', 'walk-in')->count('id');
         $reservation = DB::table('orders as O')
         ->select('O.*', 'O.created_at as date_order', 'users.*', 'UA.map', 'users.id_type', 'O.status as order_status')
@@ -43,6 +44,6 @@ class DashboardController extends Controller
         ->whereColumn('P.reorder','>=', 'P.qty')
         ->where('P.qty', '!=', 0)
         ->count();
-        return view('admin.dashboard', compact('walk_in_sales', 'online_sales', 'orders_today', 'total_users','reorder_count','reservation','cashiering_today'));
+        return view('admin.dashboard', compact('walk_in_sales', 'online_sales', 'orders_today', 'total_users','reorder_count','reservation','cashiering_today'.'preorder'));
     }
 }
