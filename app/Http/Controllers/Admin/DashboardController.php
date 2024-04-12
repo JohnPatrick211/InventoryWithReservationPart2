@@ -44,6 +44,6 @@ class DashboardController extends Controller
         ->whereColumn('P.reorder','>=', 'P.qty')
         ->where('P.qty', '!=', 0)
         ->count();
-        return view('admin.dashboard', compact('walk_in_sales', 'online_sales', 'orders_today', 'total_users','reorder_count','reservation','cashiering_today'.'preorder'));
+        return view('admin.dashboard', compact('walk_in_sales', 'online_sales', 'orders_today', 'total_users','reorder_count','reservation','cashiering_today','preorder'));
     }
 }
