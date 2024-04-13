@@ -81,6 +81,7 @@ async function fetchPendingOrders(supplier_id, date_from, date_to){
             {data: 'amount', name: 'amount'},
             {data: 'date_order', name: 'date_order'},
             {data: 'remarks', name: 'remarks',orderable: false},
+            {data: 'action', name: 'action',orderable: false},
         ]
        });
 }
