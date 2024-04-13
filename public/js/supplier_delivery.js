@@ -42,6 +42,49 @@ async function fetchPurchasedOrders(supplier_id, date_from, date_to){
        });
 }
 
+async function fetchPendingOrders(supplier_id, date_from, date_to){
+    $('#pen-table').DataTable({
+    
+        processing: true,
+        serverSide: true,
+        ajax: '/path/to/script',
+        scrollY: 470,
+        scroller: {
+            loadingIndicator: true
+        },
+
+        ajax:{
+            url: "/pending-order",
+            type:"GET",
+            data:{
+                supplier_id :supplier_id,
+                date_from   :date_from,
+                date_to     :date_to,
+            }
+        },
+   
+        columnDefs: [{
+          targets: 0,
+          searchable: true,
+          orderable: false,
+          changeLength: false
+       }],
+       order: [[7, 'desc']],
+            
+        columns:[       
+            {data: 'po_num', name: 'po_num'},
+            {data: 'product_code', name: 'product_code'},
+            {data: 'description', name: 'description'},   
+            {data: 'supplier', name: 'supplier'},   
+            {data: 'unit', name: 'unit'},  
+            {data: 'qty_order', name: 'qty_order'},
+            {data: 'amount', name: 'amount'},
+            {data: 'date_order', name: 'date_order'},
+            {data: 'remarks', name: 'remarks',orderable: false},
+        ]
+       });
+}
+
 async function fetchTotalReservationQty(product_id) {
     console.log(product_id);
     $('#txt-total-sales').html('<i class="fas fa-spinner fa-spin"></i>');
@@ -184,8 +227,14 @@ async function on_Click() {
         var tab_object = 'pa';
         on_Change(tab_object);
     });
-    $(document).on('click', '#delivered-tab', function(){
+    $(document).on('click', '#pen-tab', function(){
         console.log("3");
+        $('#pen-table').DataTable().ajax.reload();
+        var tab_object = 'pen';
+        on_Change(tab_object);
+    });
+    $(document).on('click', '#delivered-tab', function(){
+        console.log("4");
         $('#sd-table').DataTable().ajax.reload();
         var tab_object = 'sd';
         on_Change(tab_object);
@@ -351,6 +400,9 @@ async function renderComponents() {
     var pa_supplier_id  = $('#pa_supplier').val();
     var pa_date_from    = $('#pa_date_from').val()
     var pa_date_to      = $('#pa_date_to').val();
+    var pen_supplier_id  = $('#pen_supplier').val();
+    var pen_date_from    = $('#pen_date_from').val()
+    var pen_date_to      = $('#pen_date_to').val();
     var product_id      = $('#inv_product').val();
 
     await CSRF_TOKEN();
@@ -366,6 +418,8 @@ async function renderComponents() {
     await readSupplierDeliveryPartial(pa_supplier_id, pa_date_from, pa_date_to);
 
     await readSupplierDelivery(sd_supplier_id, sd_date_from, sd_date_to);
+
+    await fetchPendingOrders(pen_supplier_id, pen_date_from, pen_date_to);
 }
 
 async function CSRF_TOKEN() {

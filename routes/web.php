@@ -120,6 +120,7 @@ Route::middleware('auth')->group(function () {
       Route::post('stock-adjustment/adjust/{id}', 'Admin\StockAdjustmentController@adjust');
       Route::resource('purchase-order', 'Admin\PurchaseOrderController');
       Route::get('display-reorders', 'Admin\PurchaseOrderController@displayReorders');
+      Route::get('pending-order', 'Admin\PurchaseOrderController@displayPending');
       Route::post('purchase-order/add-order', 'Admin\PurchaseOrderController@addOrder');
       Route::get('request-order', 'Admin\PurchaseOrderController@readRequestOrderBySupplier');
       Route::post('request-order/remove', 'Admin\PurchaseOrderController@removeRequest');

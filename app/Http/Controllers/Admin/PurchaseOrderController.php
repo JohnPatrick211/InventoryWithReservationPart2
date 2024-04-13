@@ -62,6 +62,25 @@ class PurchaseOrderController extends Controller
                     
         }
     }
+    //isplayPending
+    public function displayPending(Request $request) {
+        $data = new PurchaseOrder;
+        $data = $data->readPendingOrder($request->supplier_id, $request->date_from, $request->date_to);
+        if(request()->ajax())
+        {       
+            if($request->supplier_id){
+                return datatables()->of($data)
+                // ->addColumn('action', function($data){
+                //     $button = '<a class="btn btn-sm btn-outline-success btn-show-order"
+                //     data-toggle="modal" data-target="#delivery-modal" data-id='. $data->id .'>Add Delivery</a>';
+                //     return $button;
+                // })
+                // ->rawColumns(['action'])
+                ->make(true);   
+            }
+                    
+        }
+    }
 
     public function readPurchaseOrder(Request $request) {
         $data = new PurchaseOrder;
