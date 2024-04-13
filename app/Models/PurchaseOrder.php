@@ -151,7 +151,7 @@ class PurchaseOrder extends Model
             ->leftJoin('supplier as S', 'S.id', '=', 'P.supplier_id')
             ->leftJoin('category as C', 'C.id', '=', 'P.category_id')
             ->leftJoin('unit as U', 'U.id', '=', 'P.unit_id')
-            ->where('PO.status', 2)
+            ->where('PO.status', 3)
             ->whereBetween(DB::raw('DATE(PO.updated_at)'), [$date_from, $date_to])
             ->orderBy('date_order', 'desc')
             ->get();
