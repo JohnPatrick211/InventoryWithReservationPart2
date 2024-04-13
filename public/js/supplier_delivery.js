@@ -85,7 +85,7 @@ async function fetchPendingOrders(supplier_id, date_from, date_to){
               {data: 'qty_order', name: 'qty_order'},
               {data: 'qty_delivered', name: 'qty_delivered'},
               {data: 'date_delivered', name: 'date_delivered'},
-              {data: 'updated', name: 'updated'},
+            //   {data: 'updated', name: 'updated'},
               {data: 'remarks', name: 'remarks',orderable: false}
           ]
          });
