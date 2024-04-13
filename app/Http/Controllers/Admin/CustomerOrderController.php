@@ -83,13 +83,13 @@ class CustomerOrderController extends Controller
 
     public function orderChangeStatus($order_no) {
         $orders = $this->readOneOrder($order_no);
-        dd($orders[0]->pre_order);
+        //dd($orders[0]->pre_order);
         $substring_id = substr($orders[0]->product_code, 2);
        $stock = DB::table('product')
         ->where('id', $substring_id)
         ->get();
         //dd($stock[0]->qty);
-        if($stock[0]->qty == 0){
+        if($stock[0]->qty == 0 && $orders[0]->pre_order == 1){
             return response()->json([
                 'status' => 'error_qty',
                 'message' => 'Please Check the Qty of the Product',
