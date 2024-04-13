@@ -248,7 +248,6 @@
                                     <th>Quantity Delivered</th>
                                     <th>Remaining Orders</th>      
                                     <th>Date Recieved</th>
-                                    <th>Update</th>
                                     <th>Remarks</th>
                                   </tr>
                               </thead>
