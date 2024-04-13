@@ -245,7 +245,8 @@
                                     <th>Supplier</th> 
                                     <th>Unit</th>      
                                     <th>Quantity Ordered</th>                              
-                                    <th>Quantity Delivered</th>   
+                                    <th>Quantity Delivered</th>
+                                    <th>Remaining Orders</th>      
                                     <th>Date Recieved</th>
                                     <th>Update</th>
                                     <th>Remarks</th>

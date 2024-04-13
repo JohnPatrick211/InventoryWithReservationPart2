@@ -149,6 +149,7 @@ class PurchaseOrder extends Model
                     'S.supplier_name as supplier', 
                     'C.name as category',
                     DB::raw('CONCAT(SD.prefix, SD.id) as del_no'),
+                    DB::raw('SUM(PO.qty_order, SD.qty_delivered) as remaining_orders'),
                     'SD.date_delivered')
             ->leftJoin('product as P', DB::raw('CONCAT(P.prefix, P.id)'), '=', 'SD.product_code')
             ->leftJoin('purchase_order AS PO', 'PO.id', '=', 'SD.po_id')
