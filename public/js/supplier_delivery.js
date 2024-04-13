@@ -73,7 +73,7 @@ async function fetchPendingOrders(supplier_id, date_from, date_to){
             visible: false,
             searchable: false
       }],
-         order: [[9, 'desc']],
+         order: [[10, 'desc']],
               
           columns:[  
               {data: 'del_no', name: 'del_no'},     
