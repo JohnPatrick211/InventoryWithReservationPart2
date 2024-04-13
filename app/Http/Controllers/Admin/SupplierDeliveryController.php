@@ -88,18 +88,6 @@ class SupplierDeliveryController extends Controller
             ->update([
                 'remarks' => $remarks
             ]);
-
-            $s = new SupplierDelivery;
-            $s->po_id = $data['data_id'];
-            $s->po_no = $data['po_no'];
-            $s->product_code = $data['product_code'];
-            $s->qty_delivered = $data['qty_delivered'];
-            $s->date_delivered = $data['date_recieved'];
-            $qty_delivered = $data['qty_delivered'];
-
-            $remarks = $this->validateDeliveredQty($data['po_no'], $data['product_code'], $qty_delivered, $data['date_reservation']);
-            $s->remarks = $remarks;
-            $s->save();
         }
         else {
             $s = new SupplierDelivery;
