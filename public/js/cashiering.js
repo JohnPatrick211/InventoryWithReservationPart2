@@ -415,7 +415,7 @@ function on_Click () {
         total = parseFloat(total);
         tendered = parseFloat(tendered);
     
-        if(studname === null){
+        if(studname === ""){
             swal.fire({
                 title: "Error!",
                 icon: 'error',
