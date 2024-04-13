@@ -139,42 +139,49 @@ class PurchaseOrder extends Model
 
     public function readPendingOrder($supplier_id, $date_from, $date_to){
         if($supplier_id == 'All'){
-            return DB::table('purchase_order AS PO')
-            ->select('PO.*', 'P.*',
-                    'PO.id as id',
+            return DB::table('supplier_delivery AS SD')
+            ->select('SD.*', 'P.*',
+                    'SD.remarks',
+                    'SD.id as id',
+                    'SD.updated_at as updated',
+                    'PO.qty_order',
                     'U.name as unit', 
                     'S.supplier_name as supplier', 
                     'C.name as category',
-                    DB::raw('CONCAT(PO.prefix, PO.po_no) as po_num'),
-                    DB::raw('PO.updated_at as date_order'))
-            ->leftJoin('product as P', DB::raw('CONCAT(P.prefix, P.id)'), '=', 'PO.product_code')
+                    DB::raw('CONCAT(SD.prefix, SD.id) as del_no'),
+                    'SD.date_delivered')
+            ->leftJoin('product as P', DB::raw('CONCAT(P.prefix, P.id)'), '=', 'SD.product_code')
+            ->leftJoin('purchase_order AS PO', 'PO.id', '=', 'SD.po_id')
             ->leftJoin('supplier as S', 'S.id', '=', 'P.supplier_id')
             ->leftJoin('category as C', 'C.id', '=', 'P.category_id')
             ->leftJoin('unit as U', 'U.id', '=', 'P.unit_id')
             ->where('PO.status', 3)
-            ->whereBetween(DB::raw('DATE(PO.updated_at)'), [$date_from, $date_to])
-            ->orderBy('date_order', 'desc')
+            ->whereBetween(DB::raw('DATE(SD.date_delivered)'), [$date_from, $date_to])
             ->get();
         }
         else{
-            return DB::table('purchase_order AS PO')
-            ->select('PO.*', 'P.*',
-                    'PO.id as id',
+            return DB::table('supplier_delivery AS SD')
+            ->select('SD.*', 'P.*',
+                    'SD.remarks',
+                    'SD.id as id',
+                    'SD.updated_at as updated',
+                    'PO.qty_order',
                     'U.name as unit', 
                     'S.supplier_name as supplier', 
                     'C.name as category',
-                    DB::raw('CONCAT(PO.prefix, PO.po_no) as po_num'),
-                    DB::raw('PO.updated_at as date_order'))
-            ->leftJoin('product as P', DB::raw('CONCAT(P.prefix, P.id)'), '=', 'PO.product_code')
+                    DB::raw('CONCAT(SD.prefix, SD.id) as del_no'),
+                    'SD.date_delivered')
+            ->leftJoin('product as P', DB::raw('CONCAT(P.prefix, P.id)'), '=', 'SD.product_code')
+            ->leftJoin('purchase_order AS PO', 'PO.id', '=', 'SD.po_id')
             ->leftJoin('supplier as S', 'S.id', '=', 'P.supplier_id')
             ->leftJoin('category as C', 'C.id', '=', 'P.category_id')
             ->leftJoin('unit as U', 'U.id', '=', 'P.unit_id')
             ->where('P.supplier_id', $supplier_id)
-            ->where('PO.status', 2)
-            ->whereBetween(DB::raw('DATE(PO.updated_at)'), [$date_from, $date_to])
-            ->orderBy('date_order', 'desc')
+            ->where('PO.status', 3)
+            ->whereBetween(DB::raw('DATE(SD.date_delivered)'), [$date_from, $date_to])
             ->get();
         }
+    
     }
 
     public function readPurchaseOrder(){
