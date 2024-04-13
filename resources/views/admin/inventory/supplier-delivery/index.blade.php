@@ -247,8 +247,8 @@
                                     <th>Quantity Ordered</th>                              
                                     <th>Quantity Delivered</th>   
                                     <th>Date Recieved</th>
+                                    <th>Update</th>
                                     <th>Remarks</th>
-                                    <th>Add</th>
                                   </tr>
                               </thead>
                               <tbody>
