@@ -238,16 +238,17 @@
                               <table class="table responsive  table-hover" id="pen-table" width="100%">       
                                 <thead>
                                   <tr>
-                                      <th>Delivery #</th>
-                                      <th>PO #</th>
-                                      <th>Product Code</th>     
-                                      <th>Name</th>   
-                                      <th>Supplier</th> 
-                                      <th>Unit</th>      
-                                      <th>Quantity Ordered</th>                              
-                                      <th>Quantity Delivered</th>   
-                                      <th>Date Recieved</th>
-                                      <th>Remarks</th>
+                                  <th>Delivery #</th>
+                                    <th>PO #</th>
+                                    <th>Product Code</th>     
+                                    <th>Name</th>   
+                                    <th>Supplier</th> 
+                                    <th>Unit</th>      
+                                    <th>Quantity Ordered</th>                              
+                                    <th>Quantity Delivered</th>   
+                                    <th>Date Recieved</th>
+                                    <th>Remarks</th>
+                                    <th>Add</th>
                                   </tr>
                               </thead>
                               <tbody>
