@@ -64,26 +64,31 @@ async function fetchPendingOrders(supplier_id, date_from, date_to){
         },
    
         columnDefs: [{
-          targets: 0,
-          searchable: true,
-          orderable: false,
-          changeLength: false
-       }],
-       order: [[7, 'desc']],
-            
-        columns:[       
-            {data: 'po_num', name: 'po_num'},
-            {data: 'product_code', name: 'product_code'},
-            {data: 'description', name: 'description'},   
-            {data: 'supplier', name: 'supplier'},   
-            {data: 'unit', name: 'unit'},  
-            {data: 'qty_order', name: 'qty_order'},
-            {data: 'amount', name: 'amount'},
-            {data: 'date_order', name: 'date_order'},
-            {data: 'remarks', name: 'remarks',orderable: false},
-            {data: 'action', name: 'action',orderable: false},
-        ]
-       });
+            targets: 0,
+            searchable: true,
+            orderable: false,
+            changeLength: false
+         },{
+          targets: 9,
+            visible: false,
+            searchable: false
+      }],
+         order: [[9, 'desc']],
+              
+          columns:[  
+              {data: 'del_no', name: 'del_no'},     
+              {data: 'po_no', name: 'po_no'},
+              {data: 'product_code', name: 'product_code'},
+              {data: 'description', name: 'description'},   
+              {data: 'supplier', name: 'supplier'},   
+              {data: 'unit', name: 'unit'},  
+              {data: 'qty_order', name: 'qty_order'},
+              {data: 'qty_delivered', name: 'qty_delivered'},
+              {data: 'date_delivered', name: 'date_delivered'},
+              {data: 'updated', name: 'updated'},
+              {data: 'remarks', name: 'remarks',orderable: false}
+          ]
+         });
 }
 
 async function fetchTotalReservationQty(product_id) {
