@@ -67,6 +67,12 @@
     
                       </a>
                     </li>
+
+                    <li class="nav-item">
+                      <a class="nav-link" id="pen-tab" data-toggle="tab" href="#pentab" role="tab" aria-controls="pending" aria-selected="true">Pending Orders  
+    
+                      </a>
+                    </li>
     
                     <li class="nav-item">
                       <a class="nav-link" id="delivered-tab" data-toggle="tab" href="#deliveredtab" role="tab" aria-controls="delivered" aria-selected="true">Delivered Products   
@@ -193,7 +199,64 @@
                            
                           </div>
 
-                           
+                          <div class="tab-pane fade" id="pentab" role="tabpanel" aria-labelledby="pen-tab">
+    
+                          <div class="row mt-4 ml-2">
+                            <div class="mt-2">
+                              Suppliered
+                            </div>  
+                            
+                            <div class="col-sm-2 mb-3">
+                              
+                              <select class=" form-control col-sm-12 ml-2" id="pen_supplier">
+                              <option value="All">All Supplier</option>
+                                @foreach ($supplier as $item)
+                                  <option value="{{ $item->id }}">{{ $item->supplier_name }}</option>
+                                @endforeach
+                              </select>
+                              </div> 
+
+                            <div class="mt-2 ml-3">
+                              Date
+                              </div>              
+                            
+                            <div class="col-sm-2 mb-3">
+                              <input data-column="9" type="date" class="form-control" id="pen_date_from" value="{{ date('Y-m-d') }}">
+                              </div>
+
+                              <div class="mt-2">
+                                -
+                                </div>
+
+                              <div class="col-sm-2 mb-3">
+                                <input data-column="9" type="date" class="form-control" id="pen_date_to" value="{{ date('Y-m-d') }}">
+                                </div>  
+
+                          </div>
+
+
+                              <table class="table responsive  table-hover" id="pen-table" width="100%">       
+                                <thead>
+                                  <tr>
+                                      <th>Delivery #</th>
+                                      <th>PO #</th>
+                                      <th>Product Code</th>     
+                                      <th>Name</th>   
+                                      <th>Supplier</th> 
+                                      <th>Unit</th>      
+                                      <th>Quantity Ordered</th>                              
+                                      <th>Quantity Delivered</th>   
+                                      <th>Date Recieved</th>
+                                      <th>Remarks</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                                    
+                            </tbody>
+                              
+                              </table> 
+                            
+                            </div>     
                       
                       <div class="tab-pane fade" id="deliveredtab" role="tabpanel" aria-labelledby="delivered-tab">
     
