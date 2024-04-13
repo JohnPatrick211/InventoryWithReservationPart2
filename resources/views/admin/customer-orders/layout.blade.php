@@ -12,7 +12,7 @@
 
 @media print {
   body * {
-    visibility:hidden; page-break-after: avoid !important;
+    visibility:hidden; page-break-after: always !important;
   }
   #printSection, #printSection * {
     visibility:visible;
