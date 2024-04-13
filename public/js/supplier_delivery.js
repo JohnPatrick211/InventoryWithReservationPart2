@@ -348,6 +348,9 @@ async function renderDataTables(tab_object, supplier_id, date_from, date_to) {
     else if(tab_object == 'pa'){
         await readSupplierDeliveryPartial(supplier_id, date_from, date_to);
     }
+    else if(tab_object == 'pen'){
+        await fetchPendingOrders(supplier_id, date_from, date_to);
+    }
     else {
         await readSupplierDelivery(supplier_id, date_from, date_to);
     }
