@@ -337,6 +337,9 @@ async function on_Click() {
                 }
                 else{
                     console.log(data);
+                    if(active_pill == 'pre-order'){
+                        active_pill = active_pill.substring(0, 3);
+                    }
                     $('#tbl-'+active_pill+'-order').DataTable().ajax.reload();
                     console.log(active_pill);
                     //$('#tbl-pre-order').DataTable().ajax.reload();
