@@ -21,17 +21,17 @@
   <h3 class="mt-2" id="page-title">Cashiering</h3>
   <hr>
 </div>
-<!--
-<div class="form-inline ml-0 mb-2 form-search-product ">
+
+<!-- <div class="form-inline ml-0 mb-2 form-search-product ">
     <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" id="input-search-lrn" type="number" placeholder="Student LRN Number" aria-label="Search">
+        <input class="form-control form-control-navbar" id="input-search-studentname" type="text" placeholder="Student Name" aria-label="Search">
             <div class="input-group-append">
                 <button class="btn btn-dark btn-search-userid">
                     <i class="fas fa-search"></i>
                 </button>
             </div>
      </div>
-</div>-->
+</div> -->
 
   @if(count($errors)>0)
   <div class="alert alert-danger">

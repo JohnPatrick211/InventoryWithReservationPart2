@@ -336,6 +336,7 @@ async function on_Click() {
                     },300);
                 }
                 else{
+                    console.log(data);
                     $('#tbl-'+active_pill+'-order').DataTable().ajax.reload();
                     $('#tbl-pre-order').DataTable().ajax.reload();
                     $('#show-orders-modal').modal('hide');
