@@ -63,7 +63,7 @@
                     </li>
 
                     <li class="nav-item">
-                      <a class="nav-link" id="pa-tab" data-toggle="tab" href="#patab" role="tab" aria-controls="partial" aria-selected="true">Remaining Orders  
+                      <a class="nav-link" id="pa-tab" data-toggle="tab" href="#patab" role="tab" aria-controls="partial" aria-selected="true">Balance Orders  
     
                       </a>
                     </li>
