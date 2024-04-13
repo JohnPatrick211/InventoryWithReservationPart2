@@ -339,7 +339,7 @@ async function on_Click() {
                     console.log(data);
                     $('#tbl-'+active_pill+'-order').DataTable().ajax.reload();
                     console.log(active_pill);
-                    $('#tbl-pre-order').DataTable().ajax.reload();
+                    //$('#tbl-pre-order').DataTable().ajax.reload();
                     $('#show-orders-modal').modal('hide');
                     $('#show-reservation-modal').modal('hide');
                     $.toast({
