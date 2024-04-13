@@ -455,6 +455,7 @@ function on_Click () {
                                 $('#tendered').val('');
                                 //$('#invoice-no').val('');
                                 $('#proccess').html("Proccess");
+                                var studname = $('#input-search-studentname').val();
                                 $.toast({
                                     heading:'Transaction was successfully recorded.',
                                     text:'Generating Invoice...',
@@ -466,7 +467,7 @@ function on_Click () {
                                 let senior_pwd_discount_amount = localStorage.getItem('senior_pwd_discount_amount');
                                 setTimeout(async function()
                                 {
-                                    window.open("/preview-invoice/"+wholesale_discount_amount +"/"+senior_pwd_discount_amount);
+                                    window.open("/preview-invoice/"+wholesale_discount_amount +"/"+senior_pwd_discount_amount + "/" + studname);
                                     setTimeout(async function()
                                     {
                                         await readTray();

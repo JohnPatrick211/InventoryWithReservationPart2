@@ -142,7 +142,7 @@ Route::middleware('auth')->group(function () {
       Route::post('void/{id}', 'Admin\CashieringController@void');
       Route::get('/update-invoice', 'Admin\CashieringController@updateinvoice');
       Route::get('check-lrn/{id}', 'Admin\CashieringController@checklrn');
-      Route::get('preview-invoice/{wholesale_discount_amount}/{senior_pwd_discount_amount}', 'Admin\CashieringController@previewInvoice');
+      Route::get('preview-invoice/{wholesale_discount_amount}/{senior_pwd_discount_amount}/{studname}', 'Admin\CashieringController@previewInvoice');
       Route::get('/pricing', 'Admin\PricingController@index');
       Route::post('/pricing/update', 'Admin\PricingController@updatePricing');
       Route::resource('supplier-delivery', 'Admin\SupplierDeliveryController');

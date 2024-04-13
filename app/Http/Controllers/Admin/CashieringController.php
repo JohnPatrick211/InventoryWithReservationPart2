@@ -176,11 +176,11 @@ class CashieringController extends Controller
 
     
 
-    public function previewInvoice($wholesale_discount_amount, $senior_pwd_discount_amount){
+    public function previewInvoice($wholesale_discount_amount, $senior_pwd_discount_amount, $studentname){
 
         $cashiering = new Cashiering;
         $data = $cashiering->readCashieringTray();
-        $output = $this->generateSalesInvoice($data, $wholesale_discount_amount, $senior_pwd_discount_amount);
+        $output = $this->generateSalesInvoice($data, $wholesale_discount_amount, $senior_pwd_discount_amount, $studentname);
 
         $this->removeAllTrayProducts();
 
@@ -196,7 +196,7 @@ class CashieringController extends Controller
         return Discount::first();
     }
 
-    public function generateSalesInvoice($product, $wholesale_discount_amount, $senior_pwd_discount_amount){
+    public function generateSalesInvoice($product, $wholesale_discount_amount, $senior_pwd_discount_amount, $studentname){
 
         $title = Session::get('cms_name');
         $address = Session::get('cms_address');
@@ -292,7 +292,7 @@ class CashieringController extends Controller
         <p class="p-details address">'.$address.'</p>
         <h3 style="text-align:center;">RECEIPT</h3>
 
-     
+        <p style="text-align:left;">Student Name: '.$studentname.'</p>
     
         <table width="100%" style="border-collapse:collapse; border: 1px solid;">                
             <thead>
