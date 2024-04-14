@@ -439,6 +439,10 @@ function on_Click () {
         var studname = $('#input-search-studentname').val();
         total = parseFloat(total);
         tendered = parseFloat(tendered);
+
+        if(payment_method == 'GCash'){
+            $('#tendered').val('0');
+        }
     
         if(studname === ""){
             swal.fire({
