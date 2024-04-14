@@ -160,11 +160,11 @@
                                 </div>
                             </div> -->
                             <div class="col-sm-12 ml-1 mt-1 mb-2">
-                            <select class="form-control w-auto m-1 float-left" id="inv_category">
-                                <option value="0">All category</option>
-                                @foreach ($category as $item)
-                                <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                @endforeach
+                            <select class="form-control w-auto m-1 float-left" id="payment_method">
+                                <option value="Cash">Cash Payment</option>
+                                <option value="GCash">GCash Payment</option>
+                                <option value="Card">Card Payment</option>
+                                <option value="PayMaya">Maya Payment</option>
                             </select>
                             </div>
                             <div class="col-sm-3">
