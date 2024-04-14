@@ -112,7 +112,7 @@
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
                                                 </div>
-                                                <input  type="number" id="contactno" step=".01" class="form-control">
+                                                <input  type="number" id="contactno" step=".01" class="form-control" disabled>
                                             </div>
                                         </th>
                                     </tr>
