@@ -55,7 +55,7 @@
 
               <div class="col-md-4">
                 <label class="col-form-label">Delivery Time For Reservation</label>
-              <input type="date" class="form-control" id="date_deliver_reservation" value="{{ date('Y-m-d') }}">
+              <input type="date hidden" class="form-control" id="date_deliver_reservation" value="{{ date('Y-m-d') }}">
               </div>
           </div>  
   
