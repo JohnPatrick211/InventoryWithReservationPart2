@@ -417,6 +417,8 @@ function on_Click () {
                 $('.img-gcash-qr').css('display', 'none');
                 document.getElementById("contactno").disabled = true;
                 document.getElementById("tendered").disabled = false;
+                $('#tendered').val('');
+                $('#change').val('');
                 }
                 if($(this).val() === 'GCash'){
                     payment_method = 'GCash';
