@@ -441,6 +441,7 @@ function on_Click () {
                         }
                         if ($('#gcash-payment').is(":checked")) {
                             payment_method = "GCash"
+                            document.getElementById("contactno").disabled = false;
                         }
                         if ($('#card-payment').is(":checked")) {
                             payment_method = "Card"
