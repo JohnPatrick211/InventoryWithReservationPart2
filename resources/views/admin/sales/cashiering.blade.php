@@ -91,7 +91,8 @@
                                     <tr>
                                         <th>Invoice #</th>
                                         <th><input type="number" id="invoice-no" class="form-control" readonly></th>
-                                    </tr>    
+                                    </tr>
+                                    <div class="tendered">    
                                     <tr>
                                         <th>Tendered</th>
                                         <th>
@@ -102,7 +103,20 @@
                                                 <input  type="number" id="tendered" step=".01" class="form-control">
                                             </div>
                                         </th>
-                                    </tr> 
+                                    </tr>
+                                    </div>
+                                    <div style="display:none">    
+                                    <tr>
+                                        <th>Phone Number</th>
+                                        <th>
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                </div>
+                                                <input  type="number" id="contactno" step=".01" class="form-control">
+                                            </div>
+                                        </th>
+                                    </tr>
+                                    </div>  
                                     <tr>
                                         <th>Change</th>
                                         <th>
