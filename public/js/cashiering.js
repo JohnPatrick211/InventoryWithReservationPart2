@@ -437,11 +437,10 @@ function on_Click () {
                         var payment_method = "Cash";
                         if ($('#cash-payment').is(":checked")) {
                             payment_method = "Cash";
-                            document.getElementById("contactno").disabled = true;
+                           
                         }
                         if ($('#gcash-payment').is(":checked")) {
                             payment_method = "GCash"
-                            document.getElementById("contactno").disabled = false;
                         }
                         if ($('#card-payment').is(":checked")) {
                             payment_method = "Card"
@@ -534,20 +533,35 @@ function on_Click () {
     $(document).on('click', '#gcash-payment', function(){ console.log($(this).is(":checked"))
         if ($(this).is(":checked")) {
             $('.img-gcash-qr').css('display', 'block');
+            document.getElementById("contactno").disabled = false;
         }
         else {
             $('.img-gcash-qr').css('display', 'none');
+            document.getElementById("contactno").disabled = true;
         }
     });
 
     $(document).on('click', '#paymaya-payment', function(){ console.log($(this).is(":checked"))
         if ($(this).is(":checked")) {
             $('.img-gcash-qr').css('display', 'block');
+            document.getElementById("contactno").disabled = false;
         }
         else {
             $('.img-gcash-qr').css('display', 'none');
+            document.getElementById("contactno").disabled = true;
         }
     });
+
+    $(document).on('click', '#card-payment', function(){ console.log($(this).is(":checked"))
+    if ($(this).is(":checked")) {
+       
+        document.getElementById("contactno").disabled = false;
+    }
+    else {
+       
+        document.getElementById("contactno").disabled = true;
+    }
+});
 
     $(document).on('click', '[name=rad_discount]',async function(){ 
         await readTray();
