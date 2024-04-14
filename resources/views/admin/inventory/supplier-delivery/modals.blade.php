@@ -54,7 +54,7 @@
               </div>
 
               <div class="col-md-4">
-                <label class="col-form-label">Delivery Time For Reservation</label>
+               
               <input type="date hidden" style="visibility: hidden; position: absolute;" class="form-control" id="date_deliver_reservation" value="{{ date('Y-m-d') }}">
               </div>
           </div>  
