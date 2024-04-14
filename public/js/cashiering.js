@@ -410,6 +410,7 @@ function on_Click () {
     });
 
     var payment_method = 'Cash';
+    document.getElementById("contactno").disabled = true;
             $('#payment_method').on('change', function(e) {
                 if ($(this).val() === 'Cash') {
                 console.log('Cash')
@@ -419,6 +420,7 @@ function on_Click () {
                 document.getElementById("tendered").disabled = false;
                 $('#tendered').val('');
                 $('#change').val('');
+                $('#contactno').val('');
                 }
                 if($(this).val() === 'GCash'){
                     payment_method = 'GCash';
@@ -433,10 +435,23 @@ function on_Click () {
                 if($(this).val() === 'Card'){
                     payment_method = 'Card';
                     console.log('Card')
+                    $('.img-gcash-qr').css('display', 'none');
+                    document.getElementById("contactno").disabled = true;
+                    document.getElementById("tendered").disabled = false;
+                    $('#tendered').val('');
+                    $('#change').val('');
+                    $('#contactno').val('');
                 }
                 if($(this).val() === 'PayMaya'){
                     payment_method = 'PayMaya';
                     console.log('PayMaya')
+                    var total = $('#total').text().slice(1).replace(",", ""); 
+                    $('#tendered').val(total);
+                    $('#change').val('0.00');
+                    $('.img-gcash-qr').css('display', 'block');
+                    document.getElementById("contactno").disabled = true;
+                    document.getElementById("tendered").disabled = true;
+                    console.log('GCash')
                 }
                 console.log(payment_method);
             })
