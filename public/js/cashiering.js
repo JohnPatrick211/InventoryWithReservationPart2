@@ -449,9 +449,8 @@ function on_Click () {
                     $('#tendered').val(total);
                     $('#change').val('0.00');
                     $('.img-gcash-qr').css('display', 'block');
-                    document.getElementById("contactno").disabled = true;
+                    document.getElementById("contactno").disabled = false;
                     document.getElementById("tendered").disabled = true;
-                    console.log('GCash')
                 }
                 console.log(payment_method);
             })
