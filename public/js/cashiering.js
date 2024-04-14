@@ -459,6 +459,7 @@ function on_Click () {
                 // else {
                     if (invoice_no) {      
                         $(this).html("Plase wait...");
+                        console.log(payment_method);
                         // if ($('#cash-payment').is(":checked")) {
                         //     payment_method = "Cash";
                            
