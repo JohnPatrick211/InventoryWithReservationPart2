@@ -7,6 +7,15 @@ $.ajaxSetup({
 var data_storage;
 var last_key = 0;
 
+$('#contactno').on('change', function(e) {
+    if ($(this).val() === 'Cash') {
+      console.log('You can do something here')
+    }
+    else{
+        console.log('Success')
+    }
+})
+
 async function readAllProducts() {
     $('#product-container').html('');
     $('#product-loader').css('display', 'block');
