@@ -418,9 +418,8 @@ function on_Click () {
                 if($(this).val() === 'GCash'){
                     payment_method = 'GCash';
                     var total = $('#total').text().slice(1).replace(",", ""); 
-                    var tendered = $('#tendered').val(total);
-                    var change = parseFloat(tendered) - parseFloat(total);
-                    $('#change').val(change.toFixed(2));
+                    $('#tendered').val(total);
+                    $('#change').val('0.00');
                     console.log('GCash')
                 }
                 if($(this).val() === 'Card'){
