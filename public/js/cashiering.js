@@ -437,6 +437,7 @@ function on_Click () {
                         var payment_method = "Cash";
                         if ($('#cash-payment').is(":checked")) {
                             payment_method = "Cash";
+                            document.getElementById("contactno").disabled = true;
                         }
                         if ($('#gcash-payment').is(":checked")) {
                             payment_method = "GCash"

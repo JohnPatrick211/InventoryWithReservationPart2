@@ -13,9 +13,6 @@
     table td {
         text-align: right !important;
     }
-    div.tendered {     /* this will hide div with class div_class_name */
-  display:none;
-}
 </style>
 
 <div class="content-header"></div>
