@@ -498,60 +498,60 @@ function on_Click () {
                         // if ($('#paymaya-payment').is(":checked")) {
                         //     payment_method = "PayMaya"
                         // }
-                        // $.ajax({
-                        //     url: '/record-sale',
-                        //     type: 'POST',
-                        //     data: {
-                        //         payment_method : payment_method,
-                        //         invoice_no     : invoice_no
-                        //     },
-                        //     success:async function(res){
+                        $.ajax({
+                            url: '/record-sale',
+                            type: 'POST',
+                            data: {
+                                payment_method : payment_method,
+                                invoice_no     : invoice_no
+                            },
+                            success:async function(res){
     
-                        //         if (res == 'success') {
+                                if (res == 'success') {
     
-                        //             await readAllProducts();
-                        //             await updateInvoiceNo();
+                                    await readAllProducts();
+                                    await updateInvoiceNo();
                                     
-                        //             $('#change').val('');
-                        //             $('#tendered').val('');
-                        //             //$('#invoice-no').val('');
-                        //             $('#proccess').html("Proccess");
+                                    $('#change').val('');
+                                    $('#tendered').val('');
+                                    //$('#invoice-no').val('');
+                                    $('#proccess').html("Proccess");
                                   
-                        //             $.toast({
-                        //                 heading:'Transaction was successfully recorded.',
-                        //                 text:'Generating Invoice...',
-                        //                 position: 'bottom-right',
-                        //                 showHideTransition: 'plain',
-                        //                 hideAfter: 4000, 
-                        //             });
-                        //             let wholesale_discount_amount = localStorage.getItem('wholesale_discount_amount');
-                        //             let senior_pwd_discount_amount = localStorage.getItem('senior_pwd_discount_amount');
-                        //             setTimeout(async function()
-                        //             {
-                        //                 window.open("/preview-invoice/"+wholesale_discount_amount +"/"+senior_pwd_discount_amount + "/" + studname);
-                        //                 setTimeout(async function()
-                        //                 {
-                        //                     await readTray();
-                        //                 },300);
-                        //             },3000);
+                                    $.toast({
+                                        heading:'Transaction was successfully recorded.',
+                                        text:'Generating Invoice...',
+                                        position: 'bottom-right',
+                                        showHideTransition: 'plain',
+                                        hideAfter: 4000, 
+                                    });
+                                    let wholesale_discount_amount = localStorage.getItem('wholesale_discount_amount');
+                                    let senior_pwd_discount_amount = localStorage.getItem('senior_pwd_discount_amount');
+                                    setTimeout(async function()
+                                    {
+                                        window.open("/preview-invoice/"+wholesale_discount_amount +"/"+senior_pwd_discount_amount + "/" + studname);
+                                        setTimeout(async function()
+                                        {
+                                            await readTray();
+                                        },300);
+                                    },3000);
     
-                        //         }
-                        //         else if (res == 'invoice_exists') {
-                        //             $('#proccess').html("Proccess")
-                        //             alert('Invoice # is already exists.')
-                        //         }
-                        //         else {
-                        //             $.toast({
-                        //                 heading: 'Something went wrong',
-                        //                 position: 'bottom-right',
-                        //                 text:'Please contact the development team',
-                        //                 showHideTransition: 'fade',
-                        //                 icon: 'error',
-                        //                 hideAfter: 4000, 
-                        //             });
-                        //         }
-                        //     }
-                        // });
+                                }
+                                else if (res == 'invoice_exists') {
+                                    $('#proccess').html("Proccess")
+                                    alert('Invoice # is already exists.')
+                                }
+                                else {
+                                    $.toast({
+                                        heading: 'Something went wrong',
+                                        position: 'bottom-right',
+                                        text:'Please contact the development team',
+                                        showHideTransition: 'fade',
+                                        icon: 'error',
+                                        hideAfter: 4000, 
+                                    });
+                                }
+                            }
+                        });
                     }
                     else {
                         alert('Please enter the Invoice #');
