@@ -409,25 +409,7 @@ function on_Click () {
         searchProduct ();
     });
 
-    $(document).on('click', '#proccess', function(){
-        var total = $('#total').text().slice(1).replace(",", ""); 
-        var tendered = $('#tendered').val();
-        var invoice_no = $('#invoice-no').val();
-        var studname = $('#input-search-studentname').val();
-        total = parseFloat(total);
-        tendered = parseFloat(tendered);
-    
-        if(studname === ""){
-            swal.fire({
-                title: "Error!",
-                icon: 'error',
-                text: "Please Type Student Name",
-                timer: 3000,
-                showConfirmButton: true
-              });
-        }
-        else{
-            var payment_method = 'Cash';
+    var payment_method = 'Cash';
             $('#payment_method').on('change', function(e) {
                 if ($(this).val() === 'Cash') {
                 console.log('Cash')
@@ -447,6 +429,27 @@ function on_Click () {
                 }
                 console.log(payment_method);
             })
+
+            console.log(payment_method);
+
+    $(document).on('click', '#proccess', function(){
+        var total = $('#total').text().slice(1).replace(",", ""); 
+        var tendered = $('#tendered').val();
+        var invoice_no = $('#invoice-no').val();
+        var studname = $('#input-search-studentname').val();
+        total = parseFloat(total);
+        tendered = parseFloat(tendered);
+    
+        if(studname === ""){
+            swal.fire({
+                title: "Error!",
+                icon: 'error',
+                text: "Please Type Student Name",
+                timer: 3000,
+                showConfirmButton: true
+              });
+        }
+        else{
             if (tendered) {
                 // if (paymentMethod == 'Card') { // Check if Card Payment checkbox is checked
                 //     var paymentMethod = 'card'; // Define the payment method for card payment
