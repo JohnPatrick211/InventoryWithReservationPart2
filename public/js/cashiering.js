@@ -414,12 +414,18 @@ function on_Click () {
                 if ($(this).val() === 'Cash') {
                 console.log('Cash')
                 payment_method = 'Cash';
+                $('.img-gcash-qr').css('display', 'none');
+                document.getElementById("contactno").disabled = true;
+                document.getElementById("tendered").disabled = false;
                 }
                 if($(this).val() === 'GCash'){
                     payment_method = 'GCash';
                     var total = $('#total').text().slice(1).replace(",", ""); 
                     $('#tendered').val(total);
                     $('#change').val('0.00');
+                    $('.img-gcash-qr').css('display', 'block');
+                    document.getElementById("contactno").disabled = false;
+                    document.getElementById("tendered").disabled = true;
                     console.log('GCash')
                 }
                 if($(this).val() === 'Card'){
