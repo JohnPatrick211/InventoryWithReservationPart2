@@ -135,7 +135,7 @@
                              
                             
 
-                             <div class="col-sm-12 ml-1 mt-1 mb-2">
+                             <!-- <div class="col-sm-12 ml-1 mt-1 mb-2">
                                 <div class="form-check">
                                     <input type="checkbox" class="form-check-input" id="cash-payment">
                                     <label class="form-check-label" for="exampleCheck1">Cash Payment</label>
@@ -158,6 +158,14 @@
                                     <input type="checkbox" class="form-check-input" id="paymaya-payment">
                                     <label class="form-check-label" for="exampleCheck1">Maya Payment</label>
                                 </div>
+                            </div> -->
+                            <div class="col-sm-12 ml-1 mt-1 mb-2">
+                            <select class="form-control w-auto m-1 float-left" id="inv_category">
+                                <option value="0">All category</option>
+                                @foreach ($category as $item)
+                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                @endforeach
+                            </select>
                             </div>
                             <div class="col-sm-3">
                                 <button class="btn btn-sm btn-success" id="proccess">Process</button>
