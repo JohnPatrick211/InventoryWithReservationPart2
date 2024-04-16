@@ -99,7 +99,9 @@ class CustomerOrderController extends Controller
         }
         else{
             if (request()->status == 2) {
+                dd('failed');
                 if($orders[0]->reservation == 1){
+                    dd('failed2');
                     $orders = $this->readOneOrder($order_no);
                     $this->recordSale2($orders);
         
@@ -126,6 +128,9 @@ class CustomerOrderController extends Controller
                     ]);
                 } 
                
+            }
+            else if(request()->status == 4){
+                dd('success');
             }
     
             Order::where('order_no', $order_no)->update([
