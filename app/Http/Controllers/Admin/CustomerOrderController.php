@@ -113,18 +113,18 @@ class CustomerOrderController extends Controller
                
             }
             else if(request()->status == 4 && $orders[0]->reservation == 1){
-                dd('success');
-                // $orders = $this->readOneOrder($order_no);
-                // $this->recordSale2($orders);
+                //dd('success');
+                $orders = $this->readOneOrder($order_no);
+                $this->recordSale2($orders);
     
-                // $delivery_date = date('Y-m-d');
+                $delivery_date = date('Y-m-d');
                 
-                // if (request()->delivery_date) {
-                //     $delivery_date = request()->delivery_date;
-                // }
-                // Order::where('order_no', $order_no)->update([
-                //     'delivery_date' => $delivery_date
-                // ]);
+                if (request()->delivery_date) {
+                    $delivery_date = request()->delivery_date;
+                }
+                Order::where('order_no', $order_no)->update([
+                    'delivery_date' => $delivery_date
+                ]);
             }
     
             Order::where('order_no', $order_no)->update([
