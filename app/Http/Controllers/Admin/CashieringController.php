@@ -101,26 +101,26 @@ class CashieringController extends Controller
 
     public function void($id)
     {
-        $input = Input::all();
+        //$input = Input::all();
         
-        $data = DB::table('users')
-            ->where('username', $input['username'])
-            ->where('access_level', '!=', 4)
-            ->first();
+        // $data = DB::table('users')
+        //     ->where('username', $input['username'])
+        //     ->where('access_level', '!=', 4)
+        //     ->first();
             
-        if ($data) {
+        // if ($data) {
             // if password is correct, void the item. 
-            if (Hash::check($input['password'], $data->password)) {      
+            //if (Hash::check($input['password'], $data->password)) {      
                 DB::table('cashiering_tray')->where('id', $id)->delete();
                 return 'success';
-            }
-            else {
-                return 'failed';
-            }
-        }
-        else {
-            return 'failed';
-        }
+            // }
+            // else {
+            //     return 'failed';
+            // }
+        // }
+        // else {
+        //     return 'failed';
+        // }
        
     }
 

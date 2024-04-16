@@ -619,30 +619,16 @@ function on_Click () {
     
 
     $(document).on('click', '.btn-void', function(){
-        $('#void-modal').modal('show');
+        //$('#void-modal').modal('show');
         var id = $(this).attr('data-id');  console.log(id)
-        $('#btn-confirm-void').attr('data-id', id);
-        
-    });
-
-    $(document).on('click', '#btn-confirm-void', function(){
-        var id = $(this).attr('data-id');
-        var username = $('#username').val();
-        var password = $('#password').val();
-
-
-        if (username && password) {
-            $(this).html('Please wait...');
+        // $('#btn-confirm-void').attr('data-id', id);
+          //         $(this).html('Please wait...');
             $.ajax({
                 url: '/void/'+id,
                 type: 'POST',
-                data: {
-                    username : username,
-                    password : password
-                },
                 success:async function(res){
-                    $('#void-modal').modal('hide');
-                    $('#btn-confirm-void').html('Void');
+                    // $('#void-modal').modal('hide');
+                    // $('#btn-confirm-void').html('Void');
                     if (res == 'success') {
                         setTimeout(async function(){
                             $.toast({
@@ -655,15 +641,52 @@ function on_Click () {
                         },300);
                     }
                     else {
-                        alert('Invalid username or password');
+                        alert('Error, Please Try Again');
                     }
                 }
             });
-        }
-        else {
-            alert('Please input the admin credential.')
-        }
+        
     });
+
+    // $(document).on('click', '#btn-confirm-void', function(){
+    //     var id = $(this).attr('data-id');
+    //     // var username = $('#username').val();
+    //     // var password = $('#password').val();
+
+
+    //     if (username && password) {
+    //         $(this).html('Please wait...');
+    //         $.ajax({
+    //             url: '/void/'+id,
+    //             type: 'POST',
+    //             data: {
+    //                 username : username,
+    //                 password : password
+    //             },
+    //             success:async function(res){
+    //                 $('#void-modal').modal('hide');
+    //                 $('#btn-confirm-void').html('Void');
+    //                 if (res == 'success') {
+    //                     setTimeout(async function(){
+    //                         $.toast({
+    //                             text:'Item was successfully void.',
+    //                             position: 'bottom-right',
+    //                             showHideTransition: 'plain',
+    //                             hideAfter: 4000, 
+    //                         });
+    //                         await readTray();
+    //                     },300);
+    //                 }
+    //                 else {
+    //                     alert('Invalid username or password');
+    //                 }
+    //             }
+    //         });
+    //     }
+    //     else {
+    //         alert('Please input the admin credential.')
+    //     }
+    // });
 }
 
 
