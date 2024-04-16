@@ -225,6 +225,7 @@ class CustomerOrderController extends Controller
         ->leftJoin('users', 'BR.user_id', '=', 'users.id')
         ->leftJoin('product', 'BR.product_code', '=', DB::raw('CONCAT(product.prefix, product.id)'))
         ->where('BR.pre_order',1)
+        ->whereBetween(DB::raw('DATE(BR.created_at)'), [ $request->date_from, $request->date_to])
         ->get();
 
         if(request()->ajax())

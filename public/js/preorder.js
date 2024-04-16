@@ -1,4 +1,4 @@
-async function fetchPreOrder(){
+async function fetchPreOrder(date_from, date_to){
     $('.tbl-preorder-report').DataTable({
     
         processing: true,
@@ -6,7 +6,12 @@ async function fetchPreOrder(){
 
         ajax:{
             url: "/reports/preorder-report",
-            type:"GET"
+            type:"GET",
+            data:{
+                supplier_id :supplier_id,
+                date_from   :date_from,
+                date_to     :date_to
+            }
         },
    
         columnDefs: [{
@@ -26,6 +31,22 @@ async function fetchPreOrder(){
         ]
        });
 }
+
+$(document).on('change','#date_from', async function(){
+
+    var date_from = $('#date_from').val()
+    var date_to = $('#date_to').val();
+    $('.tbl-preorder-report').DataTable().destroy();
+    await fetchPreOrder(date_from, date_to);
+  });
+
+  $(document).on('change','#date_to', async function(){
+
+    var date_from = $('#date_from').val()
+    var date_to = $('#date_to').val();
+    $('.tbl-preorder-report').DataTable().destroy();
+    await fetchPreOrder(date_from, date_to);
+  });
 
 // var replacement_id;
 // async function onClick() {
@@ -74,11 +95,15 @@ async function fetchPreOrder(){
 //   });
 
 $(document).on('click','.btn-preview-preorder-report', async function(){
-    window.open("/reports/preorder/preview");
+    var date_from = $('#date_from').val()
+    var date_to = $('#date_to').val();
+    window.open("/reports/preorder/preview/" + date_from + "/" + date_to);
 });
 
 $(document).on('click','.btn-download-preorder-report', async function(){
-    window.open("/reports/preorder/download");
+    var date_from = $('#date_from').val()
+    var date_to = $('#date_to').val();
+    window.open("/reports/preorder/download/" + date_from + "/" + date_to);
 });
 
 $.ajaxSetup({
@@ -89,7 +114,9 @@ $.ajaxSetup({
   
 async function render() {
     await onClick();
-    await fetchPreOrder();
+    var date_from = $('#date_from').val()
+    var date_to = $('#date_to').val();
+    await fetchPreOrder(date_from, date_to);
 }
 
 render();
