@@ -48,6 +48,7 @@
         <a class="btn btn-sm btn-outline-dark float-right m-1 btn-preview-replacement-report">Print Preview</a>
         <a class="btn btn-sm btn-outline-success float-right m-1 btn-download-replacement-report"><i class="fas fa-download"></i> Download PDF</a>
     </div>
+    </div>
         
     <div class="col-md-12 col-lg-12 mt-3">
       <div class="card">
