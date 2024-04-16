@@ -43,6 +43,7 @@
             Status
           </div>
           <select class="form-control w-auto m-1 float-left" id="status" name="status">
+          <option value="ALL">Status</option>
             <option value="1">Approved</option>
             <option value="2">Rejected</option>
           </select>             

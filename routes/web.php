@@ -165,8 +165,8 @@ Route::middleware('auth')->group(function () {
       Route::get('reports/replacement', 'ReplacmentController@indexreport');
       Route::get('/reports/replacement-report', 'ReplacmentController@indexreport');
       Route::post('/reports/replacement/archive/{replacement_id}', 'ReplacmentController@archive');
-      Route::get('/reports/replacement/preview', 'ReplacmentController@previewReport');
-      Route::get('/reports/replacement/download', 'ReplacmentController@downloadReport');
+      Route::get('/reports/replacement/preview/{supplier_id}', 'ReplacmentController@previewReport');
+      Route::get('/reports/replacement/download/{supplier_id}', 'ReplacmentController@downloadReport');
       //preorder report
       Route::get('reports/preorder', 'Admin\CustomerOrderController@indexreport');
       Route::get('/reports/preorder-report', 'Admin\CustomerOrderController@indexreport');

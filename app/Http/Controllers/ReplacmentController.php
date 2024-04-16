@@ -243,14 +243,25 @@ class ReplacmentController extends Controller
         Session::put('cms_name', $cms->name);
         Session::put('cms_theme_color', $cms->theme_color);
         Session::put('cms_undraw_img', $cms->undraw_img);
-        
-        $data = DB::table('replacement AS BR')
-        ->select('BR.*', 'users.name AS studentName', 'product.description AS productName', 'BR.qty AS replacement_qty')
-        ->leftJoin('users', 'BR.user_id', '=', 'users.id')
-        ->leftJoin('product', 'BR.product_id', '=', 'product.id')
-        ->where('BR.status','!=', 0)
-        ->where('BR.archive_status','!=', 0)
-        ->get();
+
+        if($request->supplier_id == 'ALL'){
+            $data = DB::table('replacement AS BR')
+            ->select('BR.*', 'users.name AS studentName', 'product.description AS productName', 'BR.qty AS replacement_qty')
+            ->leftJoin('users', 'BR.user_id', '=', 'users.id')
+            ->leftJoin('product', 'BR.product_id', '=', 'product.id')
+            ->where('BR.archive_status','!=', 0)
+            ->where('BR.status','!=', 0)
+            ->get();
+        }
+        else{
+            $data = DB::table('replacement AS BR')
+            ->select('BR.*', 'users.name AS studentName', 'product.description AS productName', 'BR.qty AS replacement_qty')
+            ->leftJoin('users', 'BR.user_id', '=', 'users.id')
+            ->leftJoin('product', 'BR.product_id', '=', 'product.id')
+            ->where('BR.archive_status','!=', 0)
+            ->where('BR.status', $request->supplier_id)
+            ->get();
+        }
 
         if(request()->ajax())
         { 
@@ -286,15 +297,34 @@ class ReplacmentController extends Controller
             ->with('success', 'Product was archived.');
     }
 
-    public function previewReport(){
+    public function previewReport($status){
 
-        $data = DB::table('replacement AS BR')
-        ->select('BR.*', 'users.name AS studentName', 'product.description AS productName', 'BR.qty AS replacement_qty')
-        ->leftJoin('users', 'BR.user_id', '=', 'users.id')
-        ->leftJoin('product', 'BR.product_id', '=', 'product.id')
-        ->where('BR.status','!=', 0)
-        ->where('BR.archive_status','!=', 0)
-        ->get();
+        if($request->supplier_id == 'ALL'){
+            $data = DB::table('replacement AS BR')
+            ->select('BR.*', 'users.name AS studentName', 'product.description AS productName', 'BR.qty AS replacement_qty')
+            ->leftJoin('users', 'BR.user_id', '=', 'users.id')
+            ->leftJoin('product', 'BR.product_id', '=', 'product.id')
+            ->where('BR.archive_status','!=', 0)
+            ->where('BR.status','!=', 0)
+            ->get();
+        }
+        else{
+            $data = DB::table('replacement AS BR')
+            ->select('BR.*', 'users.name AS studentName', 'product.description AS productName', 'BR.qty AS replacement_qty')
+            ->leftJoin('users', 'BR.user_id', '=', 'users.id')
+            ->leftJoin('product', 'BR.product_id', '=', 'product.id')
+            ->where('BR.archive_status','!=', 0)
+            ->where('BR.status', $status)
+            ->get();
+        }
+
+        // $data = DB::table('replacement AS BR')
+        // ->select('BR.*', 'users.name AS studentName', 'product.description AS productName', 'BR.qty AS replacement_qty')
+        // ->leftJoin('users', 'BR.user_id', '=', 'users.id')
+        // ->leftJoin('product', 'BR.product_id', '=', 'product.id')
+        // ->where('BR.status','!=', 0)
+        // ->where('BR.archive_status','!=', 0)
+        // ->get();
 
         $output = $this->reportLayout($data);
     
@@ -305,15 +335,34 @@ class ReplacmentController extends Controller
         return $pdf->stream('replacement_report.pdf');
     }
     
-    public function downloadReport(){
+    public function downloadReport($status){
 
-        $data = DB::table('replacement AS BR')
-        ->select('BR.*', 'users.name AS studentName', 'product.description AS productName', 'BR.qty AS replacement_qty')
-        ->leftJoin('users', 'BR.user_id', '=', 'users.id')
-        ->leftJoin('product', 'BR.product_id', '=', 'product.id')
-        ->where('BR.status','!=', 0)
-        ->where('BR.archive_status','!=', 0)
-        ->get();
+        if($request->supplier_id == 'ALL'){
+            $data = DB::table('replacement AS BR')
+            ->select('BR.*', 'users.name AS studentName', 'product.description AS productName', 'BR.qty AS replacement_qty')
+            ->leftJoin('users', 'BR.user_id', '=', 'users.id')
+            ->leftJoin('product', 'BR.product_id', '=', 'product.id')
+            ->where('BR.archive_status','!=', 0)
+            ->where('BR.status','!=', 0)
+            ->get();
+        }
+        else{
+            $data = DB::table('replacement AS BR')
+            ->select('BR.*', 'users.name AS studentName', 'product.description AS productName', 'BR.qty AS replacement_qty')
+            ->leftJoin('users', 'BR.user_id', '=', 'users.id')
+            ->leftJoin('product', 'BR.product_id', '=', 'product.id')
+            ->where('BR.archive_status','!=', 0)
+            ->where('BR.status', $status)
+            ->get();
+        }
+
+        // $data = DB::table('replacement AS BR')
+        // ->select('BR.*', 'users.name AS studentName', 'product.description AS productName', 'BR.qty AS replacement_qty')
+        // ->leftJoin('users', 'BR.user_id', '=', 'users.id')
+        // ->leftJoin('product', 'BR.product_id', '=', 'product.id')
+        // ->where('BR.status','!=', 0)
+        // ->where('BR.archive_status','!=', 0)
+        // ->get();
 
         $output = $this->reportLayout($data);
     

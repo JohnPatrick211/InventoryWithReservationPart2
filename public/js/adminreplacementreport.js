@@ -1,4 +1,4 @@
-async function fetchApprovedReplacement(){
+async function fetchApprovedReplacement(supplier_id){
     $('.tbl-replacement-report').DataTable({
     
         processing: true,
@@ -6,7 +6,10 @@ async function fetchApprovedReplacement(){
 
         ajax:{
             url: "/reports/replacement-report",
-            type:"GET"
+            type:"GET",
+            data:{
+                supplier_id :supplier_id
+            }
         },
    
         columnDefs: [{
@@ -27,6 +30,14 @@ async function fetchApprovedReplacement(){
         ]
        });
 }
+
+$(document).on('change','#status', async function(){
+
+    var supplier_id = $('#status').val();
+    $('.tbl-replacement-report').DataTable().destroy();
+    await fetchApprovedReplacement(supplier_id);
+  
+  });
 
 var replacement_id;
 async function onClick() {
@@ -75,11 +86,13 @@ $(document).on('click', '.btn-confirm-archive-replacement', function(){
   });
 
 $(document).on('click','.btn-preview-replacement-report', async function(){
-    window.open("/reports/replacement/preview");
+    var supplier_id = $('#status').val();
+    window.open("/reports/replacement/preview/" + supplier_id);
 });
 
 $(document).on('click','.btn-download-replacement-report', async function(){
-    window.open("/reports/replacement/download");
+    var supplier_id = $('#status').val();
+    window.open("/reports/replacement/download/" + supplier_id);
 });
 
 $.ajaxSetup({
@@ -89,8 +102,11 @@ $.ajaxSetup({
 }); 
   
 async function render() {
+    var supplier_id = $('#status').val();
+
     await onClick();
-    await fetchApprovedReplacement();
+    
+    await fetchApprovedReplacement(supplier_id);
 }
 
 render();
