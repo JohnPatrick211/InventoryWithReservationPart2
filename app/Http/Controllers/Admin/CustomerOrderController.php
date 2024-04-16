@@ -98,18 +98,34 @@ class CustomerOrderController extends Controller
             
         }
         else{
-            if (request()->status == 2) { 
-                $orders = $this->readOneOrder($order_no);
-                $this->recordSale($orders);
-    
-                $delivery_date = date('Y-m-d');
-                
-                if (request()->delivery_date) {
-                    $delivery_date = request()->delivery_date;
+            if (request()->status == 2) {
+                if($orders[0]->reservation == 1){
+                    $orders = $this->readOneOrder($order_no);
+                    $this->recordSale2($orders);
+        
+                    $delivery_date = date('Y-m-d');
+                    
+                    if (request()->delivery_date) {
+                        $delivery_date = request()->delivery_date;
+                    }
+                    Order::where('order_no', $order_no)->update([
+                        'delivery_date' => $delivery_date
+                    ]);
                 }
-                Order::where('order_no', $order_no)->update([
-                    'delivery_date' => $delivery_date
-                ]);
+                else{
+                    $orders = $this->readOneOrder($order_no);
+                    $this->recordSale($orders);
+        
+                    $delivery_date = date('Y-m-d');
+                    
+                    if (request()->delivery_date) {
+                        $delivery_date = request()->delivery_date;
+                    }
+                    Order::where('order_no', $order_no)->update([
+                        'delivery_date' => $delivery_date
+                    ]);
+                } 
+               
             }
     
             Order::where('order_no', $order_no)->update([
@@ -142,6 +158,33 @@ class CustomerOrderController extends Controller
                 $sales->save();
     
                 //$this->updateInventory($items->product_code, $items->qty);
+            }
+
+            return 'success';
+        }
+        else {
+            return 'invoice_exists';
+        }
+    }
+
+    public function recordSale2($orders)
+    {
+        $invoice_no = $this->readInvoice();
+
+        if (!$this->isInvoiceExists($invoice_no)) {
+            foreach ($orders as $items) {
+                $sales = new Sales;
+                $sales->prefix = date('Ymd');
+                $sales->invoice_no = $invoice_no;
+                $sales->product_code = $items->product_code;
+                $sales->qty = $items->qty;
+                $sales->amount = $items->amount;
+                $sales->payment_method = $items->payment_method;
+                $sales->order_from = 'online';
+                $sales->status = 1;
+                $sales->save();
+    
+                $this->updateInventory($items->product_code, $items->qty);
             }
 
             return 'success';
