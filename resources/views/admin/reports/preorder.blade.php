@@ -37,6 +37,17 @@
 
       
     <div class="col-12"> <div class="float-left mt-2 ml-3">
+    <div class="float-left mt-2 ml-3">
+              Date
+          </div>
+          <input type="date" class="form-control w-auto float-left m-1" name="date_from" id="date_from" value="{{ date('Y-m-d') }}">
+          <div class="float-left mt-2">
+              -
+          </div>
+          <input data-column="9" type="date" class="form-control w-auto float-left m-1" name="date_to" id="date_to" value="{{ date('Y-m-d') }}">  
+              <a class="btn btn-sm btn-outline-dark float-right m-1 btn-preview-supplier-delivery-report">Print Preview</a>
+              <a class="btn btn-sm btn-outline-success float-right m-1 btn-download-supplier-delivery-report"><i class="fas fa-download"></i> Download PDF</a>
+        </div>
         <!--Category-->
     </div>
         <a class="btn btn-sm btn-outline-dark float-right m-1 btn-preview-preorder-report">Print Preview</a>
