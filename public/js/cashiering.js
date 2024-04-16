@@ -476,12 +476,11 @@ function on_Click () {
         }
         else{
             if (tendered) {
-                // if (paymentMethod == 'Card') { // Check if Card Payment checkbox is checked
-                //     var paymentMethod = 'card'; // Define the payment method for card payment
-                //     var href = "create-checkout?payment_method=" + paymentMethod + "&total=" + total.toFixed(2);
-                //     $('#btn-place-order').attr("href", href); // Update the href attribute of the button
-                // }
-                // else {
+                if (total > tendered) {
+                    $(this).html("Process");
+                    alert('Tendered amount is less than total amount.');
+                }
+                else {
                     if (invoice_no) {      
                         $(this).html("Plase wait...");
                         console.log(payment_method);
@@ -515,7 +514,7 @@ function on_Click () {
                                     $('#change').val('');
                                     $('#tendered').val('');
                                     //$('#invoice-no').val('');
-                                    $('#proccess').html("Proccess");
+                                    $('#proccess').html("Process");
                                   
                                     $.toast({
                                         heading:'Transaction was successfully recorded.',
@@ -537,7 +536,7 @@ function on_Click () {
     
                                 }
                                 else if (res == 'invoice_exists') {
-                                    $('#proccess').html("Proccess")
+                                    $('#proccess').html("Process")
                                     alert('Invoice # is already exists.')
                                 }
                                 else {
@@ -556,7 +555,7 @@ function on_Click () {
                     else {
                         alert('Please enter the Invoice #');
                     }
-                //}
+                }
             }
             else {
                 alert('Please enter the tendered amount.');
