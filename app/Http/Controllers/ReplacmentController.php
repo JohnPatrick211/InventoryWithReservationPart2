@@ -299,7 +299,7 @@ class ReplacmentController extends Controller
 
     public function previewReport($status){
 
-        if($request->supplier_id == 'ALL'){
+        if($status == 'ALL'){
             $data = DB::table('replacement AS BR')
             ->select('BR.*', 'users.name AS studentName', 'product.description AS productName', 'BR.qty AS replacement_qty')
             ->leftJoin('users', 'BR.user_id', '=', 'users.id')
@@ -337,7 +337,7 @@ class ReplacmentController extends Controller
     
     public function downloadReport($status){
 
-        if($request->supplier_id == 'ALL'){
+        if($status == 'ALL'){
             $data = DB::table('replacement AS BR')
             ->select('BR.*', 'users.name AS studentName', 'product.description AS productName', 'BR.qty AS replacement_qty')
             ->leftJoin('users', 'BR.user_id', '=', 'users.id')
