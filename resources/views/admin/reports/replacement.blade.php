@@ -33,22 +33,21 @@
   </div>
   @endif
 
-  <div class="row mt-4">
+  <div class="row mt-4 ml-2">
+          <div class="col-12">
 
-      
-    <div class="col-12"> <div class="float-left mt-2 ml-3">
-        <!--Category-->
-              Status
+            <div class="float-left mt-2">
+              Supplier
           </div>
-          <select class="form-control w-auto m-1 float-left" id="status" name="status">
-            <option value="1">Approved</option>
-            <option value="2">Rejected</option>
-          </select>
-    </div>
-        <a class="btn btn-sm btn-outline-dark float-right m-1 btn-preview-replacement-report">Print Preview</a>
-        <a class="btn btn-sm btn-outline-success float-right m-1 btn-download-replacement-report"><i class="fas fa-download"></i> Download PDF</a>
-    </div>
-    </div>
+          <select class="form-control w-auto m-1 float-left" id="supplier">
+            @foreach ($supplier as $item)
+            <option value="{{ $item->id }}">{{ $item->supplier_name }}</option>
+         @endforeach
+          </select> 
+              <a class="btn btn-sm btn-outline-dark float-right m-1 btn-preview-replacement-report">Print Preview</a>
+              <a class="btn btn-sm btn-outline-success float-right m-1 btn-download-replacment-report"><i class="fas fa-download"></i> Download PDF</a>
+        </div>
+        </div>
         
     <div class="col-md-12 col-lg-12 mt-3">
       <div class="card">
