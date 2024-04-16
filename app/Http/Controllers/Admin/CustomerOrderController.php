@@ -99,7 +99,6 @@ class CustomerOrderController extends Controller
         }
         else{
             if (request()->status == 2) {
-                dd('failed');
                 if($orders[0]->reservation == 1){
                     dd('failed2');
                     $orders = $this->readOneOrder($order_no);
