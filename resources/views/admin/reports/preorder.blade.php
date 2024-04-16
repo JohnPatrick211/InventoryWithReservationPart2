@@ -36,15 +36,6 @@
   <div class="row mt-4 ml-2">
           <div class="col-12">
 
-            <div class="float-left mt-2">
-              Supplier
-          </div>
-          <select class="form-control w-auto m-1 float-left" id="supplier">
-            @foreach ($supplier as $item)
-            <option value="{{ $item->id }}">{{ $item->supplier_name }}</option>
-         @endforeach
-          </select>
-
             <div class="float-left mt-2 ml-3">
               Date
           </div>
