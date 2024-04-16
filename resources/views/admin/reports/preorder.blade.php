@@ -33,11 +33,19 @@
   </div>
   @endif
 
-  <div class="row mt-4">
+  <div class="row mt-4 ml-2">
+          <div class="col-12">
 
-      
-    <div class="col-12"> <div class="float-left mt-2 ml-3">
-    <div class="float-left mt-2 ml-3">
+            <div class="float-left mt-2">
+              Supplier
+          </div>
+          <select class="form-control w-auto m-1 float-left" id="supplier">
+            @foreach ($supplier as $item)
+            <option value="{{ $item->id }}">{{ $item->supplier_name }}</option>
+         @endforeach
+          </select>
+
+            <div class="float-left mt-2 ml-3">
               Date
           </div>
           <input type="date" class="form-control w-auto float-left m-1" name="date_from" id="date_from" value="{{ date('Y-m-d') }}">
@@ -45,12 +53,10 @@
               -
           </div>
           <input data-column="9" type="date" class="form-control w-auto float-left m-1" name="date_to" id="date_to" value="{{ date('Y-m-d') }}">  
-          </div>
-        <!--Category-->
-    </div>
-        <a class="btn btn-sm btn-outline-dark float-right m-1 btn-preview-preorder-report">Print Preview</a>
-        <a class="btn btn-sm btn-outline-success float-right m-1 btn-download-preorder-report"><i class="fas fa-download"></i> Download PDF</a>
-    </div>
+              <a class="btn btn-sm btn-outline-dark float-right m-1 btn-preview-preorder-report">Print Preview</a>
+              <a class="btn btn-sm btn-outline-success float-right m-1 btn-download-preorder-report"><i class="fas fa-download"></i> Download PDF</a>
+        </div>
+        </div>
         
     <div class="col-md-12 col-lg-12 mt-3">
       <div class="card">
