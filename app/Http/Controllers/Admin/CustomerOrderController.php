@@ -237,13 +237,14 @@ class CustomerOrderController extends Controller
         return view('admin.reports.preorder');
     }
 
-    public function previewReport(){
+    public function previewReport($date_from, $date_to){
 
         $data = DB::table('orders AS BR')
         ->select('BR.*', 'users.name AS studentName', 'product.description AS productName', 'BR.qty AS preorder_qty','BR.created_at AS preorder_date')
         ->leftJoin('users', 'BR.user_id', '=', 'users.id')
         ->leftJoin('product', 'BR.product_code', '=', DB::raw('CONCAT(product.prefix, product.id)'))
         ->where('BR.pre_order',1)
+        ->whereBetween(DB::raw('DATE(BR.created_at)'), [ $date_from, $date_to])
         ->get();
 
         $output = $this->reportLayout($data);
@@ -255,13 +256,14 @@ class CustomerOrderController extends Controller
         return $pdf->stream('preorder_report.pdf');
     }
     
-    public function downloadReport(){
+    public function downloadReport($date_from, $date_to){
 
         $data = DB::table('orders AS BR')
         ->select('BR.*', 'users.name AS studentName', 'product.description AS productName', 'BR.qty AS preorder_qty','BR.created_at AS preorder_date')
         ->leftJoin('users', 'BR.user_id', '=', 'users.id')
         ->leftJoin('product', 'BR.product_code', '=', DB::raw('CONCAT(product.prefix, product.id)'))
         ->where('BR.pre_order',1)
+        ->whereBetween(DB::raw('DATE(BR.created_at)'), [ $date_from, $date_to])
         ->get();
 
         $output = $this->reportLayout($data);
