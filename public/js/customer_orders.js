@@ -204,6 +204,7 @@ async function on_Click() {
             }
             else {
                 html += '<div class="float-right" style="margin-right:65px;"><b>Estimated Pickup Date:</b><br> '+delivery_date+'</div>';
+                document.getElementsByClassName('supplier')[0].style.display = "block";
             }
             html += '</div>';
         $('#show-orders-modal').modal('show');
