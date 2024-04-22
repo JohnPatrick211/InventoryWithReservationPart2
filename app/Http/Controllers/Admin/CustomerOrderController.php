@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\Sales;
+use App\Models\Supplier;
 use Session;
 use DB;
 use Carbon\Carbon;
@@ -14,8 +15,10 @@ class CustomerOrderController extends Controller
 {
     public function index()
     {
-
-        return view('admin.customer-orders.index');
+        $supplier = Supplier::where('status', 1)->get();
+        return view('admin.customer-orders.index',[
+            'supplier' => $supplier
+        ]);
     }
 
     public function readOrders(Order $o)
