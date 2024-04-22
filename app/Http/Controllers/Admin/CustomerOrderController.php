@@ -54,7 +54,7 @@ class CustomerOrderController extends Controller
                     else{
                         $button = '<a class="btn btn-sm btn-show-order" data-name="'. $order->name .'" data-order-no="'. $order->order_no .'" ';
                     }
-                    $button .= 'data-user-id="'. $order->user_id .'" data-payment="'. $order->payment_method .'" data-delivery-date="'. $order->delivery_date .'" '; 
+                    $button .= 'data-user-id="'. $order->user_id .'" data-payment="'. $order->payment_method .'" data-delivery-date="'. $order->delivery_date . '" data-supplier ="'. $order->supplier_id .'" '; 
                     $button .= 'data-phone="'. $order->phone .'" data-email="'. $order->email .'" data-longlat="'. $order->map .'" data-id-type="'. $order->id_type .'" style="color:#1970F1;">Show orders</a>';
                     return $button;
                 })

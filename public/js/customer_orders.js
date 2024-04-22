@@ -176,6 +176,7 @@ async function on_Click() {
         let payment_method = $(this).attr('data-payment');
         let user_id = $(this).attr('data-user-id');
         let delivery_date = $(this).attr('data-delivery-date');
+        let supplier_name = $(this).attr('data-supplier');
         let latlong = $(this).attr('data-longlat');
         let btn = '<button class="btn btn-sm btn-outline-dark" id="btn-print" type="button">Print</button>';
         if (active_pill != 'completed' && active_pill != 'cancelled') {
@@ -200,11 +201,12 @@ async function on_Click() {
             html += '<div class="float-right">Order #: <b>'+order_no+'</b><div>Payment method: '+payment_method+'</div></div>';
             if (active_pill == 'pending') {
                 html += '<div class="float-right" style="margin-right:55px;"><b>Estimated Pickup Date:</b> <input id="delivery_date" type="date" class="form-control"></div>';
-                document.getElementsByClassName('supplier')[0].style.display = "none";
+                document.getElementsByClassName('supplier')[0].style.display = "block";
             }
             else {
                 html += '<div class="float-right" style="margin-right:65px;"><b>Estimated Pickup Date:</b><br> '+delivery_date+'</div>';
-                document.getElementsByClassName('supplier')[0].style.display = "block";
+                html += '<div class="float-right" style="margin-right:65px;"><b>Supplier: </b><br> '+supplier_name+'</div>';
+                document.getElementsByClassName('supplier')[0].style.display = "none";
             }
             html += '</div>';
         $('#show-orders-modal').modal('show');
