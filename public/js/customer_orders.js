@@ -200,7 +200,7 @@ async function on_Click() {
 
             }
             else{
-                html += '<div>Supplier Name: '+supplier_name+'</div>';
+                html += '<div><b>Supplier Name: </b>'+supplier_name+'</div>';
             }
             html += '</div>';
             html += '<div class="col-sm-12 col-md-6">';
