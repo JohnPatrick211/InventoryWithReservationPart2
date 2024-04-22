@@ -245,9 +245,9 @@ class Order extends Model
     {
 
         $data = DB::table($this->table . ' as O')
-            ->select('O.*', 'O.created_at as date_order', 'users.*', 'UA.map', 'users.id_type', 'O.status as order_status','S.supplier_name as supplier')
+            ->select('O.*', 'O.created_at as date_order', 'users.*', 'UA.map', 'users.id_type', 'O.status as order_status','SU.supplier_name as supplier')
             ->leftJoin('order_shipping_fee as S', 'S.order_no', '=', 'O.order_no')
-            ->leftJoin('supplier as S', 'S.id', '=', 'O.supplier_id')
+            ->leftJoin('supplier as SU', 'SU.id', '=', 'O.supplier_id')
             ->leftJoin('users', 'users.id', '=', 'O.user_id')
             ->leftJoin('user_address as UA', 'UA.user_id', '=', 'O.user_id')
             ->where('O.status', $status)
