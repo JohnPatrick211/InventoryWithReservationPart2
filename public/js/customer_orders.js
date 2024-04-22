@@ -200,7 +200,7 @@ async function on_Click() {
             html += '<div class="float-right">Order #: <b>'+order_no+'</b><div>Payment method: '+payment_method+'</div></div>';
             if (active_pill == 'pending') {
                 html += '<div class="float-right" style="margin-right:55px;"><b>Estimated Pickup Date:</b> <input id="delivery_date" type="date" class="form-control"></div>';
-                document.getElementsByClassName('appBanner')[0].style.visibility = 'hidden';
+                document.getElementsByClassName('supplier')[0].style.visibility = 'hidden';
             }
             else {
                 html += '<div class="float-right" style="margin-right:65px;"><b>Estimated Pickup Date:</b><br> '+delivery_date+'</div>';
