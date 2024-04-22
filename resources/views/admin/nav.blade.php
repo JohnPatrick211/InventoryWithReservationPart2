@@ -15,10 +15,8 @@
                     'reorder', 
                     'qty', 
                     'U.name as unit', 
-                    'S.supplier_name as supplier', 
                     'C.name as category'
                     )
-            ->leftJoin('supplier as S', 'S.id', '=', 'P.supplier_id')
             ->leftJoin('category as C', 'C.id', '=', 'P.category_id')
             ->leftJoin('unit as U', 'U.id', '=', 'P.unit_id')
             ->where('P.status', 1)
@@ -32,10 +30,8 @@
                     'reorder', 
                     'qty', 
                     'U.name as unit', 
-                    'S.supplier_name as supplier', 
                     'C.name as category'
                     )
-            ->leftJoin('supplier as S', 'S.id', '=', 'P.supplier_id')
             ->leftJoin('category as C', 'C.id', '=', 'P.category_id')
             ->leftJoin('unit as U', 'U.id', '=', 'P.unit_id')
             ->where('P.status', 1)
