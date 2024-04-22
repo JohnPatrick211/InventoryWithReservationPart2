@@ -111,7 +111,8 @@ class CustomerOrderController extends Controller
                         $delivery_date = request()->delivery_date;
                     }
                     Order::where('order_no', $order_no)->update([
-                        'delivery_date' => $delivery_date
+                        'delivery_date' => $delivery_date,
+                        'supplier_id' => request()->supplier_id
                     ]);
                
             }
