@@ -84,14 +84,7 @@
                               </select>
                             </div>
 
-                            <!-- <div class="col-sm-12 col-md-6 col-lg-4 mt-2">    
-                              <label class="col-form-label">Supplier</label>
-                              <select class="form-control" name="supplier_id" id="supplier_id">
-                                  @foreach ($supplier as $item)
-                                  <option {{ $selected = $product->supplier_id == $item->id ? 'selected' : '' }} value="{{ $item->id }}">{{ $item->supplier_name }}</option>
-                                  @endforeach
-                              </select>
-                            </div> -->
+                         
 
                             <!-- <div class="col-sm-12 col-md-6 col-lg-4 mt-2">
                               <label class="col-form-label">Original Price</label>
