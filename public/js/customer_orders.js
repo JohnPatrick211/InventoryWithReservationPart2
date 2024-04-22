@@ -196,18 +196,18 @@ async function on_Click() {
             html += '<div>Customer name: '+customer_name+'</div>';
             html += '<div>Contact #: '+phone+'</div>';
             html += '<div>Email: '+email+'</div>';
+            html += '<div>Email: '+email+'</div>';
+            html += '</div>';
             html += '<div class="col-sm-12 col-md-6">';
             html += '<div class="float-right">Order #: <b>'+order_no+'</b><div>Payment method: '+payment_method+'</div></div>';
             if (active_pill == 'pending') {
                 html += '<div class="float-right" style="margin-right:55px;"><b>Estimated Pickup Date:</b> <input id="delivery_date" type="date" class="form-control"></div>';
                 document.getElementsByClassName('supplier')[0].style.display = "block";
-                html += '</div>';
             }
             else {
                 html += '<div class="float-right" style="margin-right:65px;"><b>Estimated Pickup Date:</b><br> '+delivery_date+'</div>';
+                html += '<div class="float-left" style="margin-right:65px;"><b>Supplier: </b><br> '+supplier_name+'</div>';
                 document.getElementsByClassName('supplier')[0].style.display = "none";
-                html += '<div>Supplier Name: '+supplier_name+'</div>';
-                html += '</div>';
             }
             html += '</div>';
         $('#show-orders-modal').modal('show');
