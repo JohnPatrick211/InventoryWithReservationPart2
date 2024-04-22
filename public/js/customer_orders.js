@@ -309,6 +309,7 @@ async function on_Click() {
     $(document).on('click','#btn-change-status', function(){
         let order_no = $(this).attr('data-order-no');
         let data_status = $(this).attr('data-status');
+        let supplier_id = $('#supplier_id').val();
         let active_pill = $(this).attr('data-active-pill');
         let delivery_date = "";
         if($('#delivery_date').length > 0) {
@@ -326,6 +327,7 @@ async function on_Click() {
             type: 'POST',
             data: {
                 status : data_status,
+                supplier_id : supplier_id,
                 delivery_date : delivery_date
             },
             beforeSend:function(){
