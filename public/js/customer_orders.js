@@ -200,7 +200,6 @@ async function on_Click() {
             html += '<div class="float-right">Order #: <b>'+order_no+'</b><div>Payment method: '+payment_method+'</div></div>';
             if (active_pill == 'pending') {
                 html += '<div class="float-right" style="margin-right:55px;"><b>Estimated Pickup Date:</b> <input id="delivery_date" type="date" class="form-control"></div>';
-                html += '<div class="float-right" style="margin-right:55px;"><label class="col-form-label">Supplier</label><select class="form-control" name="supplier_id" id="supplier_id" required><option value="0" disabled selected>-- Select supplier --</option>@foreach ($supplier as $item)<option value="{{ $item->id }}">{{ $item->supplier_name }}</option>@endforeach</select></div>';
             }
             else {
                 html += '<div class="float-right" style="margin-right:65px;"><b>Estimated Pickup Date:</b><br> '+delivery_date+'</div>';
