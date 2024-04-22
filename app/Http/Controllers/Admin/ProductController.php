@@ -145,7 +145,7 @@ class ProductController extends Controller
             // 'orig_price' => 'required:product',
             'category_id' => 'required:product',
             'unit_id' => 'required:product',
-            'supplier_id' => 'required:product',
+            // 'supplier_id' => 'required:product',
         ]);
     }
 
@@ -176,7 +176,7 @@ class ProductController extends Controller
             'product' => $product,
             'unit' => $unit, 
             'category' => $category, 
-            'supplier' => $supplier
+            // 'supplier' => $supplier
         ]);
     }
 
