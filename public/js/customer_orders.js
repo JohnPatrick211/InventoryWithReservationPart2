@@ -197,6 +197,8 @@ async function on_Click() {
             html += '<div>Contact #: '+phone+'</div>';
             html += '<div>Email: '+email+'</div>';
             html += '</div>';
+            html += '<div>Email: '+email+'</div>';
+            html += '</div>';
             html += '<div class="col-sm-12 col-md-6">';
             html += '<div class="float-right">Order #: <b>'+order_no+'</b><div>Payment method: '+payment_method+'</div></div>';
             if (active_pill == 'pending') {
