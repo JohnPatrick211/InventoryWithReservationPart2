@@ -196,7 +196,6 @@ async function on_Click() {
             html += '<div>Customer name: '+customer_name+'</div>';
             html += '<div>Contact #: '+phone+'</div>';
             html += '<div>Email: '+email+'</div>';
-            html += '</div>';
             html += '<div>Email: '+email+'</div>';
             html += '</div>';
             html += '<div class="col-sm-12 col-md-6">';
