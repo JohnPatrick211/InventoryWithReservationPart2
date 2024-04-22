@@ -15,7 +15,7 @@
                     'reorder', 
                     'qty', 
                     'U.name as unit', 
-                   z
+                    'S.supplier_name as supplier', 
                     'C.name as category'
                     )
             ->leftJoin('supplier as S', 'S.id', '=', 'P.supplier_id')
