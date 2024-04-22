@@ -24,7 +24,7 @@ class Product extends Model
         'image',
         'unit_id',
         'category_id',
-        'supplier_id',
+        // 'supplier_id',
         'markup'
     ];
 
@@ -38,10 +38,10 @@ class Product extends Model
                     'selling_price', 
                     'qty', 
                     'U.name as unit', 
-                    'S.supplier_name as supplier', 
+                    // 'S.supplier_name as supplier', 
                     'C.name as category'
                     )
-            ->leftJoin('supplier as S', 'S.id', '=', 'P.supplier_id')
+            // ->leftJoin('supplier as S', 'S.id', '=', 'P.supplier_id')
             ->leftJoin('category as C', 'C.id', '=', 'P.category_id')
             ->leftJoin('unit as U', 'U.id', '=', 'P.unit_id')
             ->where('P.status', 1)
@@ -59,10 +59,10 @@ class Product extends Model
                     'selling_price', 
                     'qty', 
                     'U.name as unit', 
-                    'S.supplier_name as supplier', 
+                    // 'S.supplier_name as supplier', 
                     'C.name as category'
                     )
-            ->leftJoin('supplier as S', 'S.id', '=', 'P.supplier_id')
+            // ->leftJoin('supplier as S', 'S.id', '=', 'P.supplier_id')
             ->leftJoin('category as C', 'C.id', '=', 'P.category_id')
             ->leftJoin('unit as U', 'U.id', '=', 'P.unit_id')
             ->where('P.status', '!=', -1)
@@ -82,10 +82,10 @@ class Product extends Model
                     'safety_stocks',
                     'lead_days', 
                     'U.name as unit', 
-                    'S.supplier_name as supplier', 
+                    // 'S.supplier_name as supplier', 
                     'C.name as category'
                     )
-            ->leftJoin('supplier as S', 'S.id', '=', 'P.supplier_id')
+            // ->leftJoin('supplier as S', 'S.id', '=', 'P.supplier_id')
             ->leftJoin('category as C', 'C.id', '=', 'P.category_id')
             ->leftJoin('unit as U', 'U.id', '=', 'P.unit_id')
             ->where('P.status', '!=', -1)
@@ -103,11 +103,11 @@ class Product extends Model
                     'selling_price', 
                     'P.qty', 
                     'U.name as unit', 
-                    'S.supplier_name as supplier', 
+                    // 'S.supplier_name as supplier', 
                     'C.name as category',
                     'sales.qty as qty_purchased'
                     )
-            ->leftJoin('supplier as S', 'S.id', '=', 'P.supplier_id')
+            // ->leftJoin('supplier as S', 'S.id', '=', 'P.supplier_id')
             ->leftJoin('category as C', 'C.id', '=', 'P.category_id')
             ->leftJoin('unit as U', 'U.id', '=', 'P.unit_id')
             ->leftJoin('sales', 'sales.product_code', '=', DB::raw('CONCAT(P.prefix, P.id)'))
@@ -127,11 +127,11 @@ class Product extends Model
                     'selling_price', 
                     'qty', 
                     'U.name as unit', 
-                    'S.supplier_name as supplier', 
+                    // 'S.supplier_name as supplier', 
                     'C.name as category',
                     'P.updated_at'
                     )
-            ->leftJoin('supplier as S', 'S.id', '=', 'P.supplier_id')
+            // ->leftJoin('supplier as S', 'S.id', '=', 'P.supplier_id')
             ->leftJoin('category as C', 'C.id', '=', 'P.category_id')
             ->leftJoin('unit as U', 'U.id', '=', 'P.unit_id')
             ->whereBetween(DB::raw('DATE(P.updated_at)'), [$date_from, $date_to])
@@ -149,10 +149,10 @@ class Product extends Model
                     'selling_price', 
                     'qty', 
                     'U.name as unit',
-                    'S.supplier_name as supplier',  
+                    // 'S.supplier_name as supplier',  
                     'C.name as category'
                     )
-            ->leftJoin('supplier as S', 'S.id', '=', 'P.supplier_id')        
+            // ->leftJoin('supplier as S', 'S.id', '=', 'P.supplier_id')        
             ->leftJoin('category as C', 'C.id', '=', 'P.category_id')
             ->leftJoin('unit as U', 'U.id', '=', 'P.unit_id')
             ->where('P.status', 1)
@@ -173,10 +173,10 @@ class Product extends Model
                 'selling_price', 
                 'qty', 
                 'U.name as unit', 
-                'S.supplier_name as supplier', 
+                // 'S.supplier_name as supplier', 
                 'C.name as category'
                 )
-        ->leftJoin('supplier as S', 'S.id', '=', 'P.supplier_id')
+        // ->leftJoin('supplier as S', 'S.id', '=', 'P.supplier_id')
         ->leftJoin('category as C', 'C.id', '=', 'P.category_id')
         ->leftJoin('unit as U', 'U.id', '=', 'P.unit_id')
         ->where('P.status', 1)
