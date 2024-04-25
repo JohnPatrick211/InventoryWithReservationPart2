@@ -76,6 +76,7 @@ class base
         // Check if email ends with "@gmail.com"
         $email = $data_col[4];
         if (strpos($email, '@gmail.com') === false) {
+            Session::put('error_val','email');
             // Email does not contain "@gmail.com"
             Session::flash('message','Invalid email format. Email must end with @gmail.com');
             return; // Exit the method
@@ -91,10 +92,12 @@ class base
         // Check if password length is at least 8 characters
         $password = $data_col[3];
         if (strlen($password) < 8) {
+            Session::put('error_val','password');
             Session::flash('message', 'Upload failed. Accounts must have a minimum of 8 characters in the password.');
             return; // Exit the method
         }
         if(empty($data_col[1])){
+            Session::put('error_val','name');
             Session::flash('message', 'One of the Data in Name Column is Empty');
             return; // Exit the method
         }

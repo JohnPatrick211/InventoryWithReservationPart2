@@ -178,6 +178,10 @@ class UserController extends Controller
         return redirect('/users')
         ->with('success', 'User information imported successfully! There are '.$no_of_duplicates.' user are not imported because the user is already exists.');
        }
+       if(Session::get('error_val') == 'name'){
+        return redirect('/users')
+        ->with('Error', 'One of the Data in Name Column is Empty!');
+       }
        else
        {
         return redirect('/users')
