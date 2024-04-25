@@ -94,6 +94,10 @@ class base
             Session::flash('message', 'Upload failed. Accounts must have a minimum of 8 characters in the password.');
             return; // Exit the method
         }
+        if(empty($data_col[1])){
+            Session::flash('message', 'One of the Data in Name Column is Empty');
+            return; // Exit the method
+        }
 
         // Password meets the length requirement, hash the password
         $hashedPassword = \Hash::make($password);
