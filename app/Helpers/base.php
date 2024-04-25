@@ -129,49 +129,22 @@ public static function isEmailUnique($email)
 
 public static function CSVExporter($users)
 {
-    dd(count($users));
-    // Create a temporary file for writing
-    $tempFile = tempnam(sys_get_temp_dir(), 'export-');
-    $output = fopen($tempFile, 'w');
-
-    fputcsv($output, array('id','name','username', 'password','email','phone','access_level','status','created_at','updated_at'));
-
-    if (count($users) > 0) {
-        foreach ($users as $row) {
-            fputcsv($output, (array) $row);
-        }
-    }
-
-    fclose($output);
-
-    // Encrypt the temporary file
-    $cipherMethod = 'AES-256-CBC'; // Choose an encryption method
-    $encryptionKey = 'your-secret-key'; // Set your secret key
-    $iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length($cipherMethod));
-
-    $encryptedFile = $tempFile . '.enc';
-    openssl_encrypt(file_get_contents($tempFile), $cipherMethod, $encryptionKey, 0, $iv, $encryptedData);
-    file_put_contents($encryptedFile, $iv . $encryptedData);
-
-    // Decrypt the encrypted file
-    $decryptedData = openssl_decrypt(file_get_contents($encryptedFile), $cipherMethod, $encryptionKey, 0, substr(file_get_contents($encryptedFile), 0, 16));
-
-    // Output the decrypted data to a CSV file
-    $decryptedTempFile = tempnam(sys_get_temp_dir(), 'decrypted-export-');
-    file_put_contents($decryptedTempFile, $decryptedData);
-
-    // Set headers for downloading the decrypted CSV file
-    header('Content-Type: text/csv');
+    header('Content-Type: text/csv; charset=utf-8');
     header('Content-Disposition: attachment; filename=file-export-'.date('Y-m-d h:s:m').'.csv');
-    header('Content-Length: ' . filesize($decryptedTempFile));
+    $output = fopen('php://output', 'w');
 
-    // Output the decrypted CSV file contents
-    readfile($decryptedTempFile);
 
-    // Delete temporary files
-    unlink($tempFile);
-    unlink($encryptedFile);
-    unlink($decryptedTempFile);
+        fputcsv($output, array('id','name','username', 'password','email','phone','access_level','status','created_at','updated_at'));
+
+
+
+        if (count($users) > 0)
+        {
+            foreach ($users as $row)
+            {
+                fputcsv($output, (array) $row);
+            }
+        }
 }
 
 
