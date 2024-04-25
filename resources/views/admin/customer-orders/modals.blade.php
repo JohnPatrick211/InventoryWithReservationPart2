@@ -67,7 +67,17 @@
                         <th>Amount</th>
                     </tr>
                 </thead>
-                <tbody id="reservation-container"></tbody>
+                <tbody id="reservation-container">
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-2 supplier">    
+                              <label class="col-form-label">Supplier</label>
+                              <select class="form-control" name="supplier_id" id="supplier_id" required>
+                                <option value="0" disabled selected>-- Select supplier --</option>
+                                  @foreach ($supplier as $item)
+                                  <option value="{{ $item->id }}">{{ $item->supplier_name }}</option>
+                                  @endforeach
+                              </select>
+                            </div>
+                </tbody>
             </table>
 
            

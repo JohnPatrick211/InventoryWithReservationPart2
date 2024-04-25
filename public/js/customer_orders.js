@@ -196,7 +196,7 @@ async function on_Click() {
             html += '<div>Customer name: '+customer_name+'</div>';
             html += '<div>Contact #: '+phone+'</div>';
             html += '<div>Email: '+email+'</div>';
-            if(active_pill == 'pending' || active_pill == 'reservation' || active_pill == 'preorder'){
+            if(active_pill == 'pending' || active_pill == 'reservation' || active_pill == 'pre-order'){
 
             }
             else{
