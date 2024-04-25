@@ -205,7 +205,7 @@ async function on_Click() {
             html += '</div>';
             html += '<div class="col-sm-12 col-md-6">';
             html += '<div class="float-right">Order #: <b>'+order_no+'</b><div>Payment method: '+payment_method+'</div></div>';
-            if (active_pill == 'pending' || active_pill == 'reservation' || active_pill == 'preorder') {
+            if (active_pill == 'pending' || active_pill == 'reservation' || active_pill == 'pre-order') {
                 html += '<div class="float-right" style="margin-right:55px;"><b>Estimated Pickup Date:</b> <input id="delivery_date" type="date" class="form-control"></div>';
                 document.getElementsByClassName('supplier')[0].style.display = "block";
             }
