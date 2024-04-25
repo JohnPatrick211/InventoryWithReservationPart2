@@ -129,7 +129,7 @@ public static function isEmailUnique($email)
 
 public static function CSVExporter($users)
 {
-    dd($users);
+    dd(count($users));
     // Create a temporary file for writing
     $tempFile = tempnam(sys_get_temp_dir(), 'export-');
     $output = fopen($tempFile, 'w');
