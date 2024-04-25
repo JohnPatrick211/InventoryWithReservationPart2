@@ -151,7 +151,6 @@ class UserController extends Controller
     {
 
           base::CSVExporter($this->getUserdata());
-          dd($this->getUserdata());
         //   $getname = Session::get('Name');
         //     $getusertype = Session::get('User-Type');
         //     base::recordAction( $getname, $getusertype,'User Maintenance', 'export');
