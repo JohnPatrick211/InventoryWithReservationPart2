@@ -180,7 +180,7 @@ class UserController extends Controller
        }
        if(Session::get('error_val') == 'name'){
         return redirect('/users')
-        ->with('Error', 'One of the Data in Name Column is Empty!');
+        ->with('error', 'One of the Data in Name Column is Empty!');
        }
        else
        {
