@@ -185,7 +185,7 @@ class UserController extends Controller
        else
        {
         return redirect('/users')
-        ->with('danger', 'User information imported successfully!');
+        ->with('success', 'User information imported successfully!');
        }
     }
     
