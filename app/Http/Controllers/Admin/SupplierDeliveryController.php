@@ -75,10 +75,24 @@ class SupplierDeliveryController extends Controller
         $data = Input::all();
         $qty_delivered = "";
         if (request()->active_tab == 'partial') {
-            SupplierDelivery::where('id', request()->data_id)
-            ->update([
-                'qty_delivered' => DB::raw('qty_delivered + '. request()->qty_delivered .'')
-            ]);
+
+            $exist = DB::table('supplier_delivery as PO')
+            ->select('PO.po_no')
+            ->where('PO.po_no', '=', $data['po_no'])
+            ->get();
+
+            if($exist){
+                SupplierDelivery::where('po_no', $data['po_no'])
+                ->update([
+                    'qty_delivered' => $data['qty_delivered']
+                ]);
+            }
+            else{
+                SupplierDelivery::where('id', request()->data_id)
+                ->update([
+                    'qty_delivered' => DB::raw('qty_delivered + '. request()->qty_delivered .'')
+                ]);
+            }
 
             $qty_delivered = SupplierDelivery::where('id', request()->data_id)->value('qty_delivered');
            // $qty_delivered = (int)$qty_delivered + (int)request()->qty_delivered;
