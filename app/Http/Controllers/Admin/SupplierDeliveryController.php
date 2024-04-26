@@ -86,7 +86,7 @@ class SupplierDeliveryController extends Controller
             if($exist){
                 SupplierDelivery::where('po_no', $data['po_no'])
                 ->update([
-                    'qty_delivered' => $data['qty_delivered']
+                    'qty_delivered' => DB::raw('qty_delivered + '. request()->qty_delivered .'')
                 ]);
             }
             else{
