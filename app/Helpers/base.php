@@ -73,8 +73,17 @@ class base
     $num_of_duplicate = 0;
 
     foreach($importData_arr as $data_col) {
+
+        dd($data_col);
         // Check if email ends with "@gmail.com"
         $email = $data_col[4];
+
+        if(empty($data_col[4])){
+            Session::put('error_val','emptyemail');
+            Session::flash('message', 'One of the Data in Email Column is Empty');
+            return; // Exit the method
+        }
+        
         if (strpos($email, '@gmail.com') === false) {
             Session::put('error_val','email');
             // Email does not contain "@gmail.com"
@@ -109,11 +118,6 @@ class base
         if(empty($data_col[3])){
             Session::put('error_val','emptypassword');
             Session::flash('message', 'One of the Data in Password Column is Empty');
-            return; // Exit the method
-        }
-        if(empty($data_col[4])){
-            Session::put('error_val','emptyemail');
-            Session::flash('message', 'One of the Data in Email Column is Empty');
             return; // Exit the method
         }
         if(empty($data_col[5])){
