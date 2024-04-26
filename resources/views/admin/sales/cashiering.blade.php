@@ -93,8 +93,14 @@
                                         <th><input type="number" id="invoice-no" class="form-control" readonly></th>
                                     </tr>
                                     <tr>
-                                        <th>Invoice #</th>
-                                        <th><input type="number" id="invoice-no" class="form-control" readonly></th>
+                                        <th>
+                                        <select class="form-control w-auto m-1 float-left" id="payment_method">
+                                            <option value="Cash">Cash Payment</option>
+                                            <option value="GCash">GCash Payment</option>
+                                            <!-- <option value="Card">Card Payment</option> -->
+                                            <option value="PayMaya">Maya Payment</option>
+                                        </select>
+                                        </th>
                                     </tr>
                                     <div class="tendered">    
                                     <tr>
