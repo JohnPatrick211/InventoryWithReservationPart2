@@ -131,6 +131,11 @@ class base
             Session::flash('message', 'One of the Data in Status Column is Empty');
             return; // Exit the method
         }
+        if(empty($data_col[1]) && empty($data_col[2]) && empty($data_col[3]) && empty($data_col[4]) && empty($data_col[5]) && empty($data_col[6]) && empty($data_col[7])){
+            Session::put('error_val','emptyrow');
+            Session::flash('message', 'One of the Row Data is Empty');
+            return; // Exit the method
+        }
 
         // Password meets the length requirement, hash the password
         $hashedPassword = \Hash::make($password);
