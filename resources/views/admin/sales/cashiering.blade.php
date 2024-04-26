@@ -93,6 +93,7 @@
                                         <th><input type="number" id="invoice-no" class="form-control" readonly></th>
                                     </tr>
                                     <tr>
+                                    <th>Mode of Payment</th>
                                         <th>
                                         <select class="form-control w-auto m-1 float-left" id="payment_method">
                                             <option value="Cash">Cash Payment</option>
