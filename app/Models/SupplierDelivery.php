@@ -40,7 +40,8 @@ class SupplierDelivery extends Model
             ->leftJoin('supplier as S', 'S.id', '=', 'P.supplier_id')
             ->leftJoin('category as C', 'C.id', '=', 'P.category_id')
             ->leftJoin('unit as U', 'U.id', '=', 'P.unit_id')
-            ->where('PO.status', 4)
+           // ->where('PO.status', 4)
+           ->whereIn('PO.status', [3, 4])
             ->where('SD.archive_status', '!=', 0)
             ->whereBetween(DB::raw('DATE(SD.date_delivered)'), [$date_from, $date_to])
             ->get();
@@ -88,7 +89,8 @@ class SupplierDelivery extends Model
             ->leftJoin('supplier as S', 'S.id', '=', 'P.supplier_id')
             ->leftJoin('category as C', 'C.id', '=', 'P.category_id')
             ->leftJoin('unit as U', 'U.id', '=', 'P.unit_id')
-            ->where('PO.status', 4)
+            //->where('PO.status', 4)
+            ->whereIn('PO.status', [3, 4])
             ->where('SD.archive_status', '!=', 0)
             ->whereBetween(DB::raw('DATE(SD.date_delivered)'), [$date_from, $date_to])
             ->get();
@@ -111,7 +113,8 @@ class SupplierDelivery extends Model
             ->leftJoin('category as C', 'C.id', '=', 'P.category_id')
             ->leftJoin('unit as U', 'U.id', '=', 'P.unit_id')
             ->where('P.supplier_id', $supplier_id)
-            ->where('PO.status', 4)
+           // ->where('PO.status', 4)
+           ->whereIn('PO.status', [3, 4])
             ->where('SD.archive_status', '!=', 0)
             ->whereBetween(DB::raw('DATE(SD.date_delivered)'), [$date_from, $date_to])
             ->get();
