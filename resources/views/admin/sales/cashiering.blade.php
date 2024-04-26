@@ -170,14 +170,6 @@
                                     <label class="form-check-label" for="exampleCheck1">Maya Payment</label>
                                 </div>
                             </div> -->
-                            <div class="col-sm-12 ml-1 mt-1 mb-2">
-                            <select class="form-control w-auto m-1 float-left" id="payment_method">
-                                <option value="Cash">Cash Payment</option>
-                                <option value="GCash">GCash Payment</option>
-                                <!-- <option value="Card">Card Payment</option> -->
-                                <option value="PayMaya">Maya Payment</option>
-                            </select>
-                            </div>
                             <div class="col-sm-3">
                                 <button class="btn btn-sm btn-success" id="proccess">Process</button>
                             </div>
