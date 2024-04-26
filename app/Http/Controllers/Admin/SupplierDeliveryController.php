@@ -76,6 +76,8 @@ class SupplierDeliveryController extends Controller
         $qty_delivered = "";
         if (request()->active_tab == 'partial') {
 
+            $qty_delivered = SupplierDelivery::where('id', request()->data_id)->value('qty_delivered');
+
             $exist = DB::table('supplier_delivery as PO')
             ->select('PO.po_no')
             ->where('PO.po_no', '=', $data['po_no'])
@@ -94,7 +96,6 @@ class SupplierDeliveryController extends Controller
                 ]);
             }
 
-            $qty_delivered = SupplierDelivery::where('id', request()->data_id)->value('qty_delivered');
            // $qty_delivered = (int)$qty_delivered + (int)request()->qty_delivered;
             $remarks = $this->validateDeliveredQty($data['po_no'], $data['product_code'], $qty_delivered, $data['date_reservation']);
 
