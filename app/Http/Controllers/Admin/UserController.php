@@ -191,7 +191,7 @@ class UserController extends Controller
        if(Session::get('error_val') == 'password'){
         Session::put('error_val', 'none');
         return redirect('/users')
-        ->with('danger', 'One of the Data in Password Column is Empty!');
+        ->with('danger', 'Upload failed. Accounts must have a minimum of 8 characters in the password.');
        }
        if(Session::get('error_val') == 'emptypassword'){
         Session::put('error_val', 'none');
