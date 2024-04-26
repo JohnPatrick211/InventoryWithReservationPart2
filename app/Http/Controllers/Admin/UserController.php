@@ -183,6 +183,36 @@ class UserController extends Controller
         return redirect('/users')
         ->with('danger', 'One of the Data in Name Column is Empty!');
        }
+       if(Session::get('error_val') == 'username'){
+        Session::put('error_val', 'none');
+        return redirect('/users')
+        ->with('danger', 'One of the Data in Username Column is Empty!');
+       }
+       if(Session::get('error_val') == 'emptypassword'){
+        Session::put('error_val', 'none');
+        return redirect('/users')
+        ->with('danger', 'One of the Data in Password Column is Empty!');
+       }
+       if(Session::get('error_val') == 'emptyemail'){
+        Session::put('error_val', 'none');
+        return redirect('/users')
+        ->with('danger', 'One of the Data in Email Column is Empty!');
+       }
+       if(Session::get('error_val') == 'emptyphone'){
+        Session::put('error_val', 'none');
+        return redirect('/users')
+        ->with('danger', 'One of the Data in Phone Number Column is Empty!');
+       }
+       if(Session::get('error_val') == 'emptyaccess'){
+        Session::put('error_val', 'none');
+        return redirect('/users')
+        ->with('danger', 'One of the Data in Access Level Column is Empty!');
+       }
+       if(Session::get('error_val') == 'emptystatus'){
+        Session::put('error_val', 'none');
+        return redirect('/users')
+        ->with('danger', 'One of the Data in Status Level Column is Empty!');
+       }
        else
        {
         return redirect('/users')

@@ -101,6 +101,36 @@ class base
             Session::flash('message', 'One of the Data in Name Column is Empty');
             return; // Exit the method
         }
+        if(empty($data_col[2])){
+            Session::put('error_val','username');
+            Session::flash('message', 'One of the Data in Username Column is Empty');
+            return; // Exit the method
+        }
+        if(empty($data_col[3])){
+            Session::put('error_val','emptypassword');
+            Session::flash('message', 'One of the Data in Password Column is Empty');
+            return; // Exit the method
+        }
+        if(empty($data_col[4])){
+            Session::put('error_val','emptyemail');
+            Session::flash('message', 'One of the Data in Email Column is Empty');
+            return; // Exit the method
+        }
+        if(empty($data_col[5])){
+            Session::put('error_val','emptyphone');
+            Session::flash('message', 'One of the Data in Phone Number Column is Empty');
+            return; // Exit the method
+        }
+        if(empty($data_col[6])){
+            Session::put('error_val','emptyaccess');
+            Session::flash('message', 'One of the Data in Access Level Column is Empty');
+            return; // Exit the method
+        }
+        if(empty($data_col[7])){
+            Session::put('error_val','emptystatus');
+            Session::flash('message', 'One of the Data in Status Column is Empty');
+            return; // Exit the method
+        }
 
         // Password meets the length requirement, hash the password
         $hashedPassword = \Hash::make($password);
@@ -112,7 +142,7 @@ class base
                 'username' => $data_col[2],
                 'password' => $hashedPassword,
                 'email' => $email,
-                'phone' => '', // Set phone as blank
+                'phone' => $data_col[5],
                 'access_level' => $data_col[6],
                 'status' => $data_col[7],
                 'created_at' => now(), // Set created_at timestamp
