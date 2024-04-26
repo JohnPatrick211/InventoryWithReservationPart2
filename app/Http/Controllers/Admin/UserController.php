@@ -213,6 +213,11 @@ class UserController extends Controller
         return redirect('/users')
         ->with('danger', 'One of the Data in Status Level Column is Empty!');
        }
+       if(Session::get('error_val') == 'emptyrow'){
+        Session::put('error_val', 'none');
+        return redirect('/users')
+        ->with('danger', 'One of the Data in Status Level Column is Empty!');
+       }
        else
        {
         return redirect('/users')
