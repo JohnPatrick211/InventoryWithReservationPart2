@@ -188,6 +188,11 @@ class UserController extends Controller
         return redirect('/users')
         ->with('danger', 'One of the Data in Username Column is Empty!');
        }
+       if(Session::get('error_val') == 'password'){
+        Session::put('error_val', 'none');
+        return redirect('/users')
+        ->with('danger', 'One of the Data in Password Column is Empty!');
+       }
        if(Session::get('error_val') == 'emptypassword'){
         Session::put('error_val', 'none');
         return redirect('/users')
