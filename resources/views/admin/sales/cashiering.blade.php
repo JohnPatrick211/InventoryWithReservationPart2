@@ -92,6 +92,10 @@
                                         <th>Invoice #</th>
                                         <th><input type="number" id="invoice-no" class="form-control" readonly></th>
                                     </tr>
+                                    <tr>
+                                        <th>Invoice #</th>
+                                        <th><input type="number" id="invoice-no" class="form-control" readonly></th>
+                                    </tr>
                                     <div class="tendered">    
                                     <tr>
                                         <th>Tendered</th>
