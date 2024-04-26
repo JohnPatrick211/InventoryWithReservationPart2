@@ -73,8 +73,16 @@ class base
     $num_of_duplicate = 0;
 
     foreach($importData_arr as $data_col) {
+        
 
         //dd($data_col);
+
+        if(empty($data_col[1]) && empty($data_col[2]) && empty($data_col[3]) && empty($data_col[4]) && empty($data_col[5]) && empty($data_col[6]) && empty($data_col[7])){
+            Session::put('error_val','emptyrow');
+            Session::flash('message', 'One of the Row Data is Empty');
+            return; // Exit the method
+        }
+        
         // Check if email ends with "@gmail.com"
         $email = $data_col[4];
 
@@ -133,11 +141,6 @@ class base
         if(empty($data_col[7])){
             Session::put('error_val','emptystatus');
             Session::flash('message', 'One of the Data in Status Column is Empty');
-            return; // Exit the method
-        }
-        if(empty($data_col[1]) && empty($data_col[2]) && empty($data_col[3]) && empty($data_col[4]) && empty($data_col[5]) && empty($data_col[6]) && empty($data_col[7])){
-            Session::put('error_val','emptyrow');
-            Session::flash('message', 'One of the Row Data is Empty');
             return; // Exit the method
         }
 
