@@ -78,23 +78,35 @@ class SupplierDeliveryController extends Controller
 
             $qty_delivered = SupplierDelivery::where('id', request()->data_id)->value('qty_delivered');
 
-            $exist = DB::table('supplier_delivery as PO')
-            ->select('PO.po_no')
-            ->where('PO.po_no', '=', $data['po_no'])
-            ->get();
+            // $exist = DB::table('supplier_delivery as PO')
+            // ->select('PO.po_no')
+            // ->where('PO.po_no', '=', $data['po_no'])
+            // ->get();
 
-            if($exist){
-                SupplierDelivery::where('po_no', $data['po_no'])
-                ->update([
-                    'qty_delivered' => DB::raw('qty_delivered + '. request()->qty_delivered .'')
-                ]);
-            }
-            else{
+            // if($exist){
+            //     SupplierDelivery::where('po_no', $data['po_no'])
+            //     ->update([
+            //         'qty_delivered' => DB::raw('qty_delivered + '. request()->qty_delivered .'')
+            //     ]);
+            // }
+            // else{
                 SupplierDelivery::where('id', request()->data_id)
                 ->update([
                     'qty_delivered' => DB::raw('qty_delivered + '. request()->qty_delivered .'')
                 ]);
-            }
+            //}
+
+            $s = new SupplierDelivery;
+            $s->po_id = $data['data_id'];
+            $s->po_no = $data['po_no'];
+            $s->product_code = $data['product_code'];
+            $s->qty_delivered = $data['qty_delivered'];
+            $s->date_delivered = $data['date_recieved'];
+            $qty_delivered = $data['qty_delivered'];
+
+            $remarks = 'Completed';
+            $s->remarks = $remarks;
+            $s->save();
 
            // $qty_delivered = (int)$qty_delivered + (int)request()->qty_delivered;
             $remarks = $this->validateDeliveredQty($data['po_no'], $data['product_code'], $qty_delivered, $data['date_reservation']);
